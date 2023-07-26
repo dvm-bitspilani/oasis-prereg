@@ -1,6 +1,6 @@
 import "./App.css";
 import { useRoutes } from "react-router-dom";
-import LandingPage from "./routes/components/LandingPage/LandingPage.jsx";
+import LandingPage from "./components/routes/LandingPage/LandingPage.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 function App() {
   let routes = useRoutes([
