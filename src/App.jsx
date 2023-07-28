@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 import LandingPage from "./routes/components/LandingPage/LandingPage.jsx";
 import HomePage from "./routes/components/HomePage/HomePage.jsx";
 import ProfilePage from "./routes/components/ProfilePage/ProfilePage.jsx";
+import Form from "./routes/components/Form/Form.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 function App() {
   let routes = useRoutes([
@@ -17,6 +18,10 @@ function App() {
     {
       path: "/profile",
       element : <ProfilePage />
+    },
+    {
+      path: "/form",
+      element : <Form />
     },
   ]);
   return (
