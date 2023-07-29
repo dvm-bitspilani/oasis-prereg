@@ -5,6 +5,8 @@
     align-items: center;
     background: #141414;
     padding: 1rem 2rem;
+    position: absolute;
+    z-index: 2;
 }
 .navbar-logo{
     width: 17%;

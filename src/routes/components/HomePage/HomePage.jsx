@@ -5,10 +5,12 @@ import purposeprose from "../../../assets/purposeprose.png"
 import rapwars from "../../../assets/rapwars.png"
 import standupsoapbox from "../../../assets/standupsoapbox.png"
 import { Link } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar'
 
 export default function HomePage() {
     return (
         <>
+    <Navbar />
             <div className="homepage-container" style={{
                 backgroundImage: `url(${bgImage})`
             }}>

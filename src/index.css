@@ -18,3 +18,12 @@
     box-sizing: border-box;
     margin: 0;
 }
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Livvic', sans-serif;
+    background-color: #141414;
+}

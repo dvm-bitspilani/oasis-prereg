@@ -1,11 +1,12 @@
 .form-wrapper {
-  height: 75vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 .form-container {
-  height: 80%;
+  height: 60%;
   max-width: 50%;
 }
 .main-form {
