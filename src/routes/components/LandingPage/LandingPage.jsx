@@ -4,9 +4,10 @@ import { GoogleLogin } from '@react-oauth/google';
 import Logo from "../../../assets/oasis-logo.png"
 import LogoText from "../../../assets/oasis.png"
 import RightContainerImage from "../../../assets/rectangle1.png"
-import { useNavigate } from 'react-router-dom';
+
+import Login from '../Login/Login';
 export default function LandingPage(){
-  const Navigate = useNavigate();
+
   return (
     <>
   <div className="landing-page-container">
@@ -20,15 +21,7 @@ export default function LandingPage(){
         </div>
       </div>
       <div className="landing-page-signin-btn">
-      <GoogleLogin
-  onSuccess={credentialResponse => {
-    console.log(credentialResponse);
-    Navigate('/home');
-  }}
-  onError={() => {
-    console.log('Login Failed');
-  }}
-/>
+     <Login />
       </div>
     </div>
     <div className="landing-page-right" style={{

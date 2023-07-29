@@ -11,7 +11,12 @@
   },
   "dependencies": {
     "@react-oauth/google": "^0.11.1",
+<<<<<<< HEAD
     "framer-motion": "^10.15.0",
+=======
+    "axios": "^1.4.0",
+    "jwt-decode": "^3.1.2",
+>>>>>>> 4923c155302455479503c907d6c3a44cac42c8e5
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2"
