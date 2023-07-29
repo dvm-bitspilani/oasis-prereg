@@ -29,7 +29,7 @@ export default function AboutSS() {
             audience of around 2000 people. So, are you funny innuf?
           </div>
           <div className="about-buttons-container">
-            <Link to="/form" style={{ textDecoration: "none" }}>
+            <Link to="/form" className="about-link">
               <button className="about-preregister-button">Register Now</button>
             </Link>
             <button className="about-preregister-button">Pay Now</button>

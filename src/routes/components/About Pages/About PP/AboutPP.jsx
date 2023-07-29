@@ -27,7 +27,7 @@ export default function AboutPP() {
             national scale. So, breathe in experience and breathe out poetry.
           </div>
           <div className="about-buttons-container">
-            <Link to="/form" style={{ textDecoration: "none" }}>
+            <Link to="/form" className="about-link">
               <button className="about-preregister-button">Register Now</button>
             </Link>
             <button className="about-preregister-button">Pay Now</button>

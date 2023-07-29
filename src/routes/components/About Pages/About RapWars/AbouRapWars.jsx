@@ -7,7 +7,7 @@ import Navbar from "../../Navbar/Navbar";
 
 export default function AboutRapWars() {
   return (
-    <>
+    <div>
     <Navbar />
     {/* <motion.div
     initial={{ scaleY: 0 }}
@@ -29,14 +29,14 @@ export default function AboutRapWars() {
           perform in finals during OASIS 2022 and compete for the prize pool!
         </div>
         <div className="about-buttons-container">
-          <Link to="/form" style={{ textDecoration: "none" }}>
+          <Link to="/form" className="about-link">
             <button className="about-preregister-button">Register Now</button>
           </Link>
           <button className="about-preregister-button">Pay Now</button>
         </div>
       </div>
-    </div>
+      </div>
     {/* </motion.div> */}
-    </>
+    </div>
   );
 }
