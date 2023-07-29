@@ -10,12 +10,14 @@ export default function AboutPP() {
     <>
     <Navbar/>
     {/* <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 1 }}
+        initial={{ y: 1000, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -1000, opacity: 0 }}
         transition={{ duration: .5 }}
       > */}
-      <div className="page-container">
+      <motion.div className="page-container" initial={{ x: 1000, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: .5 }}>
         <div className="about-container">
           <div className="about-title">About Purple Prose</div>
           <div className="about-text">
@@ -28,12 +30,12 @@ export default function AboutPP() {
           </div>
           <div className="about-buttons-container">
             <Link to="/form" className="about-link">
-              <button className="about-preregister-button">Register Now</button>
+              <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button>
             </Link>
-            <button className="about-preregister-button">Pay Now</button>
+            <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap={{scale:0.9}}>Pay Now</motion.button>
           </div>
         </div>
-      </div>
+      </motion.div>
       {/* </motion.div> */}
     </>
   );

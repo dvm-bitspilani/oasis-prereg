@@ -1,5 +1,3 @@
-
-
 .page-container{
     position: relative;
     height: calc(100vh - 100px);
@@ -7,14 +5,20 @@
     background-image: url(../../../assets/rectangle2.png);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     padding-bottom: 5rem;
+
+    /* width: 100vw;
+    background-image: url(../../../assets/rectangle2.png);
+    background-size: cover;
+    background-position: center; */
 }
 
 .about-container {
-    position: relative;
-    background: transparent;
-    /* max-width: 100vw; */
+    /* position: relative;
+    background: transparent; */
+    /* max-width: 100vw; */ 
+    /*above line was commented out initially */
     display: flex;
     flex-direction: column;
     padding: 0 min(9rem, 9vw);
@@ -60,7 +64,7 @@
     background-color: black;
     color: white;
     border: solid white;
-    transition: background-color, 0.2s ease-in;
+    /* transition: background-color, 0.2s ease-in; */
     
 }
 
@@ -69,8 +73,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: space-around;
+    /* gap: 5rem; */
 }
 
 

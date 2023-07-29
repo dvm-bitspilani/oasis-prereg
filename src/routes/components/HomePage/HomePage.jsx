@@ -6,7 +6,7 @@ import rapwars from "../../../assets/rapwars.png"
 import standupsoapbox from "../../../assets/standupsoapbox.png"
 import { Link } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
-
+import {motion} from "framer-motion"
 export default function HomePage() {
     return (
         <>
@@ -16,26 +16,26 @@ export default function HomePage() {
             }}>
                 <div className="homepage-events-container">
                     <Link to="/PurpleProse/About">
-                        <div className="homepage-event-wrapper">
+                        <motion.div className="homepage-event-wrapper"  whileTap={{ scale: 0.9 }} whileHover={{scale:1.1}}>
                             <div className="homepage-event-img" style={{
                                 backgroundImage: `url(${purposeprose})`
                             }}></div>
                             <span className="homepage-event-name">Purpose Prose</span>
-                        </div></Link>
+                        </motion.div></Link>
                     <Link to="/RapWars/About">
-                        <div className="homepage-event-wrapper">
+                        <motion.div className="homepage-event-wrapper" whileTap={{ scale: 0.9 }} whileHover={{scale:1.1}}>
                             <div className="homepage-event-img" style={{
                                 backgroundImage: `url(${rapwars})`
                             }}></div>
                             <span className="homepage-event-name">Rap Wars</span>
-                        </div></Link>
+                        </motion.div></Link>
                     <Link to="/StandupSoapbox/About">
-                        <div className="homepage-event-wrapper">
+                        <motion.div className="homepage-event-wrapper" whileTap={{ scale: 0.9 }} whileHover={{scale:1.1}}>
                             <div className="homepage-event-img" style={{
                                 backgroundImage: `url(${standupsoapbox})`
                             }}></div>
                             <span className="homepage-event-name">Standup Soapbox</span>
-                        </div></Link>
+                        </motion.div></Link>
                 </div>
             </div>
 
