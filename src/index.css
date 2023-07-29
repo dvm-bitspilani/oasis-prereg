@@ -1,5 +1,28 @@
+@font-face {
+    font-family: "Livvic";
+    src: url(fonts/Livvic/Livvic-Black.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Livvic";
+    src: url(fonts/Livvic/Livvic-Light.ttf);
+    font-weight: lighter;
+}
+@font-face {
+    font-family: "Livvic";
+    src: url(fonts/Livvic/Livvic-Medium.ttf);
+    font-weight: normal;
+}
 *{
     padding: 0;
     box-sizing: border-box;
     margin: 0;
+}
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    font-family: 'Livvic', sans-serif;
+    background-color: #141414;
 }

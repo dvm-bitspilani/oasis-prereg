@@ -1,0 +1,38 @@
+.navbar-container{
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #141414;
+    padding: 1rem 2rem;
+    position: absolute;
+    z-index: 2;
+}
+.navbar-logo{
+    width: 17%;
+    display: flex;
+    justify-content: space-between;
+    align-items: auto;
+}
+.navbar-logo img{
+    height: 70px;
+    width: 60px;
+}
+
+.oasis-container img{
+    height: 50px;
+    width: 150px;
+}
+.navbar-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    /* width: 15%; */
+}
+.navbar-items span{
+    color: white;
+    font-size: 2rem;
+    font-family: 'Livvic';
+}
