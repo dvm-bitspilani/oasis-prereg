@@ -1,15 +1,32 @@
 body {
-    height: 100vh;
+    height: 100%;
+    background-image: url(../../../assets/rectangle2.png);
+    margin: 0;
+    padding: 0;
     width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Livvic', sans-serif;
+    background-attachment: fixed;
 }
 
+.page-container{
+    width: 100%;
+    height: 100%;
+    /* Set a transparent background so that the background image from the body is visible */
+    background-color: transparent;
+}
 
 .about-container {
+    position: absolute;
+    height: 100%;
     display: flex;
     flex-direction: column;
     padding: 0 min(9rem, 9vw);
     padding-top: min(9rem, 9vw);
-    margin-bottom: auto;
+    margin-bottom: 0;
     align-items: center;
     /* justify-content: center; */
     gap: 1rem;
@@ -38,6 +55,7 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     border-radius: 999px;
+    cursor: pointer;
 }
 
 .about-buttons-container {
@@ -47,3 +65,41 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
+
+
+@media only screen and (max-width: 700px){
+    .about-buttons-container {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        /* justify-content: space-evenly; */
+    }
+
+    .about-preregister-button {
+        background-color: white;
+        border: none;
+        padding: 0.5rem 3.5rem;
+        font-family: 'Livvic', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border-radius: 999px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .about-text {
+        color: white;
+        font-weight: 300;
+        font-size: 1.5rem;
+        text-align: justify;
+    }
+
+    .about-title {
+        color: white;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+  }

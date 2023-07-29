@@ -8,6 +8,8 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import AboutRapWars from "./routes/components/About Pages/About RapWars/AbouRapWars";
 import AboutPP from "./routes/components/About Pages/About PP/AboutPP";
 import AboutSS from "./routes/components/About Pages/About SS/AboutSS";
+import bgImage from "./assets/rectangle2.png"
+
 
 function App() {
   let routes = useRoutes([
@@ -43,7 +45,9 @@ function App() {
   ]);
   return (
     <GoogleOAuthProvider clientId="735998356236-apic0eqqi6hedhjbps0ba2m1ob9oigke.apps.googleusercontent.com">
-      <div>
+      <div style={{
+                backgroundImage: `url(${bgImage})`
+            }}>
         {routes}
       </div>
     </GoogleOAuthProvider>
