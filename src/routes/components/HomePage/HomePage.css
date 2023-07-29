@@ -1,3 +1,8 @@
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
 .homepage-container{
     width: 100vw;
     height: 100vh;
@@ -38,11 +43,16 @@ cursor: pointer;
     border-radius: 20px;
 }
 .homepage-event-name{
+    font-family: 'Livvic', sans-serif;
+    /* font-size: min(2.5rem, 2.5vw); */
+    font-weight: 400;
     color: white;
     padding: 1rem;
     font-size: 2rem;
-    max-width: 200px;
+    max-width: 300px;
     align-self: center;
     justify-self: center;
     text-align: center;
+    font-family: 'Livvic';
+    text-decoration: none;
 }

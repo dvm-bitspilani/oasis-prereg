@@ -1,8 +1,8 @@
 import React from 'react'
 import './LandingPage.css'
 import { GoogleLogin } from '@react-oauth/google';
-import Logo from "../../../assets/goldshit.png"
-import LogoText from "../../../assets/layer2.png"
+import Logo from "../../../assets/oasis-logo.png"
+import LogoText from "../../../assets/oasis.png"
 import RightContainerImage from "../../../assets/rectangle1.png"
 
 import Login from '../Login/Login';
