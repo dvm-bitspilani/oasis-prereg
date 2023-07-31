@@ -11,6 +11,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import AboutRapWars from "./routes/components/About Pages/About RapWars/AbouRapWars";
 import AboutPP from "./routes/components/About Pages/About PP/AboutPP";
 import AboutSS from "./routes/components/About Pages/About SS/AboutSS";
+import Contact from "./routes/components/About Pages/Contact";
 import bgImage from "./assets/rectangle2.png";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/PurpleProse/About" element={<AboutPP />}></Route>
           <Route path="/RapWars/About" element={<AboutRapWars />}></Route>
           <Route path="/StandupSoapbox/About" element={<AboutSS />}></Route>
+          <Route path="/Contact" element={<Contact />}></Route>
         </Routes>
         </AnimatePresence>
     </GoogleOAuthProvider>

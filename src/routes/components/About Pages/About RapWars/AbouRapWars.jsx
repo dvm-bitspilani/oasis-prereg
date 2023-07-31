@@ -9,28 +9,8 @@ export default function AboutRapWars() {
   return (
     <div>
     <Navbar />
-    {/* <motion.div
-    initial={{ scaleY: 0 }}
-    animate={{ scaleY: 1 }}
-    exit={{ scaleY: 1 }}
-    transition={{ duration: .5 }}
-  > */}
-    <motion.div className="page-container" animate={{scale:[0,1]}}
-        transition={{ duration: 1 }}>
-      <motion.div className="about-container"  animate={{
-    scale: [0, 1.1, 1],
-    rotate: [0, 0, 360],
-    opacity: [0, 1],
-  }}
-  transition={{
-    duration: 1,
-    delay: 1,
-  }}
-  exit={{
-    scale: 0,
-    opacity: 0,
-    transition: {duration:.5,delay:0}
-  }}>
+    <div className="page-container">
+      <div className="about-container">
         <div className="about-title">About RapWars</div>
         <div className="about-text">
           Seven Years worth immense efforts has led Rap Wars to become one of
@@ -49,9 +29,8 @@ export default function AboutRapWars() {
           </Link>
           <MyPaymentButton disabled={localStorage.getItem('rapwars_paid')==='true'} argument={localStorage.getItem('rapwars_paid')} />
         </div>
-      </motion.div>
-      </motion.div>
-    {/* </motion.div> */}
+      </div>
+      </div>
     </div>
   );
 }

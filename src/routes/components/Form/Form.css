@@ -1,25 +1,28 @@
 .form-wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* height: 100vh;  */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  width: 100%;
+  margin: auto;
   background-color: white;
 }
 .form-container {
-  height: 60%;
+  margin: auto;
+  margin-top: 120px;
   max-width: 50%;
 }
 .main-form {
   padding: 1rem 1rem;
-  border: 2px solid black;
-  overflow-y: scroll;
+  /* border: 2px solid black; */
+  /* overflow-y: scroll; */
   max-height: 84%;
 }
 .form-heading {
   color: #000;
   text-align: center;
-  font-family: "Livvic";
-  font-size: 56px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
   font-style: normal;
   font-weight: bold;
   line-height: normal;
@@ -27,10 +30,10 @@
 }
 .input-heading {
   color: #474747;
-  font-family: "Livvic";
-  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: lighter;
+  font-weight: 500;
   line-height: normal;
 }
 .input-field {
@@ -43,7 +46,7 @@
   border: 1.25px solid #474747;
   margin: 0.5rem 0 0.75rem 0;
   font-size: 1.25rem;
-  font-family: "Livvic";
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
 }
 .input-field:focus {
@@ -52,12 +55,12 @@
 select {
   background: rgba(0, 0, 0, 0);
   font-size: 1.25rem;
-  font-family: "Livvic";
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
 }
 option {
   font-size: 1.25rem;
-  font-family: "Livvic";
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
 }
 .is-student {
@@ -68,6 +71,9 @@ option {
   border: 1.5px solid #474747;
 }
 .student {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 1.5rem;
 }
 .submit-wrapper {
@@ -78,17 +84,17 @@ option {
 .submit-btn {
   cursor: pointer;
   display: flex;
-  width: 166px;
-  padding: 12px 16px 12px 16px;
+  /* width: 100%; */
+  padding: 0.5rem 3rem 0.5rem 3rem;
   justify-content: center;
   align-items: center;
-  border-radius: 32px;
+  border-radius: 2rem;
   background: #000;
   color: #eee;
-  font-family: "Livvic";
-  font-size: 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
   font-style: normal;
-  font-weight: lighter;
+  font-weight: 500;
   line-height: normal;
 }
 .successMessageContainer{
@@ -96,7 +102,7 @@ option {
 }
 .successMessage{
   font-size:2rem ;
-  font-family: 'Livvic';
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: green;
 

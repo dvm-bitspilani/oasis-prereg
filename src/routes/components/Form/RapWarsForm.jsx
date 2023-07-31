@@ -81,16 +81,18 @@ const RapwarsForm = () => {
     <>
       <Navbar></Navbar>
       <motion.div
-        // initial={{ y: 1000, opacity: 0 }}
-        // animate={{ y: 0, opacity: 1 }}
-        // exit={{ y: -1000, opacity: 0 }}
-        // transition={{ duration: .5 }}
-        animate={{scale:[0,1]}}
-        transition={{ duration: .5,delay:.5 }}
+        initial={{ y: 1000, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -1000, opacity: 0 }}
+        transition={{ duration: .5}}
+        // animate={{scale:[0,1]}}
+        // transition={{ duration: .5,delay:.5 }}
       >
+      
         <div className="form-wrapper">
-          <motion.div className="form-container" animate={{scale:[1.1,0.9,1]}}
-        transition={{delay:1, duration:.5}}>
+          {/* <motion.div className="form-container" animate={{scale:[1.1,0.9,1]}}
+        transition={{delay:1, duration:.5}}> */}
+        <div className="form-container">
             <div className="form-heading">Register for RapWars</div>
             <form action="" className="main-form">
               <label htmlFor="name" className="input-heading">
@@ -153,10 +155,10 @@ const RapwarsForm = () => {
                 City
               </label>
               <input type="text" className="input-field" ref={cityRef} />
-              <label htmlFor="student" className="input-heading student">
+              <div className="student"><label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>
-              <input type="checkbox" className="is-student" />
+              <input type="checkbox" className="is-student" /></div>
               <br></br>
               <label htmlFor="organisation" className="input-heading">
                 Organisation linked to (if any)
@@ -195,10 +197,12 @@ const RapwarsForm = () => {
               <span className="successMessage">Successfully Registered!</span>
               </div>)}
             </form>
-          </motion.div>
+          {/* </motion.div> */}
+          </div>
         </div>
       </motion.div>
-    </>
+      {/* </div> */}
+      </>
   );
 };
 
