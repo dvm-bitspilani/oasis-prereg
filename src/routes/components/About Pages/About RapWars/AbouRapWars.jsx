@@ -3,8 +3,8 @@ import "../about.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../../Navbar/Navbar";
-
-
+import MyRegisterationButton from "../MyRegisterationButton";
+import MyPaymentButton from "../MyPaymentButton";
 export default function AboutRapWars() {
   return (
     <div>
@@ -15,10 +15,22 @@ export default function AboutRapWars() {
     exit={{ scaleY: 1 }}
     transition={{ duration: .5 }}
   > */}
-    <motion.div className="page-container"  initial={{ x: 1000, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: .5 }}>
-      <div className="about-container">
+    <motion.div className="page-container" animate={{scale:[0,1]}}
+        transition={{ duration: 1 }}>
+      <motion.div className="about-container"  animate={{
+    scale: [0, 1.1, 1],
+    rotate: [0, 0, 360],
+    opacity: [0, 1],
+  }}
+  transition={{
+    duration: 1,
+    delay: 1,
+  }}
+  exit={{
+    scale: 0,
+    opacity: 0,
+    transition: {duration:.5,delay:0}
+  }}>
         <div className="about-title">About RapWars</div>
         <div className="about-text">
           Seven Years worth immense efforts has led Rap Wars to become one of
@@ -31,12 +43,13 @@ export default function AboutRapWars() {
           perform in finals during OASIS 2022 and compete for the prize pool!
         </div>
         <div className="about-buttons-container">
-          <Link to="/form" className="about-link">
-            <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap ={{scale:0.9}}>Register Now</motion.button>
+          <Link to="/RapWars/form" className="about-link">
+            {/* <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap ={{scale:0.9}}>Register Now</motion.button> */}
+            <MyRegisterationButton disabled={localStorage.getItem('rapwars_registered')==="true"} argument={localStorage.getItem('rapwars_registered')} />
           </Link>
-          <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap ={{scale:0.9}}>Pay Now</motion.button>
+          <MyPaymentButton disabled={localStorage.getItem('rapwars_paid')==='true'} argument={localStorage.getItem('rapwars_paid')} />
         </div>
-      </div>
+      </motion.div>
       </motion.div>
     {/* </motion.div> */}
     </div>

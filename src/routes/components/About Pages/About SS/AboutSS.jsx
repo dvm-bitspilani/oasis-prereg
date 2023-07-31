@@ -3,7 +3,8 @@ import "../about.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../../Navbar/Navbar";
-
+import MyRegisterationButton from "../MyRegisterationButton";
+import MyPaymentButton from "../MyPaymentButton";
 export default function AboutSS() {
   return (
     <>
@@ -14,10 +15,22 @@ export default function AboutSS() {
         exit={{ scale: 1 }}
         transition={{ duration: .5 }}
       > */}
-      <motion.div className="page-container"  initial={{ x: 1000, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: .5 }}>
-        <div className="about-container">
+      <motion.div className="page-container"  animate={{scale:[0,1]}}
+        transition={{ duration: 1 }}>
+        <motion.div className="about-container"   animate={{
+    scale: [0, 1.1, 1],
+    rotate: [0, 0, 360],
+    opacity: [0, 1],
+  }}
+  transition={{
+    duration: 1,
+    delay: 1,
+  }}
+  exit={{
+    scale: 0,
+    opacity: 0,
+    transition: {duration:.5,delay:0}
+  }}>
           <div className="about-title">About Standup Soapbox</div>
           <div className="about-text">
             Oasis, BITS PILANI, brings to you the fourth edition of Stand-up
@@ -31,12 +44,13 @@ export default function AboutSS() {
             audience of around 2000 people. So, are you funny innuf?
           </div>
           <div className="about-buttons-container" >
-            <Link to="/form" className="about-link">
-              <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap = {{scale:0.9}}>Register Now</motion.button>
+            <Link to="/StandupSoapbox/form" className="about-link">
+              {/* <motion.button disabled className="about-preregister-button" whileHover={{scale:1.1}} whileTap = {{scale:0.9}}>Register Now</motion.button> */}
+              <MyRegisterationButton disabled={localStorage.getItem('soapbox_registered')==="true"} argument={localStorage.getItem('soapbox_registered')} />
             </Link>
-            <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap = {{scale:0.9}}>Pay Now</motion.button>
-          </div>{" "}
-        </div>
+            <MyPaymentButton disabled={localStorage.getItem('soapbox_paid')==='true'} argument={localStorage.getItem('soapbox_paid')} />
+          </div>
+        </motion.div>
       </motion.div>
       {/* </motion.div> */}
     </>

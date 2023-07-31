@@ -10,7 +10,8 @@
   max-width: 50%;
 }
 .main-form {
-  padding: 0 1rem;
+  padding: 1rem 1rem;
+  border: 2px solid black;
   overflow-y: scroll;
   max-height: 84%;
 }
@@ -89,4 +90,14 @@ option {
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
+}
+.successMessageContainer{
+  text-align: center;
+}
+.successMessage{
+  font-size:2rem ;
+  font-family: 'Livvic';
+  font-weight: 600;
+  color: green;
+
 }

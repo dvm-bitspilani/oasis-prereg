@@ -4,7 +4,9 @@ import { AnimatePresence } from "framer-motion";
 import LandingPage from "./routes/components/LandingPage/LandingPage.jsx";
 import HomePage from "./routes/components/HomePage/HomePage.jsx";
 import ProfilePage from "./routes/components/ProfilePage/ProfilePage.jsx";
-import Form from "./routes/components/Form/Form.jsx";
+import RapWarsForm from "./routes/components/Form/RapWarsForm.jsx";
+import PurpleProseForm from "./routes/components/Form/PurpleProseForm.jsx";
+import StandupSoapboxForm from "./routes/components/Form/StandupSoapboxForm.jsx";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import AboutRapWars from "./routes/components/About Pages/About RapWars/AbouRapWars";
 import AboutPP from "./routes/components/About Pages/About PP/AboutPP";
@@ -20,7 +22,9 @@ function App() {
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/profile" element={<ProfilePage />}></Route>
-          <Route path="/form" element={<Form />}></Route>
+          <Route path="/RapWars/form" element={<RapWarsForm />}></Route>
+          <Route path="/PurpleProse/form" element={<PurpleProseForm />}></Route>
+          <Route path="/StandupSoapbox/form" element={<StandupSoapboxForm />}></Route>
           <Route path="/PurpleProse/About" element={<AboutPP />}></Route>
           <Route path="/RapWars/About" element={<AboutRapWars />}></Route>
           <Route path="/StandupSoapbox/About" element={<AboutSS />}></Route>

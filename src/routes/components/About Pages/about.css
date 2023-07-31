@@ -67,6 +67,16 @@
     /* transition: background-color, 0.2s ease-in; */
     
 }
+.about-preregister-button:disabled{
+    /* background-color: black;
+    color: white;
+    border: solid white; */
+    cursor: not-allowed;
+    background-color: green;
+    color: white;
+    /* transition: background-color, 0.2s ease-in; */
+    
+}
 
 .about-buttons-container {
     margin: 1rem 0;

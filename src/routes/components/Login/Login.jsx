@@ -2,6 +2,7 @@ import React  from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+// import jwtDecode from 'jwt-decode';
 export default function Login() {
   const clientId = '735998356236-apic0eqqi6hedhjbps0ba2m1ob9oigke.apps.googleusercontent.com'; 
   const navigate = useNavigate();
@@ -14,13 +15,15 @@ export default function Login() {
             axios.post(postLink , data)
             .then(response => {
                 console.log('Backend Response:', response.data);
+                // localStorage.setItem("email", jwtDecode(credentialResponse.credential).email)
                 localStorage.setItem("token", response.data.access_token)
-                localStorage.setItem("userId", response.data.rapwars_registered)
-                localStorage.setItem("userId", response.data.purpleprose_registered)
-                localStorage.setItem("userId", response.data.soapbox_registered)
-                localStorage.setItem("userId", response.data.rapwars_paid)
-                localStorage.setItem("userId", response.data.purpleprose_paid)
-                localStorage.setItem("userId", response.data.soapbox_paid)
+                localStorage.setItem("userId", response.data.user_id)
+                localStorage.setItem("rapwars_registered", response.data.rapwars_registered)
+                localStorage.setItem("purpleprose_registered", response.data.purpleprose_registered)
+                localStorage.setItem("soapbox_registered", response.data.soapbox_registered)
+                localStorage.setItem("rapwars_paid", response.data.rapwars_paid)
+                localStorage.setItem("purpleprose_paid", response.data.purpleprose_paid)
+                localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
                 navigate('/home');
               })
               .catch(error => {
@@ -28,8 +31,7 @@ export default function Login() {
               });
         }
         sendDataToBackend()
-        // console.log(credentialResponse)
-        navigate('/home');
+        console.log(credentialResponse)
 
     }
     const onGoogleLoginFailure = () =>{

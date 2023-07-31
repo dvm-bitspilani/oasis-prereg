@@ -2,8 +2,10 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-
-const Form = () => {
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+const RapwarsForm = () => {
+  const navigate = useNavigate()
   const nameRef = useRef(null);
   const rapnNameRef = useRef(null);
   const stateRef = useRef(null);
@@ -13,10 +15,9 @@ const Form = () => {
   const socialsRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-
+  const collegeRef = useRef(null)
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const requiredFields = [
       nameRef.current,
       stateRef.current,
@@ -24,8 +25,9 @@ const Form = () => {
       phoneRef.current,
       emailRef.current,
     ];
+    const isStudentChecked = document.querySelector(".is-student").checked;
+    // console.log(localStorage.getItem('token'))
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
-
     if (isEmpty) {
       alert("Please fill in the required fields!");
       return;
@@ -42,19 +44,53 @@ const Form = () => {
     if (!isEmailValid) {
       alert("Invalid email address format.");
       return;
-    }
+    } 
+    const sendRegisteredDataToBackend = () => {
+      let postLink = 'https://bits-oasis.org/2023/main/preregistrations/RapWarsRegistration/'
+      let config = {
+        headers:{
+        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+      }};
+      let data = {
+          "id" : localStorage.getItem("userId"),
+          "name" : nameRef.current.value,
+          "city" : cityRef.current.value,
+          "phone" : phoneRef.current.value,
+          "email_address" : emailRef.current.value,
+          "rapname" : rapnNameRef.current.value,
+          "state" : stateRef.current.value,
+          "isStudent" : isStudentChecked,
+          "linked_org" : orgRef.current.value,
+          "college" : collegeRef.current.value,
+          "past_perf" : linksRef.current.value,
+          "insta_handle" : socialsRef.current.value,
+      }
+      axios.post(postLink , data, config)
+      .then(response => {
+          console.log('Backend Response:', response.data);
+          localStorage.setItem("rapwars_registered", response.data.rapwars_registered)
+          navigate('/RapWars/About')
+        })
+        .catch(error => {
+          console.error('Error sending data to backend:', error);
+        });
+  }
+  sendRegisteredDataToBackend()
   };
   return (
     <>
       <Navbar></Navbar>
       <motion.div
-        initial={{ y: 1000, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -1000, opacity: 0 }}
-        transition={{ duration: .5 }}
+        // initial={{ y: 1000, opacity: 0 }}
+        // animate={{ y: 0, opacity: 1 }}
+        // exit={{ y: -1000, opacity: 0 }}
+        // transition={{ duration: .5 }}
+        animate={{scale:[0,1]}}
+        transition={{ duration: .5,delay:.5 }}
       >
         <div className="form-wrapper">
-          <div className="form-container">
+          <motion.div className="form-container" animate={{scale:[1.1,0.9,1]}}
+        transition={{delay:1, duration:.5}}>
             <div className="form-heading">Register for RapWars</div>
             <form action="" className="main-form">
               <label htmlFor="name" className="input-heading">
@@ -126,6 +162,10 @@ const Form = () => {
                 Organisation linked to (if any)
               </label>
               <input type="text" className="input-field" ref={orgRef} />
+              <label htmlFor="organisation" className="input-heading">
+                College (if any)
+              </label>
+              <input type="text" className="input-field" ref={collegeRef} />
               <label htmlFor="links" className="input-heading">
                 Link to your past performances/tracks
               </label>
@@ -148,15 +188,18 @@ const Form = () => {
                   className="submit-btn"
                   onClick={handleSubmit}
                 >
-                  Pay
+                 Register
                 </button>
               </div>
+            {localStorage.getItem('rapwars_registered')==="true" && (<div className="successMessageContainer">
+              <span className="successMessage">Successfully Registered!</span>
+              </div>)}
             </form>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </>
   );
 };
 
-export default Form;
+export default RapwarsForm;

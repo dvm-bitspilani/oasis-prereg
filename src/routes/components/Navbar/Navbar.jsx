@@ -4,10 +4,10 @@ import OasisLogo from '../../../assets/oasis-logo.png'
 import Oasis from '../../../assets/oasis.png'
 import ProfileImg from '../../../assets/profile.svg'
 import { Link } from 'react-router-dom'
-
+import {motion} from "framer-motion"
 const Navbar = () => {
   return (
-    <div className="navbar-container">
+    <div className="navbar-container" >
         <div className="navbar-logo">
             <Link to='/home' style={{textDecoration: "none"}}><img src={OasisLogo} alt="Oasis Logo" /></Link>
             <Link to='/home' style={{textDecoration: "none"}}><div className="oasis-container"><img src={Oasis} alt="Oasis"/></div></Link>
