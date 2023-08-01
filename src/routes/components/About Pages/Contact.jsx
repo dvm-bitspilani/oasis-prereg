@@ -10,12 +10,14 @@ export default function AboutPP() {
             <Navbar />
             <div className="page-container">
                 <div className="about-container">
-                    <div className="about-title">Contact</div>
+                    <div className="main-container">
+                    <div className="contact-title">Contact</div>
                     <div className="about-text contact">
                         <div className="contact-container">
                             <div className="person-details"><p>Irvit</p><p>+919811358655</p></div><p className="contact-events">SOAPBOX</p></div>
                             <div className="contact-container">
                         <div className="person-details"><p>Abhigyan Sharma</p><p>+916388489257</p></div><p className="contact-events">RAPWARS | PURPLE PROSE | SOAPBOX</p></div>
+                    </div>
                     </div>
                 </div>
             </div>
