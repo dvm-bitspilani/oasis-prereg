@@ -13,7 +13,7 @@ import AboutPP from "./routes/components/About Pages/About PP/AboutPP";
 import AboutSS from "./routes/components/About Pages/About SS/AboutSS";
 import Contact from "./routes/components/About Pages/Contact";
 import bgImage from "./assets/rectangle2.png";
-
+import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
 function App() {
   const location = useLocation();
   return (
@@ -30,6 +30,7 @@ function App() {
           <Route path="/RapWars/About" element={<AboutRapWars />}></Route>
           <Route path="/StandupSoapbox/About" element={<AboutSS />}></Route>
           <Route path="/Contact" element={<Contact />}></Route>
+          <Route path="/payment-page" element={<ShowPaymentPage />}></Route>
         </Routes>
         </AnimatePresence>
     </GoogleOAuthProvider>
