@@ -86,10 +86,32 @@
     /* gap: 5rem; */
 }
 
+.contact-container{
+    width: 100%;
+    margin-bottom: 2rem;
+    min-width: 50vw;
+}
 
+.person-details{
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.contact-events{
+    margin-top: 0.25rem;
+    color: rgb(188, 188, 188);
+    font-size: 1.2rem;
+}
 
 
 @media only screen and (max-width: 700px){
+    .about-container{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
     .about-buttons-container {
         width: 100%;
         display: flex;
@@ -106,7 +128,7 @@
     }
 
     .about-text {
-        font-size: 1.3rem;
+        font-size: min(4rem, 4vw);
         text-align: justify;
     }
 
@@ -116,6 +138,15 @@
 
     .about-link{
         width: 100%;
+    }
+
+    .details{
+        font-size: min(1rem, 4vw);
+        white-space: nowrap;
+    }
+
+    .contact-events{
+        font-size: min(1rem, 3.5vw);
     }
   }
 
