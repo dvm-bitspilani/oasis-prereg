@@ -146,11 +146,12 @@ const collegeRef = useRef(null)
               <label htmlFor="city" className="input-heading">
                 City
               </label>
+              <div className="student">
               <input type="text" className="input-field" ref={cityRef} />
               <label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>
-              <input type="checkbox" className="is-student" />
+              <input type="checkbox" className="is-student" /></div>
               <br></br>
               <label htmlFor="organisation" className="input-heading">
                 Organisation linked to (if any)

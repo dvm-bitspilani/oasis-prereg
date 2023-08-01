@@ -11,7 +11,7 @@
   margin: auto;
   margin-top: 75px;
   padding-top: min(3rem, 3vw);
-    max-width: 50%;
+    max-width: 60%;
 }
 .main-form {
   padding: 1rem 1rem;
@@ -23,11 +23,11 @@
   color: #000;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 3rem;
+  font-size: min(2.5rem, 6vw);
   font-style: normal;
   font-weight: bold;
   line-height: normal;
-  margin-bottom: 2rem;
+  margin-bottom: min(1rem, 4vw);
 }
 .input-heading {
   color: #474747;
@@ -38,7 +38,7 @@
   line-height: normal;
 }
 .input-field {
-  height: 60px;
+  height: 4rem;
   width: 100%;
   padding: 0.5rem 0.75rem;
   align-items: center;
@@ -46,7 +46,7 @@
   border-radius: 9px;
   border: 1.25px solid #474747;
   margin: 0.5rem 0 0.75rem 0;
-  font-size: 1.25rem;
+  font-size: min(1.25rem, 4vw);
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
 }
@@ -60,7 +60,7 @@ select {
   font-weight: normal;
 }
 option {
-  font-size: 1.25rem;
+  font-size: min(1.25rem, 4vw);
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
 }
@@ -107,4 +107,41 @@ option {
   font-weight: 600;
   color: green;
 
+}
+
+@media only screen and (max-width: 900px) {
+  .form-container{
+    max-width: 90%;
+  }
+
+  .form-heading{
+    margin-bottom: min(0.5rem, 2vw);
+  }
+
+  .input-field{
+    height: min(4rem, 10vw);
+    margin-block: min(0.5rem, 1vw);
+    border-radius: min();
+  }
+
+  .input-heading{
+    font-size: min(1rem, 3vw);
+  }
+
+  .main-form{
+    padding-top: 0;
+    padding-inline: min(0.5rem, 1vw);
+  }
+
+  .submit-wrapper{
+    margin: min(1rem, 2vw);
+  }
+
+  .submit-btn{
+    font-size: min(2rem, 4vw);
+  }
+
+  .student{
+    font-size: min(1rem, 3vw);
+  }
 }

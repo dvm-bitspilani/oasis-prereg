@@ -153,10 +153,11 @@ const RapwarsForm = () => {
                 City
               </label>
               <input type="text" className="input-field" ref={cityRef} />
+              <div className="student">
               <label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>
-              <input type="checkbox" className="is-student" />
+              <input type="checkbox" className="is-student" /></div>
               <br></br>
               <label htmlFor="organisation" className="input-heading">
                 Organisation linked to (if any)
