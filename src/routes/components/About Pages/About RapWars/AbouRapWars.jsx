@@ -9,8 +9,15 @@ export default function AboutRapWars() {
   return (
     <div>
     <Navbar />
-    <div className="page-container">
-      <div className="about-container">
+    {/* <motion.div
+    initial={{ scaleY: 0 }}
+    animate={{ scaleY: 1 }}
+    exit={{ scaleY: 1 }}
+    transition={{ duration: .5 }}
+  > */}
+    <motion.div className="page-container" animate={{scale:[0,1]}}
+        transition={{ duration: 1 }}>
+      <motion.div className="about-container">
         <div className="about-title">About RapWars</div>
         <div className="about-text">
           Seven Years worth immense efforts has led Rap Wars to become one of
@@ -27,10 +34,11 @@ export default function AboutRapWars() {
             {/* <motion.button className="about-preregister-button" whileHover={{scale:1.1}} whileTap ={{scale:0.9}}>Register Now</motion.button> */}
             <MyRegisterationButton disabled={localStorage.getItem('rapwars_registered')==="true"} argument={localStorage.getItem('rapwars_registered')} />
           </Link>
-          <MyPaymentButton disabled={localStorage.getItem('rapwars_paid')==='true'} argument={localStorage.getItem('rapwars_paid')} />
+          {/* <MyPaymentButton disabled={localStorage.getItem('rapwars_paid')==='true'} argument={localStorage.getItem('rapwars_paid')} /> */}
         </div>
-      </div>
-      </div>
+      </motion.div>
+      </motion.div>
+    {/* </motion.div> */}
     </div>
   );
 }

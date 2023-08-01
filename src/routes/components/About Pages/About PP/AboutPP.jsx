@@ -10,8 +10,16 @@ export default function AboutPP() {
   return (
     <>
     <Navbar/>
-      <div className="page-container">
-        <div className="about-container">
+    {/* <motion.div
+        initial={{ y: 1000, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -1000, opacity: 0 }}
+        transition={{ duration: .5 }}
+      > */}
+      <motion.div className="page-container" 
+        animate={{scale:[0,1]}}
+        transition={{ duration: 1 }}>
+        <motion.div className="about-container">
 
           <div className="about-title">About Purple Prose</div>
           <div className="about-text">
@@ -24,12 +32,14 @@ export default function AboutPP() {
           </div>
           <div className="about-buttons-container">
             <Link to="/PurpleProse/form" className="about-link">
+              {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}
               <MyRegisterationButton disabled={localStorage.getItem('purpleprose_registered')==="true"} argument={localStorage.getItem('purpleprose_registered')}/>
             </Link>
-            <MyPaymentButton disabled={localStorage.getItem('purpleprose_paid')==='true'} argument={localStorage.getItem('purpleprose_paid')} />
+            {/* <MyPaymentButton disabled={true} argument={localStorage.getItem('purpleprose_paid')} /> */}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
+      {/* </motion.div> */}
     </>
   );
 }
