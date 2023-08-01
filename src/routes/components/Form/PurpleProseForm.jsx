@@ -154,6 +154,7 @@ const handleSubmit = (e) => {
               <label htmlFor="city" className="input-heading">
                 City
               </label>
+              <div className="student">
               <input type="text" className="input-field" ref={cityRef} />
               <label htmlFor="student" className="input-heading student">
                 Are you a student?

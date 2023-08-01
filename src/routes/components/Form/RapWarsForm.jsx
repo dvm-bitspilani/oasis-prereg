@@ -160,10 +160,11 @@ const RapwarsForm = () => {
                 City
               </label>
               <input type="text" className="input-field" ref={cityRef} />
+              <div className="student">
               <label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>
-              <input type="checkbox" className="is-student" onChange={handleIsStudentChange}/>
+              <input type="checkbox" className="is-student" onChange={handleIsStudentChange}/></div>
               <br></br>
               {isStudentChecked && (<><label htmlFor="organisation" className="input-heading">
                 College

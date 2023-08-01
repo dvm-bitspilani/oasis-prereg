@@ -9,15 +9,13 @@ export default function AboutSS() {
   return (
     <>
     <Navbar />
-     {/* <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 1 }}
+     <div className="page-container"
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        exit={{ scaleY: 1 }}
         transition={{ duration: .5 }}
-      > */}
-      <motion.div className="page-container">
-        <motion.div className="about-container"  animate={{scale:[0,1]}}
-        transition={{ duration: 1 }}>
+      >
+        <motion.div className="about-container">
           <div className="about-title">About Standup Soapbox</div>
           <div className="about-text">
             Oasis, BITS PILANI, brings to you the fourth edition of Stand-up
@@ -38,7 +36,7 @@ export default function AboutSS() {
             <MyPaymentButton disabled={localStorage.getItem('soapbox_paid')==='true'} argument={localStorage.getItem('soapbox_paid')} />
           </div>
         </motion.div>
-      </motion.div>
+      </div>
       {/* </motion.div> */}
     </>
   );
