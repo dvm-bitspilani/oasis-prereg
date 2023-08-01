@@ -38,8 +38,6 @@ export default function HomePage() {
                         </motion.div></Link>
                 </div>
             </div>
-
-
         </>
     )
 }

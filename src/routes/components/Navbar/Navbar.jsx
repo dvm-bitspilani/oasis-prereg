@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link to='/home' style={{textDecoration: "none"}}><div className="oasis-container"><img src={Oasis} alt="Oasis"/></div></Link>
         </div>
         <div className="navbar-items">
-            <Link to='/contact' style={{textDecoration: "none"}}><span>Contact</span></Link>
+            <Link to='/contact' style={{textDecoration: "none"}}><span className='nav-contact'>CONTACT</span></Link>
             <Link to='/profile' style={{textDecoration: "none"}}><img src={ProfileImg}></img></Link>
         </div>
     </div>

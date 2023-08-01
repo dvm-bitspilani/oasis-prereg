@@ -1,6 +1,7 @@
 .navbar-container{
     top: 0;
     width: 100%;
+    max-width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,29 +11,38 @@
     z-index: 2;
 }
 .navbar-logo{
-    width: 17%;
+    width: 20%;
     display: flex;
-    justify-content: space-between;
-    align-items: auto;
+    /* justify-content: space-between; */
+    margin-right: auto;
+    align-items: center;
+    gap: 0.2rem;
 }
 .navbar-logo img{
-    height: 70px;
-    width: 60px;
+    height: 3rem;
+    width: auto;
 }
 
 .oasis-container img{
-    height: 50px;
-    width: 150px;
+    height: 2.5rem;
+    width: auto;
 }
 .navbar-items{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 3rem;
     /* width: 15%; */
 }
 .navbar-items span{
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
+}
+
+.navbar-items img{
+    height: 2.5rem;
+    width: auto;
+    margin: auto;
+    padding-top: 0.1rem;
 }
