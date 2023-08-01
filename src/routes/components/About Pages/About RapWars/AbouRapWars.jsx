@@ -9,14 +9,13 @@ export default function AboutRapWars() {
   return (
     <div>
     <Navbar />
-    {/* <motion.div
+    <div
     initial={{ scaleY: 0 }}
     animate={{ scaleY: 1 }}
     exit={{ scaleY: 1 }}
     transition={{ duration: .5 }}
-  > */}
-    <motion.div className="page-container" animate={{scale:[0,1]}}
-        transition={{ duration: 1 }}>
+  >
+    <motion.div className="page-container">
       <motion.div className="about-container">
         <div className="about-title">About RapWars</div>
         <div className="about-text">
@@ -39,6 +38,7 @@ export default function AboutRapWars() {
       </motion.div>
       </motion.div>
     {/* </motion.div> */}
+    </div>
     </div>
   );
 }
