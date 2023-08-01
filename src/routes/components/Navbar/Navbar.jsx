@@ -4,7 +4,6 @@ import OasisLogo from '../../../assets/oasis-logo.png'
 import Oasis from '../../../assets/oasis.png'
 import ProfileImg from '../../../assets/profile.svg'
 import { Link } from 'react-router-dom'
-import {motion} from "framer-motion"
 const Navbar = () => {
   return (
     <div className="navbar-container" >
@@ -14,7 +13,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-items">
             <Link to='/contact' style={{textDecoration: "none"}}><span>Contact</span></Link>
-            <Link to='/profile' style={{textDecoration: "none"}}><img src={ProfileImg}></img></Link>
+            {/* <Link to='/profile' style={{textDecoration: "none"}}><img src={ProfileImg}></img></Link> */}
         </div>
     </div>
   )

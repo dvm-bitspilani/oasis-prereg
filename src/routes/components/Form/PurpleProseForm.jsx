@@ -154,18 +154,17 @@ const handleSubmit = (e) => {
               <label htmlFor="city" className="input-heading">
                 City
               </label>
-              <div className="student">
               <input type="text" className="input-field" ref={cityRef} />
               <label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>
               <input type="checkbox" className="is-student" onChange={handleIsStudentChange}/>
               <br></br>
+              <label htmlFor="organisation" className="input-heading">
               {isStudentChecked && (<><label htmlFor="organisation" className="input-heading">
                 College
               </label>
               <input type="text" className="input-field" ref={collegeRef} /></>)}
-              <label htmlFor="organisation" className="input-heading">
                 Organisation linked to (if any)
               </label>
               <input type="text" className="input-field" ref={orgRef} />

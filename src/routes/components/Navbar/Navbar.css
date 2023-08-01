@@ -46,3 +46,21 @@
     margin: auto;
     padding-top: 0.1rem;
 }
+@media screen and (max-width: 450px) {
+    .navbar-container{
+        padding-inline: 0.5rem;
+        padding-block: 2rem;
+    }
+    .navbar-logo{
+        width: unset;
+        gap:unset;
+    }
+    .navbar-logo img {
+        height: unset;
+        width: 40px;
+    }
+    .oasis-container img {
+        height: unset;
+        width: 100px;
+    }
+  }
