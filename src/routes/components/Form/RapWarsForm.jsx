@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
@@ -6,6 +6,13 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 const RapwarsForm = () => {
   const navigate = useNavigate()
+  const [isStudentChecked, setIsStudentChecked] = useState(false)
+    const handlePhoneNumberInput = (e) => {
+      e.target.value = e.target.value.replace(/\D/g, "");
+    };
+    const handleIsStudentChange = (e) => {
+      setIsStudentChecked(e.target.checked);
+    };
   const nameRef = useRef(null);
   const rapnNameRef = useRef(null);
   const stateRef = useRef(null);
@@ -156,16 +163,16 @@ const RapwarsForm = () => {
               <label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>
-              <input type="checkbox" className="is-student" />
+              <input type="checkbox" className="is-student" onChange={handleIsStudentChange}/>
               <br></br>
+              {isStudentChecked && (<><label htmlFor="organisation" className="input-heading">
+                College
+              </label>
+              <input type="text" className="input-field" ref={collegeRef} /></>)}
               <label htmlFor="organisation" className="input-heading">
                 Organisation linked to (if any)
               </label>
               <input type="text" className="input-field" ref={orgRef} />
-              <label htmlFor="organisation" className="input-heading">
-                College (if any)
-              </label>
-              <input type="text" className="input-field" ref={collegeRef} />
               <label htmlFor="links" className="input-heading">
                 Link to your past performances/tracks
               </label>
@@ -177,7 +184,7 @@ const RapwarsForm = () => {
               <label htmlFor="phone" className="input-heading">
                 Contact Number
               </label>
-              <input type="phone" className="input-field" ref={phoneRef} />
+              <input type="tel" className="input-field" ref={phoneRef} onChange={handlePhoneNumberInput}/>
               <label htmlFor="email" className="input-heading">
                 E-Mail ID
               </label>

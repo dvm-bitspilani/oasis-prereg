@@ -6,6 +6,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const StandupSoapboxForm = () => {
   const navigate = useNavigate()
+  const handlePhoneNumberInput = (e) => {
+    e.target.value = e.target.value.replace(/\D/g, "");
+  };
   const nameRef = useRef(null);
   const languageRef = useRef(null);
   const stateRef = useRef(null);
@@ -184,7 +187,7 @@ const StandupSoapboxForm = () => {
               <label htmlFor="phone" className="input-heading">
                 Contact Number
               </label>
-              <input type="phone" className="input-field" ref={phoneRef} />
+              <input type="tel" className="input-field" ref={phoneRef} onChange={handlePhoneNumberInput}/>
               <label htmlFor="email" className="input-heading">
                 E-Mail ID
               </label>
