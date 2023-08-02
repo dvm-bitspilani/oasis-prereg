@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 min(9rem, 9vw);
-    padding-top: min(3rem, 3vw);
+    padding-top: 50px;
     align-items: center;
     margin: auto;
     margin-top: 75px;

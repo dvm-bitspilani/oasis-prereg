@@ -48,6 +48,7 @@
 }
 @media screen and (max-width: 450px) {
     .navbar-container{
+        position: absolute;
         padding-inline: 0.5rem;
         padding-block: 2rem;
     }
