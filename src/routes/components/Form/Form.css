@@ -139,7 +139,7 @@ option {
   }
 
   .input-heading{
-    font-size: min(1rem, 3vw);
+    font-size: min(1.2rem, 3.5vw);
   }
 
   .main-form{

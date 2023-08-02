@@ -91,7 +91,6 @@ const handleSubmit = (e) => {
         initial={{ y: 1000, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -1000, opacity: 0 }}
-        // animate={{scale:[0,1]}}
         transition={{ duration: .5,}}
       >
         <div className="form-wrapper">
