@@ -154,7 +154,14 @@ const handleSubmit = (e) => {
               <label htmlFor="city" className="input-heading">
                 City
               </label>
-              <input type="text" className="input-field" ref={cityRef} />
+              <select className="input-field" ref={cityRef}>
+                <option value="" disabled selected hidden>
+                  Select
+                </option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+              </select>
               <label htmlFor="student" className="input-heading student">
                 Are you a student?
               </label>

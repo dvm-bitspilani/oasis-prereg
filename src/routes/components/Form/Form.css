@@ -145,3 +145,9 @@ option {
     font-size: min(1rem, 3vw);
   }
 }
+
+@media only screen and (max-width: 450px){
+  .form-wrapper{
+      margin-top: 115px;
+  }
+}

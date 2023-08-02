@@ -1,11 +1,29 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../about.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../../Navbar/Navbar";
 import MyRegisterationButton from "../MyRegisterationButton";
 import MyPaymentButton from "../MyPaymentButton";
+import axios from "axios";
 export default function AboutSS() {
+  const sendPaymentDatatoBackend = ()=>{
+    let postLink = 'http://lbits-oasis.org/2023/main/preregistrations/GetPreRegUser/'
+    let data = {
+      "user_id": localStorage.getItem('userId'),
+    }
+    axios.get(postLink, data)
+    .then(response => {
+      console.log('Backend Response:', response.data);
+      localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
+    })
+    .catch(error => {
+      console.error('Error sending data to backend:', error);
+    });
+  }
+  useEffect(() => {
+    sendPaymentDatatoBackend();
+  }, []);
   return (
     <>
     <Navbar />

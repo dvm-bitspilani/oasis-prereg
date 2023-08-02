@@ -17,7 +17,7 @@ const MyPaymentButton = ({ disabled , argument}) => {
     }
     let data = {
       'user_id': localStorage.getItem('userId'),
-      'TXN_AMOUNT':10
+      'TXN_AMOUNT':1
     }
     axios.post(postLink, data, config)
     .then(response => {
