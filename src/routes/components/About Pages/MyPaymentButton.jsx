@@ -47,7 +47,7 @@ const MyPaymentButton = ({ disabled , argument}) => {
         whileTap={tapAnimation}
         onClick={handlePaymentClick}
       >
-        {isPaid ? "Paid!" : "Pay Now"}
+        {disabled ? "Paid!" : "Pay Now"}
       </motion.button>
     </>
   );

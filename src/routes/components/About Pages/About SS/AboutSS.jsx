@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "../about.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,12 +7,14 @@ import MyRegisterationButton from "../MyRegisterationButton";
 import MyPaymentButton from "../MyPaymentButton";
 import axios from "axios";
 export default function AboutSS() {
+  const [paidState, setPaidState] = useState(false)
   const sendPaymentDatatoBackend = ()=>{
     let postLink = `https://bits-oasis.org/2023/main/preregistrations/GetPreRegUser/${localStorage.getItem('userId')}`
     axios.get(postLink)
     .then(response => {
       console.log('Backend Response:', response.data);
-      localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
+      // localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
+      setPaidState(response.data.soapbox_paid)
     })
     .catch(error => {
       console.error('Error sending data to backend:', error);
@@ -21,6 +23,7 @@ export default function AboutSS() {
   useEffect(() => {
     sendPaymentDatatoBackend();
   }, []);
+  console.log(paidState)
   return (
     <>
     <Navbar />
@@ -48,7 +51,7 @@ export default function AboutSS() {
               {/* <motion.button disabled className="about-preregister-button" whileHover={{scale:1.1}} whileTap = {{scale:0.9}}>Register Now</motion.button> */}
               <MyRegisterationButton disabled={localStorage.getItem('soapbox_registered')==="true"} argument={localStorage.getItem('soapbox_registered')} />
             </Link>
-            <MyPaymentButton disabled={localStorage.getItem('soapbox_paid')==='true'} argument={localStorage.getItem('soapbox_paid')} />
+            <MyPaymentButton disabled={paidState} argument={paidState} />
           </div>
         </motion.div>
       </div>
