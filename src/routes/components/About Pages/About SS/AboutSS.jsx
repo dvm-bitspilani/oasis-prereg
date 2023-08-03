@@ -8,7 +8,7 @@ import MyPaymentButton from "../MyPaymentButton";
 import axios from "axios";
 export default function AboutSS() {
   const sendPaymentDatatoBackend = ()=>{
-    let postLink = 'http://lbits-oasis.org/2023/main/preregistrations/GetPreRegUser/'
+    let postLink = 'https://bits-oasis.org/2023/main/preregistrations/GetPreRegUser/'
     let data = {
       "user_id": localStorage.getItem('userId'),
     }

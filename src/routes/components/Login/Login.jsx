@@ -7,6 +7,7 @@ export default function Login() {
   const clientId = '735998356236-apic0eqqi6hedhjbps0ba2m1ob9oigke.apps.googleusercontent.com'; 
   const navigate = useNavigate();
   const onGoogleLoginSuccess = (credentialResponse) =>{
+    localStorage.setItem('credential' ,credentialResponse.credential)
         const sendDataToBackend = () => {
             const postLink = 'https://bits-oasis.org/2023/main/preregistrations/PreRegLogin/'
             const data = {
