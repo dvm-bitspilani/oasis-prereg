@@ -155,7 +155,7 @@ const RapwarsForm = () => {
                 <option value="West Bengal">West Bengal</option>
               </select>
               <label htmlFor="city" className="input-heading">
-                City
+                Participation City
               </label>
               <select className="input-field" ref={cityRef}>
                 <option value="" disabled selected hidden>
