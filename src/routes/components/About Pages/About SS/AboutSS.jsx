@@ -8,11 +8,8 @@ import MyPaymentButton from "../MyPaymentButton";
 import axios from "axios";
 export default function AboutSS() {
   const sendPaymentDatatoBackend = ()=>{
-    let postLink = 'https://bits-oasis.org/2023/main/preregistrations/GetPreRegUser/'
-    let data = {
-      "user_id": localStorage.getItem('userId'),
-    }
-    axios.get(postLink, data)
+    let postLink = `https://bits-oasis.org/2023/main/preregistrations/GetPreRegUser/${localStorage.getItem('userId')}`
+    axios.get(postLink)
     .then(response => {
       console.log('Backend Response:', response.data);
       localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
