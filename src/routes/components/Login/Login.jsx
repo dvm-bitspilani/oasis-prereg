@@ -2,11 +2,14 @@ import React  from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import { useAuth } from '../AuthProvider';
 // import jwtDecode from 'jwt-decode';
 export default function Login() {
   const clientId = '735998356236-apic0eqqi6hedhjbps0ba2m1ob9oigke.apps.googleusercontent.com'; 
   const navigate = useNavigate();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   const onGoogleLoginSuccess = (credentialResponse) =>{
+    setIsLoggedIn(true)
     localStorage.setItem('credential' ,credentialResponse.credential)
         const sendDataToBackend = () => {
             const postLink = 'https://bits-oasis.org/2023/main/preregistrations/PreRegLogin/'
@@ -25,6 +28,7 @@ export default function Login() {
                 localStorage.setItem("rapwars_paid", response.data.rapwars_paid)
                 localStorage.setItem("purpleprose_paid", response.data.purpleprose_paid)
                 localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
+                // navigate('/home');
                 navigate('/home');
               })
               .catch(error => {
@@ -33,7 +37,8 @@ export default function Login() {
         }
         sendDataToBackend()
         console.log(credentialResponse)
-
+        
+        
     }
     const onGoogleLoginFailure = () =>{
         console.log('first')

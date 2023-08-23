@@ -13,7 +13,7 @@ export default function AboutSS() {
     axios.get(postLink)
     .then(response => {
       console.log('Backend Response:', response.data);
-      // localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
+      localStorage.setItem("soapbox_paid", response.data.soapbox_registered)
       setPaidState(response.data.soapbox_paid)
     })
     .catch(error => {
@@ -51,7 +51,10 @@ export default function AboutSS() {
               {/* <motion.button disabled className="about-preregister-button" whileHover={{scale:1.1}} whileTap = {{scale:0.9}}>Register Now</motion.button> */}
               <MyRegisterationButton disabled={localStorage.getItem('soapbox_registered')==="true"} argument={localStorage.getItem('soapbox_registered')} />
             </Link>
-            <MyPaymentButton disabled={paidState} argument={paidState} />
+            {/* {localStorage.getItem("soapbox_registered") ? <MyPaymentButton disabled={paidState} argument={paidState}   />: <></>} */}
+            {localStorage.getItem("soapbox_registered") ? (
+  <MyPaymentButton disabled={paidState} argument={paidState} />
+) : null}
           </div>
         </motion.div>
       </div>
