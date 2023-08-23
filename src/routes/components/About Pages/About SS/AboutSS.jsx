@@ -8,12 +8,14 @@ import MyPaymentButton from "../MyPaymentButton";
 import axios from "axios";
 export default function AboutSS() {
   const [paidState, setPaidState] = useState(false)
+  const [registeredState, setRegisteredState] = useState(false)
   const sendPaymentDatatoBackend = ()=>{
     let postLink = `https://bits-oasis.org/2023/main/preregistrations/GetPreRegUser/${localStorage.getItem('userId')}`
     axios.get(postLink)
     .then(response => {
       console.log('Backend Response:', response.data);
-      localStorage.setItem("soapbox_paid", response.data.soapbox_registered)
+      // let soapbox_registered = response.data.soapbox_registered
+      setRegisteredState(response.data.soapbox_registered)
       setPaidState(response.data.soapbox_paid)
     })
     .catch(error => {
@@ -52,9 +54,9 @@ export default function AboutSS() {
               <MyRegisterationButton disabled={localStorage.getItem('soapbox_registered')==="true"} argument={localStorage.getItem('soapbox_registered')} />
             </Link>
             {/* {localStorage.getItem("soapbox_registered") ? <MyPaymentButton disabled={paidState} argument={paidState}   />: <></>} */}
-            {localStorage.getItem("soapbox_registered") ? (
-  <MyPaymentButton disabled={paidState} argument={paidState} />
-) : null}
+            {registeredState? (
+    <MyPaymentButton disabled={paidState} argument={paidState} />
+  ) : null}
           </div>
         </motion.div>
       </div>
