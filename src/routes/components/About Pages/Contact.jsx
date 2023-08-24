@@ -14,9 +14,9 @@ export default function AboutPP() {
                     <div className="contact-title">Contact</div>
                     <div className="about-text contact">
                         <div className="contact-container">
-                            <div className="person-details"><p>Irvit</p><p>+919811358655</p></div><p className="contact-events">SOAPBOX</p></div>
+                            <div className="person-details"><p>Samarth Sahu</p><p>+916376232447</p></div><p className="contact-events">PURPLE PROSE</p></div>
                             <div className="contact-container">
-                        <div className="person-details"><p>Abhigyan Sharma</p><p>+916388489257</p></div><p className="contact-events">RAPWARS | PURPLE PROSE | SOAPBOX</p></div>
+                        <div className="person-details"><p>Aryan Keshri</p><p>+919724208508</p></div><p className="contact-events">Standup Soapbox</p></div>
                     </div>
                     </div>
                 </div>
