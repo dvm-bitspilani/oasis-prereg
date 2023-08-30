@@ -54,9 +54,9 @@ export default function AboutSS() {
               <MyRegisterationButton disabled={localStorage.getItem('soapbox_registered')==="true"} argument={localStorage.getItem('soapbox_registered')} />
             </Link>
             {/* {localStorage.getItem("soapbox_registered") ? <MyPaymentButton disabled={paidState} argument={paidState}   />: <></>} */}
-            {registeredState? (
+            {/* {registeredState? (
     <MyPaymentButton disabled={paidState} argument={paidState} />
-  ) : null}
+  ) : null} */}
           </div>
         </motion.div>
       </div>
