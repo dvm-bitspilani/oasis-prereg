@@ -30,7 +30,8 @@ const StandupSoapboxForm = () => {
       cityRef.current,
       phoneRef.current,
       emailRef.current,
-      languageRef.current
+      languageRef.current,
+      linksRef.current
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -172,10 +173,6 @@ const StandupSoapboxForm = () => {
                 Organisation linked to (if any)
               </label>
               <input type="text" className="input-field" ref={orgRef} />
-              <label htmlFor="links" className="input-heading">
-                Link to your past performances/tracks
-              </label>
-              <input type="text" className="input-field" ref={linksRef} />
               <label htmlFor="language" className="input-heading">
                Language
               </label>
@@ -192,6 +189,10 @@ const StandupSoapboxForm = () => {
                 Link to your socials (if any)
               </label>
               <input type="text" className="input-field" ref={socialsRef} />
+              <label htmlFor="links" className="input-heading">
+              Youtube / Google Drive Link to your Video Submission
+              </label>
+              <input type="text" className="input-field" ref={linksRef} />
               <label htmlFor="phone" className="input-heading">
                 Contact Number
               </label>
