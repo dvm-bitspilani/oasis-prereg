@@ -7,6 +7,7 @@ import standupsoapbox from "../../../assets/standupsoapbox.png"
 import { Link } from 'react-router-dom'
 import Navbar from '../Navbar/Navbar'
 import {motion} from "framer-motion"
+import BackButton from '../BackButton/BackButton.jsx' 
 export default function HomePage() {
     return (
         <>

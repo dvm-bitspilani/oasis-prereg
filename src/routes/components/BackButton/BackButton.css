@@ -1,0 +1,10 @@
+.back-button-container{
+    position: absolute;
+    top: 150px;
+}
+.back-button-container img{
+width: 30px;
+height: auto;
+filter: invert(100%);
+z-index: 5;
+}
