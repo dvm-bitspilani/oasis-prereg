@@ -23,12 +23,7 @@ export default function AboutPP() {
 
           <div className="about-title">About Purple Prose</div>
           <div className="about-text">
-            BITS, Pilani brings to you, 'Purple Prose : The Poetry Slam', a one
-            of a kind platform for poets across the world to give their
-            emotions, a thought and their thoughts, a word. With a chance to
-            entertain student community of India's one of the largest institute,
-            Purple Prose promises to take creative potential of an individual to
-            national scale. So, breathe in experience and breathe out poetry.
+          Introducing 'Purple Prose: The Poetry Slam' from BITS, Pilani, where poets from all corners of the subcontinent converge to breathe life into their emotions and give voice to their thoughts. This extraordinary platform invites you to captivate and entertain the thriving student community of one of India's premier institutes. Purple Prose is your gateway to taking your creative talents to a national audience. So, take a deep breath of experience and exhale the magic of poetry. Join us as we turn thoughts into beautifully crafted verses!
           </div>
           <div className="about-buttons-container">
             <Link to="/PurpleProse/form" className="about-link">

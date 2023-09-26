@@ -164,6 +164,7 @@ const RapwarsForm = () => {
                 <option value="Bangalore">Bangalore</option>
                 <option value="Delhi">Delhi</option>
                 <option value="Mumbai">Mumbai</option>
+                <option value="Kolkata">Kolkata</option>
               </select>
               <div className="student">
               <label htmlFor="student" className="input-heading student">

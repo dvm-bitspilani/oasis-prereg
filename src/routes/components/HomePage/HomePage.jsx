@@ -22,7 +22,7 @@ export default function HomePage() {
                             <div className="homepage-event-img" style={{
                                 backgroundImage: `url(${purposeprose})`
                             }}></div>
-                            <span className="homepage-event-name">Purpose Prose</span>
+                            <span className="homepage-event-name">Purple Prose</span>
                         </motion.div></Link>
                     <Link to="/RapWars/About">
                         <motion.div className="homepage-event-wrapper" whileTap={{ scale: 0.95 }} whileHover={{scale:1.05}}>

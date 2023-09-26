@@ -10,7 +10,7 @@ const Navbar = () => {
 
   // Function to handle the back button click
   const handleBackButtonClick = () => {
-    console.log('first')
+    // console.log('first')
     window.history.back(); // Go back to the previous page
   };
   return (
