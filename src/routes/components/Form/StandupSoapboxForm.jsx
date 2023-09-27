@@ -151,16 +151,16 @@ const StandupSoapboxForm = () => {
                 <option value="West Bengal">West Bengal</option>
               </select>
               <label htmlFor="city" className="input-heading">
-                Participation City
+               City
               </label>
-              <select className="input-field" ref={cityRef}>
-                <option value="" disabled selected hidden>
+              <input type="text" className="input-field" ref={cityRef}>
+                {/* <option value="" disabled selected hidden>
                   Select
                 </option>
                 <option value="Bangalore">Bangalore</option>
                 <option value="Delhi">Delhi</option>
-                <option value="Mumbai">Mumbai</option>
-              </select>
+                <option value="Mumbai">Mumbai</option> */}
+              </input>
              
               <div className="student">
                 <div className="student">
