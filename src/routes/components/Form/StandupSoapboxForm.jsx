@@ -71,10 +71,12 @@ const StandupSoapboxForm = () => {
           "language" : languageRef.current.value,
           "time_doing_standup" : timeRef.current.value,
           "previous_competition" : competitionRef.current.value,
+          "youtube_gdrive" : linksRef.current.value,
+          "social_media" : socialsRef.current.value,
       }
       axios.post(postLink , data, config)
       .then(response => {
-          console.log('Backend Response:', response.data);
+          // console.log('Backend Response:', response.data);
           localStorage.setItem("soapbox_registered", response.data.soapbox_registered)
           navigate('/StandupSoapbox/About')
         })
