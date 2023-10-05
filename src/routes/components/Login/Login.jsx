@@ -25,9 +25,11 @@ export default function Login() {
                 localStorage.setItem("rapwars_registered", response.data.rapwars_registered)
                 localStorage.setItem("purpleprose_registered", response.data.purpleprose_registered)
                 localStorage.setItem("soapbox_registered", response.data.soapbox_registered)
+                localStorage.setItem("scontro_registered", response.data.scontro_registered)
                 localStorage.setItem("rapwars_paid", response.data.rapwars_paid)
                 localStorage.setItem("purpleprose_paid", response.data.purpleprose_paid)
                 localStorage.setItem("soapbox_paid", response.data.soapbox_paid)
+                localStorage.setItem("scontro_paid", response.data.scontro_paid)
                 // navigate('/home');
                 navigate('/home');
               })

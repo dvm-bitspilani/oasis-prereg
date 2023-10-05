@@ -10,8 +10,10 @@ import ProfilePage from "./routes/components/ProfilePage/ProfilePage.jsx";
 import RapWarsForm from "./routes/components/Form/RapWarsForm.jsx";
 import PurpleProseForm from "./routes/components/Form/PurpleProseForm.jsx";
 import StandupSoapboxForm from "./routes/components/Form/StandupSoapboxForm.jsx";
+import ScontroForm from "./routes/components/Form/ScontroForm.jsx";
 import AboutRapWars from "./routes/components/About Pages/About RapWars/AboutRapWars";
 import AboutPP from "./routes/components/About Pages/About PP/AboutPP";
+import AboutScontro from "./routes/components/About Pages/About Scontro/AboutScontro";
 import AboutSS from "./routes/components/About Pages/About SS/AboutSS";
 import Contact from "./routes/components/About Pages/Contact";
 import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
@@ -35,7 +37,9 @@ function App() {
             <Route path="/RapWars/form" element={<ProtectedRoute element={<RapWarsForm />} />} />
             <Route path="/PurpleProse/form" element={<ProtectedRoute element={<PurpleProseForm />} />} />
             <Route path="/StandupSoapbox/form" element={<ProtectedRoute element={<StandupSoapboxForm />} />} />
+            <Route path="/Scontro/form" element={<ProtectedRoute element={<ScontroForm />} />} />
             <Route path="/PurpleProse/About" element={<AboutPP />} />
+            <Route path="/Scontro/About" element={<AboutScontro />} />
             <Route path="/RapWars/About" element={<AboutRapWars />} />
             <Route path="/StandupSoapbox/About" element={<AboutSS />} />
             <Route path="/Contact" element={<Contact />} />

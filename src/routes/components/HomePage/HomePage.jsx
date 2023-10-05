@@ -2,6 +2,7 @@ import React from 'react'
 import "./HomePage.css"
 import bgImage from "../../../assets/rectangle2.png"
 import purposeprose from "../../../assets/purposeprose.png"
+import scontro from "../../../assets/scontroLogo.png"
 import rapwars from "../../../assets/rapwars.png"
 import standupsoapbox from "../../../assets/standupsoapbox.png"
 import { Link } from 'react-router-dom'
@@ -37,6 +38,13 @@ export default function HomePage() {
                                 backgroundImage: `url(${standupsoapbox})`
                             }}></div>
                             <span className="homepage-event-name">Standup Soapbox</span>
+                        </motion.div></Link>
+                    <Link to="/Scontro/About">
+                        <motion.div className="homepage-event-wrapper" whileTap={{ scale: 0.95 }} whileHover={{scale:1.05}}>
+                            <div className="homepage-event-img" style={{
+                                backgroundImage: `url(${scontro})`
+                            }}></div>
+                            <span className="homepage-event-name">Scontro</span>
                         </motion.div></Link>
                </div>
                </div>
