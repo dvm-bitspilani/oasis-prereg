@@ -17,6 +17,8 @@ export default function AboutPP() {
                             <div className="person-details"><p>Samarth Sahu</p><p>+916376232447</p></div><p className="contact-events">PURPLE PROSE</p></div>
                             <div className="contact-container">
                         <div className="person-details"><p>Aryan Keshri</p><p>+919724208508</p></div><p className="contact-events">Standup Soapbox</p></div>
+                            <div className="contact-container">
+                        <div className="person-details"><p>Devangi</p><p>+919667793384</p></div><p className="contact-events">Scontro</p></div>
                     </div>
                     </div>
                 </div>
