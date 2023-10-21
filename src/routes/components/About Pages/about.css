@@ -1,6 +1,6 @@
 .page-container{
     position: relative;
-    height: calc(100vh - 75px);
+    min-height: calc(100vh - 75px);
     width: 100vw;
     background-image: url(../../../assets/rectangle2.png);
     background-size: cover;
@@ -180,4 +180,7 @@
   @keyframes fadeIn {
     0% { opacity: 0;}
     100% { opacity: 1;}
+  }
+  .about-text span{
+    font-weight: 1000;
   }

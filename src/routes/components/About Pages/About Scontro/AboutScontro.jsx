@@ -20,6 +20,10 @@ export default function AboutRapWars() {
         <div className="about-title">About Scontro</div>
         <div className="about-text">
         Scontro, the exhilarating new DJ battle event set to take center stage during Oasis, the esteemed cultural fest of BITS Pilani, promises to be a thrilling and unforgettable experience for music enthusiasts and festival-goers alike. With its debut on the festival lineup, Scontro aims to showcase exceptional DJ talent and provide an electrifying platform for emerging artists to shine. As aspiring DJs compete in a dynamic 2-stage battle, attendees can expect to witness mixing prowess, beatmatching skills, and crowd-pleasing selections like never before. The finalists will have the unique opportunity to perform live on the vibrant campus, infusing the event with energy and excitement. Scontro not only seeks to discover the best emerging DJ talent but also aims to create a memorable and immersive musical experience for everyone attending Oasis. Get ready for a fusion of beats, talent, and electrifying performances at Scontro during Oasis 2023.
+        <br></br>
+        <br></br>
+        <span>Winners get cash prizes worth Rs.30000/- and exclusive Horus Music Global access. </span>
+
         </div>
         <div className="about-buttons-container">
           <Link to="/Scontro/form" className="about-link">
