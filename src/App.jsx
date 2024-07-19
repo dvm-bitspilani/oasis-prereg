@@ -45,6 +45,7 @@ function App() {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/payment-page" element={<ShowPaymentPage />} />
           </Routes>
+          
         </AnimatePresence>
       </AuthProvider>
     </GoogleOAuthProvider>
