@@ -4,58 +4,60 @@ import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const RazzmatazzForm = () => {
   const navigate = useNavigate();
-  const [isStudentChecked, setIsStudentChecked] = useState(false);
-  const handlePhoneNumberInput = (e) => {
-    // Replace any non-digit characters with an empty string
-    e.target.value = e.target.value.replace(/\D/g, "");
+
+  const collegeNameRef = useRef(null);
+  const teamNameRef = useRef(null);
+  const teamSizeRef = useRef(null);
+  const teamLeadRef = useRef(null);
+  const videoSubmissionRef = useRef(null);
+
+  const handleTeamSizeInput = (e) => {
+    e.target.value = e.target.value.replace(/[^0-9]/g, "");
   };
-  const handleIsStudentChange = (e) => {
-    setIsStudentChecked(e.target.checked);
-  };
-  const nameRef = useRef(null);
-  const languageRef = useRef(null);
-  const stateRef = useRef(null);
-  const cityRef = useRef(null);
-  const orgRef = useRef(null);
-  const linksRef = useRef(null);
-  const phoneRef = useRef(null);
-  const emailRef = useRef(null);
-  const collegeRef = useRef(null);
+
   const handleSubmit = (e) => {
-    const isStudentChecked = document.querySelector(".is-student").checked;
     e.preventDefault();
     const requiredFields = [
-      nameRef.current,
-      stateRef.current,
-      cityRef.current,
-      phoneRef.current,
-      emailRef.current,
-      languageRef.current,
+      collegeNameRef.current,
+      teamNameRef.current,
+      teamSizeRef.current,
+      teamLeadRef.current,
+      videoSubmissionRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
     if (isEmpty) {
-      alert("Please fill in the required fields!");
-      return;
-    }
-    const isPhoneNumberValid = /^\d{10}$/.test(phoneRef.current.value);
-
-    if (!isPhoneNumberValid) {
-      alert("Phone number must contain 10 digits!");
+      alert("Please fill in all the required fields!");
       return;
     }
 
-    const emailValue = emailRef.current.value;
-    const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
-    if (!isEmailValid) {
-      alert("Invalid email address format.");
+    const teamSize = parseInt(teamSizeRef.current.value);
+    if (isNaN(teamSize) || teamSize < 1) {
+      alert("Please enter a valid team size (minimum 1)!");
       return;
     }
+
+    const isTeamNameValid = /^[a-zA-Z0-9\s]+$/.test(teamNameRef.current.value);
+    if (!isTeamNameValid) {
+      alert("Team name should only contain letters, numbers, and spaces!");
+      return;
+    }
+
+    const isLikelyUrl = (string) => {
+      return /^(https?:\/\/|www\.)/.test(string);
+    };
+
+    if (!isLikelyUrl(videoSubmissionRef.current.value)) {
+      alert("Please enter a valid URL for video submission");
+      return;
+    }
+
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2023/main/preregistrations/PurpleProseRegistration/";
+        "https://bits-oasis.org/2023/main/preregistrations/RazzmatazzRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -63,26 +65,21 @@ const RazzmatazzForm = () => {
       };
       const data = {
         id: localStorage.getItem("userId"),
-        name: nameRef.current.value,
-        city: cityRef.current.value,
-        phone: phoneRef.current.value,
-        email_address: emailRef.current.value,
-        college: collegeRef.current.value,
-        state: stateRef.current.value,
-        isStudent: isStudentChecked,
-        linked_org: orgRef.current.value,
-        past_perf: linksRef.current.value,
-        language: languageRef.current.value,
+        college_name: collegeNameRef.current.value,
+        team_name: teamNameRef.current.value,
+        team_size: parseInt(teamSizeRef.current.value),
+        team_lead: teamLeadRef.current.value,
+        video_submission: videoSubmissionRef.current.value,
       };
       axios
         .post(postLink, data, config)
         .then((response) => {
           console.log("Backend Response:", response.data);
           localStorage.setItem(
-            "purpleprose_registered",
-            response.data.purpleprose_registered
+            "razzmatazz_registered",
+            response.data.razzmatazz_registered
           );
-          navigate("/PurpleProse/About");
+          navigate("/Razzmatazz/About");
         })
         .catch((error) => {
           console.error("Error sending data to backend:", error);
@@ -90,9 +87,10 @@ const RazzmatazzForm = () => {
     };
     sendRegisteredDataToBackend();
   };
+
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar />
       <motion.div
         initial={{ y: 1000, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -103,122 +101,41 @@ const RazzmatazzForm = () => {
           <div className="form-container">
             <div className="form-heading">Register for Purple Prose</div>
             <form action="" className="main-form">
-              <label htmlFor="name" className="input-heading">
-                Name
+              <label htmlFor="collegeName" className="input-heading">
+                College Name
               </label>
-              <input type="text" className="input-field" ref={nameRef} />
-              <label htmlFor="rapname" className="input-heading">
-                State
+              <input type="text" className="input-field" ref={collegeNameRef} />
+
+              <label htmlFor="teamName" className="input-heading">
+                Team Name
               </label>
-              <select className="input-field" ref={stateRef}>
-                <option value="" disabled selected hidden>
-                  Select
-                </option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Andaman and Nicobar Islands">
-                  Andaman and Nicobar Islands
-                </option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chandigarh">Chandigarh</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
-                <option value="Dadar and Nagar Haveli">
-                  Dadar and Nagar Haveli
-                </option>
-                <option value="Daman and Diu">Daman and Diu</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Lakshadweep">Lakshadweep</option>
-                <option value="Puducherry">Puducherry</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Manipur">Manipur</option>
-                <option value="Meghalaya">Meghalaya</option>
-                <option value="Mizoram">Mizoram</option>
-                <option value="Nagaland">Nagaland</option>
-                <option value="Odisha">Odisha</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Sikkim">Sikkim</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Telangana">Telangana</option>
-                <option value="Tripura">Tripura</option>
-                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                <option value="Uttarakhand">Uttarakhand</option>
-                <option value="West Bengal">West Bengal</option>
-              </select>
-              <label htmlFor="city" className="input-heading">
-                Participation City
-              </label>
-              <select className="input-field" ref={cityRef}>
-                <option value="" disabled selected hidden>
-                  Select
-                </option>
-                {/* <option value="Bangalore">Bangalore</option> */}
-                <option value="Delhi">Delhi</option>
-                <option value="Jaipur">Jaipur</option>
-                <option value="Indore">Indore</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Pune">Pune</option>
-                <option value="Hyderabad">Hyderabad</option>
-                {/* <option value="Mumbai">Mumbai</option> */}
-              </select>
-              <div className="student">
-                <label htmlFor="student" className="input-heading student">
-                  Are you a student?
-                </label>
-                <input
-                  type="checkbox"
-                  className="is-student"
-                  onChange={handleIsStudentChange}
-                />
-              </div>
-              <br></br>
-              <label htmlFor="organisation" className="input-heading">
-                {isStudentChecked && (
-                  <>
-                    <label htmlFor="organisation" className="input-heading">
-                      College
-                    </label>
-                    <input
-                      type="text"
-                      className="input-field"
-                      ref={collegeRef}
-                    />
-                  </>
-                )}
-                Organisation linked to (if any)
-              </label>
-              <input type="text" className="input-field" ref={orgRef} />
-              <label htmlFor="links" className="input-heading">
-                Link to your past performances/tracks
-              </label>
-              <input type="text" className="input-field" ref={linksRef} />
-              <label htmlFor="language" className="input-heading">
-                Language
-              </label>
-              <input type="text" className="input-field" ref={languageRef} />
-              <label htmlFor="phone" className="input-heading">
-                Contact Number
+              <input type="text" className="input-field" ref={teamNameRef} />
+
+              <label htmlFor="teamSize" className="input-heading">
+                Number of People in the Team
               </label>
               <input
-                type="tel"
+                type="number"
                 className="input-field"
-                ref={phoneRef}
-                onChange={handlePhoneNumberInput}
+                ref={teamSizeRef}
+                onInput={handleTeamSizeInput}
+                min="1"
               />
-              <label htmlFor="email" className="input-heading">
-                E-Mail ID
+
+              <label htmlFor="teamLead" className="input-heading">
+                Team Lead
               </label>
-              <input type="text" className="input-field" ref={emailRef} />
+              <input type="text" className="input-field" ref={teamLeadRef} />
+
+              <label htmlFor="videoSubmission" className="input-heading">
+                Video Submission (Drive Link)
+              </label>
+              <input
+                type="text"
+                className="input-field"
+                ref={videoSubmissionRef}
+              />
+
               <div className="submit-wrapper">
                 <button
                   type="submit"
@@ -228,7 +145,7 @@ const RazzmatazzForm = () => {
                   Register
                 </button>
               </div>
-              {localStorage.getItem("purpleprose_registered") === "true" && (
+              {localStorage.getItem("razzmatazz_registered") === "true" && (
                 <div className="successMessageContainer">
                   <span className="successMessage">
                     Successfully Registered!
