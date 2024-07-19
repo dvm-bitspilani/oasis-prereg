@@ -8,22 +8,23 @@ const RazzmatazzForm = () => {
   const navigate = useNavigate();
   const [isStudentChecked, setIsStudentChecked] = useState(false);
   const handlePhoneNumberInput = (e) => {
+    // Replace any non-digit characters with an empty string
     e.target.value = e.target.value.replace(/\D/g, "");
   };
   const handleIsStudentChange = (e) => {
     setIsStudentChecked(e.target.checked);
   };
   const nameRef = useRef(null);
-  const rapnNameRef = useRef(null);
+  const languageRef = useRef(null);
   const stateRef = useRef(null);
   const cityRef = useRef(null);
   const orgRef = useRef(null);
   const linksRef = useRef(null);
-  const socialsRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
   const collegeRef = useRef(null);
   const handleSubmit = (e) => {
+    const isStudentChecked = document.querySelector(".is-student").checked;
     e.preventDefault();
     const requiredFields = [
       nameRef.current,
@@ -31,10 +32,10 @@ const RazzmatazzForm = () => {
       cityRef.current,
       phoneRef.current,
       emailRef.current,
+      languageRef.current,
     ];
-    const isStudentChecked = document.querySelector(".is-student").checked;
-    // console.log(localStorage.getItem('token'))
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
+
     if (isEmpty) {
       alert("Please fill in the required fields!");
       return;
@@ -53,36 +54,35 @@ const RazzmatazzForm = () => {
       return;
     }
     const sendRegisteredDataToBackend = () => {
-      let postLink =
-        "https://bits-oasis.org/2023/main/preregistrations/RapWarsRegistration/";
+      const postLink =
+        "https://bits-oasis.org/2023/main/preregistrations/PurpleProseRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       };
-      let data = {
+      const data = {
         id: localStorage.getItem("userId"),
         name: nameRef.current.value,
         city: cityRef.current.value,
         phone: phoneRef.current.value,
         email_address: emailRef.current.value,
-        rapname: rapnNameRef.current.value,
+        college: collegeRef.current.value,
         state: stateRef.current.value,
         isStudent: isStudentChecked,
         linked_org: orgRef.current.value,
-        college: collegeRef.current.value,
         past_perf: linksRef.current.value,
-        insta_handle: socialsRef.current.value,
+        language: languageRef.current.value,
       };
       axios
         .post(postLink, data, config)
         .then((response) => {
           console.log("Backend Response:", response.data);
           localStorage.setItem(
-            "rapwars_registered",
-            response.data.rapwars_registered
+            "purpleprose_registered",
+            response.data.purpleprose_registered
           );
-          navigate("/RapWars/About");
+          navigate("/PurpleProse/About");
         })
         .catch((error) => {
           console.error("Error sending data to backend:", error);
@@ -97,22 +97,17 @@ const RazzmatazzForm = () => {
         initial={{ y: 1000, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -1000, opacity: 0 }}
-        // animate={{scale:[0,1]}}
         transition={{ duration: 0.5 }}
       >
         <div className="form-wrapper">
           <div className="form-container">
-            <div className="form-heading">Register for Razzmatazz</div>
+            <div className="form-heading">Register for Purple Prose</div>
             <form action="" className="main-form">
               <label htmlFor="name" className="input-heading">
                 Name
               </label>
               <input type="text" className="input-field" ref={nameRef} />
               <label htmlFor="rapname" className="input-heading">
-                Rap Name (if any)
-              </label>
-              <input type="text" className="input-field" ref={rapnNameRef} />
-              <label htmlFor="state" className="input-heading">
                 State
               </label>
               <select className="input-field" ref={stateRef}>
@@ -167,10 +162,14 @@ const RazzmatazzForm = () => {
                 <option value="" disabled selected hidden>
                   Select
                 </option>
-                <option value="Bangalore">Bangalore</option>
+                {/* <option value="Bangalore">Bangalore</option> */}
                 <option value="Delhi">Delhi</option>
-                <option value="Mumbai">Mumbai</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Indore">Indore</option>
                 <option value="Kolkata">Kolkata</option>
+                <option value="Pune">Pune</option>
+                <option value="Hyderabad">Hyderabad</option>
+                {/* <option value="Mumbai">Mumbai</option> */}
               </select>
               <div className="student">
                 <label htmlFor="student" className="input-heading student">
@@ -183,15 +182,19 @@ const RazzmatazzForm = () => {
                 />
               </div>
               <br></br>
-              {isStudentChecked && (
-                <>
-                  <label htmlFor="organisation" className="input-heading">
-                    College
-                  </label>
-                  <input type="text" className="input-field" ref={collegeRef} />
-                </>
-              )}
               <label htmlFor="organisation" className="input-heading">
+                {isStudentChecked && (
+                  <>
+                    <label htmlFor="organisation" className="input-heading">
+                      College
+                    </label>
+                    <input
+                      type="text"
+                      className="input-field"
+                      ref={collegeRef}
+                    />
+                  </>
+                )}
                 Organisation linked to (if any)
               </label>
               <input type="text" className="input-field" ref={orgRef} />
@@ -199,10 +202,10 @@ const RazzmatazzForm = () => {
                 Link to your past performances/tracks
               </label>
               <input type="text" className="input-field" ref={linksRef} />
-              <label htmlFor="socials" className="input-heading">
-                Link to your socials (if any)
+              <label htmlFor="language" className="input-heading">
+                Language
               </label>
-              <input type="text" className="input-field" ref={socialsRef} />
+              <input type="text" className="input-field" ref={languageRef} />
               <label htmlFor="phone" className="input-heading">
                 Contact Number
               </label>
@@ -225,7 +228,7 @@ const RazzmatazzForm = () => {
                   Register
                 </button>
               </div>
-              {localStorage.getItem("rapwars_registered") === "true" && (
+              {localStorage.getItem("purpleprose_registered") === "true" && (
                 <div className="successMessageContainer">
                   <span className="successMessage">
                     Successfully Registered!

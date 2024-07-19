@@ -5,24 +5,46 @@ import { motion } from "framer-motion";
 import Navbar from "./../Navbar/Navbar";
 
 export default function AboutPP() {
-    return (
-        <>
-            <Navbar />
-            <div className="page-container">
-                <div className="about-container">
-                    <div className="main-container">
-                    <div className="contact-title">Contact</div>
-                    <div className="about-text contact">
-                        <div className="contact-container">
-                            <div className="person-details"><p>Samarth Sahu</p><p>+916376232447</p></div><p className="contact-events">PURPLE PROSE</p></div>
-                            <div className="contact-container">
-                        <div className="person-details"><p>Aryan Keshri</p><p>+919724208508</p></div><p className="contact-events">Standup Soapbox</p></div>
-                            <div className="contact-container">
-                        <div className="person-details"><p>Devangi</p><p>+919667793384</p></div><p className="contact-events">Scontro</p></div>
-                    </div>
-                    </div>
+  return (
+    <>
+      <Navbar />
+      <div className="page-container">
+        <div className="about-container">
+          <div className="main-container">
+            <div className="contact-title">Contact</div>
+            <div className="about-text contact">
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Avindhya</p>
+                  <p>+917802959072</p>
                 </div>
+                <p className="contact-events">RapWars | Purple Prose</p>
+              </div>
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Loveesha</p>
+                  <p>+919876120814</p>
+                </div>
+                <p className="contact-events">RapWars | Purple Prose</p>
+              </div>
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Hasan Zareb (Co-Ordinator)</p>
+                  <p>+918133996076</p>
+                </div>
+                <p className="contact-events">Razzmatazz</p>
+              </div>
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Shambhavi Sinha (Secretary)</p>
+                  <p>+918879593730</p>
+                </div>
+                <p className="contact-events">Razzmatazz</p>
+              </div>
             </div>
-        </>
-    );
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

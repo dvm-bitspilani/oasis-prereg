@@ -36,7 +36,10 @@ export default function AboutRapWars() {
               <br />
               Along with the opportunity to perform for a huge crowd, you stay
               in contention for exciting prizes.
-              <br />
+              <br /> <br />
+              Follow us for more information: <br />
+              https://www.instagram.com/bitsoasis/ <br />
+              https://www.instagram.com/rapwars.oasis/ <br />
             </div>
             <div className="about-buttons-container">
               <Link to="/RapWars/form" className="about-link">
