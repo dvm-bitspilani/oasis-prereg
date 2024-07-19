@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Routes, Route, useLocation , Navigate} from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./routes/components/AuthProvider.jsx";
@@ -18,8 +17,10 @@ import AboutSS from "./routes/components/About Pages/About SS/AboutSS";
 import Contact from "./routes/components/About Pages/Contact";
 import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
 import { useAuth } from "./routes/components/AuthProvider.jsx";
-function ProtectedRoute({ element}) {
-  const { isLoggedIn } = useAuth()
+import RazzmatazzForm from "./routes/components/Form/RazzmatazzForm.jsx";
+import AboutRazzmatazz from "./routes/components/About Pages/About Razzmatazz/AboutRazzmatazz.jsx";
+function ProtectedRoute({ element }) {
+  const { isLoggedIn } = useAuth();
   return isLoggedIn ? element : <Navigate to="/" />;
 }
 
@@ -32,20 +33,40 @@ function App() {
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<ProtectedRoute element={<HomePage />} />} />
+            <Route
+              path="/home"
+              element={<ProtectedRoute element={<HomePage />} />}
+            />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/RapWars/form" element={<ProtectedRoute element={<RapWarsForm />} />} />
-            <Route path="/PurpleProse/form" element={<ProtectedRoute element={<PurpleProseForm />} />} />
-            <Route path="/StandupSoapbox/form" element={<ProtectedRoute element={<StandupSoapboxForm />} />} />
-            <Route path="/Scontro/form" element={<ProtectedRoute element={<ScontroForm />} />} />
+            <Route
+              path="/RapWars/form"
+              element={<ProtectedRoute element={<RapWarsForm />} />}
+            />
+            <Route
+              path="/PurpleProse/form"
+              element={<ProtectedRoute element={<PurpleProseForm />} />}
+            />
+            <Route
+              path="/StandupSoapbox/form"
+              element={<ProtectedRoute element={<StandupSoapboxForm />} />}
+            />
+            <Route
+              path="/Scontro/form"
+              element={<ProtectedRoute element={<ScontroForm />} />}
+            />
+            <Route
+              path="/Razzmatazz/form"
+              element={<ProtectedRoute element={<RazzmatazzForm />} />}
+            />
             <Route path="/PurpleProse/About" element={<AboutPP />} />
             <Route path="/Scontro/About" element={<AboutScontro />} />
             <Route path="/RapWars/About" element={<AboutRapWars />} />
             <Route path="/StandupSoapbox/About" element={<AboutSS />} />
+            <Route path="/Razzmatazz/About" element={<AboutRazzmatazz />} />
+
             <Route path="/Contact" element={<Contact />} />
             <Route path="/payment-page" element={<ShowPaymentPage />} />
           </Routes>
-          
         </AnimatePresence>
       </AuthProvider>
     </GoogleOAuthProvider>
@@ -53,5 +74,3 @@ function App() {
 }
 
 export default App;
-
-
