@@ -54,7 +54,7 @@ const handleSubmit = (e) => {
       return;
     } 
     const sendRegisteredDataToBackend = () => {
-        const postLink = 'https://bits-oasis.org/2023/main/preregistrations/PurpleProseRegistration/'
+        const postLink = 'https://bits-oasis.org/2024/main/preregistrations/PurpleProseRegistration/'
         let config = {
           headers:{
           'Authorization': `Bearer ${localStorage.getItem("token")}`,

@@ -9,7 +9,7 @@ const MyPaymentButton = ({ disabled , argument}) => {
   const hoverAnimation = isPaid || disabled ? {} : { scale: 1.1 };
   const tapAnimation = isPaid || disabled ? {} : { scale: 0.9 };
   const sendPaymentDatatoBackend = ()=>{
-    let postLink = 'https://bits-oasis.org/2023/main/preregistrations/monetary/soapbox/get_paytm_checksum'
+    let postLink = 'https://bits-oasis.org/2024/main/preregistrations/monetary/soapbox/get_paytm_checksum'
     let config = {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem("token")}`,

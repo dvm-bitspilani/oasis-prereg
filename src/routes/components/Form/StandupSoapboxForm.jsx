@@ -53,7 +53,7 @@ const StandupSoapboxForm = () => {
       return;
     } 
     const sendRegisteredDataToBackend = () => {
-      const postLink = 'https://bits-oasis.org/2023/main/preregistrations/StandupSoapboxRegistration/'
+      const postLink = 'https://bits-oasis.org/2024/main/preregistrations/StandupSoapboxRegistration/'
       let config = {
         headers:{
         'Authorization': `Bearer ${localStorage.getItem("token")}`,

@@ -10,7 +10,7 @@ export default function AboutSS() {
   const [paidState, setPaidState] = useState(false)
   const [registeredState, setRegisteredState] = useState(false)
   const sendPaymentDatatoBackend = ()=>{
-    let postLink = `https://bits-oasis.org/2023/main/preregistrations/GetPreRegUser/${localStorage.getItem('userId')}`
+    let postLink = `https://bits-oasis.org/2024/main/preregistrations/GetPreRegUser/${localStorage.getItem('userId')}`
     axios.get(postLink)
     .then(response => {
       console.log('Backend Response:', response.data);

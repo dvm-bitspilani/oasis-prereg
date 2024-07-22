@@ -57,7 +57,7 @@ const RazzmatazzForm = () => {
 
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2023/main/preregistrations/RazzmatazzRegistration/";
+        "https://bits-oasis.org/2024/main/preregistrations/RazzmatazzRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

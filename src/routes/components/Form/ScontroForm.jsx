@@ -53,7 +53,7 @@ const ScontroForm = () => {
       return;
     } 
     const sendRegisteredDataToBackend = () => {
-      const postLink = 'https://bits-oasis.org/2023/main/preregistrations/ScontroRegistration/'
+      const postLink = 'https://bits-oasis.org/2024/main/preregistrations/ScontroRegistration/'
       let config = {
         headers:{
         'Authorization': `Bearer ${localStorage.getItem("token")}`,

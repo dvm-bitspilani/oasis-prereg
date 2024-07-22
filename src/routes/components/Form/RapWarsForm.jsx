@@ -53,7 +53,7 @@ const RapwarsForm = () => {
       return;
     } 
     const sendRegisteredDataToBackend = () => {
-      let postLink = 'https://bits-oasis.org/2023/main/preregistrations/RapWarsRegistration/'
+      let postLink = 'https://bits-oasis.org/2024/main/preregistrations/RapWarsRegistration/'
       let config = {
         headers:{
         'Authorization': `Bearer ${localStorage.getItem("token")}`,

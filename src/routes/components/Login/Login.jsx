@@ -12,7 +12,7 @@ export default function Login() {
     setIsLoggedIn(true)
     localStorage.setItem('credential' ,credentialResponse.credential)
         const sendDataToBackend = () => {
-            const postLink = 'https://bits-oasis.org/2023/main/preregistrations/PreRegLogin/'
+            const postLink = 'https://bits-oasis.org/2024/main/preregistrations/PreRegLogin/'
             const data = {
                 credential : credentialResponse.credential
             }
