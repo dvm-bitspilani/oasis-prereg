@@ -41,6 +41,27 @@ export default function AboutPP() {
                 </div>
                 <p className="contact-events">Razzmatazz</p>
               </div>
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Aditya Rana</p>
+                  <p>+918869889654</p>
+                </div>
+                <p className="contact-events">Standup Soapbox</p>
+              </div>
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Vedant Shah</p>
+                  <p>+917506553199</p>
+                </div>
+                <p className="contact-events">Standup Soapbox</p>
+              </div>
+              <div className="contact-container">
+                <div className="person-details">
+                  <p>Devasri Bali</p>
+                  <p>+919810097764</p>
+                </div>
+                <p className="contact-events">Standup Soapbox</p>
+              </div>
             </div>
           </div>
         </div>
