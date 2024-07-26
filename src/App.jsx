@@ -19,6 +19,14 @@ import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
 import { useAuth } from "./routes/components/AuthProvider.jsx";
 import RazzmatazzForm from "./routes/components/Form/RazzmatazzForm.jsx";
 import AboutRazzmatazz from "./routes/components/About Pages/About Razzmatazz/AboutRazzmatazz.jsx";
+import AboutChoreo from "./routes/components/About Pages/About Choreo/AboutChoreo.jsx";
+import AboutFashP from "./routes/components/About Pages/About FashP/AboutFashP.jsx";
+import AboutPitchPerfect from "./routes/components/About Pages/About PitchPerfect/AboutPitchPerfect.jsx";
+import AboutStagePlay from "./routes/components/About Pages/About StagePlay/AboutStagePlay.jsx";
+import AboutStreetDance from "./routes/components/About Pages/About StreetDance/AboutStreetDance.jsx";
+import AboutStreetPlay from "./routes/components/About Pages/About StreetPlay/AboutStreetPlay.jsx";
+import AboutTarang from "./routes/components/About Pages/About Tarang/AboutTarang.jsx";
+
 function ProtectedRoute({ element }) {
   const { isLoggedIn } = useAuth();
   return isLoggedIn ? element : <Navigate to="/" />;
@@ -63,6 +71,13 @@ function App() {
             <Route path="/RapWars/About" element={<AboutRapWars />} />
             <Route path="/StandupSoapbox/About" element={<AboutSS />} />
             <Route path="/Razzmatazz/About" element={<AboutRazzmatazz />} />
+            <Route path="/Choreo/About" element={<AboutChoreo />} />
+            <Route path="/FashP/About" element={<AboutFashP />} />
+            <Route path="/PitchPerfect/About" element={<AboutPitchPerfect />} />
+            <Route path="/StagePlay/About" element={<AboutStagePlay />} />
+            <Route path="/StreetDance/About" element={<AboutStreetDance />} />
+            <Route path="/StreetPlay/About" element={<AboutStreetPlay />} />
+            <Route path="/Tarang/About" element={<AboutTarang />} />
 
             <Route path="/Contact" element={<Contact />} />
             <Route path="/payment-page" element={<ShowPaymentPage />} />
