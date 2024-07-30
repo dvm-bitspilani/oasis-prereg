@@ -12,6 +12,7 @@ import stageplay from "../../../assets/stageplay.png";
 import streetdance from "../../../assets/streetdance.png";
 import streetplay from "../../../assets/streetplay.png";
 import tarang from "../../../assets/tarang.png";
+import razzmatazz from "../../../assets/razzmatazz.jpeg";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
@@ -102,7 +103,12 @@ export default function HomePage() {
                 <div
                   className="homepage-event-img"
                   style={{
-                    backgroundImage: `url(${scontro})`,
+                    backgroundImage: `url(${razzmatazz})`,
+                    backgroundColor: "black",
+                    backgroundPosition: "center",
+                    backgroundSize: "130%",
+                    backgroundRepeat: "no-repeat",
+                    width: "100%",
                   }}
                 ></div>
                 <span className="homepage-event-name">Razzmatazz</span>
