@@ -78,3 +78,9 @@ a:active {
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 500px) {
+  .homepage-events-container {
+    height: unset;
+    flex-direction: column;
+  }
+}
