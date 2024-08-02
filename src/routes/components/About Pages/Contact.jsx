@@ -71,7 +71,7 @@ export default function AboutPP() {
               </div>
               <div className="contact-container">
                 <div className="person-details">
-                  <p>Agniswar Das</p>
+                  <p>Agniswar Das</p>
                   <p>+918335028828</p>
                 </div>
                 <p className="contact-events">Scontro</p>

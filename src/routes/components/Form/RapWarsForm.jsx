@@ -2,17 +2,17 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from 'axios';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const RapwarsForm = () => {
-  const navigate = useNavigate()
-  const [isStudentChecked, setIsStudentChecked] = useState(false)
-    const handlePhoneNumberInput = (e) => {
-      e.target.value = e.target.value.replace(/\D/g, "");
-    };
-    const handleIsStudentChange = (e) => {
-      setIsStudentChecked(e.target.checked);
-    };
+  const navigate = useNavigate();
+  const [isStudentChecked, setIsStudentChecked] = useState(false);
+  const handlePhoneNumberInput = (e) => {
+    e.target.value = e.target.value.replace(/\D/g, "");
+  };
+  const handleIsStudentChange = (e) => {
+    setIsStudentChecked(e.target.checked);
+  };
   const nameRef = useRef(null);
   const rapnNameRef = useRef(null);
   const stateRef = useRef(null);
@@ -22,7 +22,7 @@ const RapwarsForm = () => {
   const socialsRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-  const collegeRef = useRef(null)
+  const collegeRef = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
     const requiredFields = [
@@ -51,38 +51,44 @@ const RapwarsForm = () => {
     if (!isEmailValid) {
       alert("Invalid email address format.");
       return;
-    } 
+    }
     const sendRegisteredDataToBackend = () => {
-      let postLink = 'https://bits-oasis.org/2024/main/preregistrations/RapWarsRegistration/'
+      let postLink =
+        "https://bits-oasis.org/2024/main/preregistrations/RapWarsRegistration/";
       let config = {
-        headers:{
-        'Authorization': `Bearer ${localStorage.getItem("token")}`,
-      }};
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
       let data = {
-          "id" : localStorage.getItem("userId"),
-          "name" : nameRef.current.value,
-          "city" : cityRef.current.value,
-          "phone" : phoneRef.current.value,
-          "email_address" : emailRef.current.value,
-          "rapname" : rapnNameRef.current.value,
-          "state" : stateRef.current.value,
-          "isStudent" : isStudentChecked,
-          "linked_org" : orgRef.current.value,
-          "college" : collegeRef.current.value,
-          "past_perf" : linksRef.current.value,
-          "insta_handle" : socialsRef.current.value,
-      }
-      axios.post(postLink , data, config)
-      .then(response => {
-          console.log('Backend Response:', response.data);
-          localStorage.setItem("rapwars_registered", response.data.rapwars_registered)
-          navigate('/RapWars/About')
+        id: localStorage.getItem("userId"),
+        name: nameRef.current.value,
+        city: cityRef.current.value,
+        phone: phoneRef.current.value,
+        email_address: emailRef.current.value,
+        rapname: rapnNameRef.current.value,
+        state: stateRef.current.value,
+        isStudent: isStudentChecked,
+        linked_org: orgRef.current.value,
+        college: collegeRef.current.value,
+        past_perf: linksRef.current.value,
+        insta_handle: socialsRef.current.value,
+      };
+      axios
+        .post(postLink, data, config)
+        .then((response) => {
+          console.log("Backend Response:", response.data);
+          localStorage.setItem(
+            "rapwars_registered",
+            response.data.rapwars_registered
+          );
+          navigate("/RapWars/About");
         })
-        .catch(error => {
-          console.error('Error sending data to backend:', error);
+        .catch((error) => {
+          console.error("Error sending data to backend:", error);
         });
-  }
-  sendRegisteredDataToBackend()
+    };
+    sendRegisteredDataToBackend();
   };
   return (
     <>
@@ -92,7 +98,7 @@ const RapwarsForm = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -1000, opacity: 0 }}
         // animate={{scale:[0,1]}}
-        transition={{ duration: .5,}}
+        transition={{ duration: 0.5 }}
       >
         <div className="form-wrapper">
           <div className="form-container">
@@ -161,21 +167,30 @@ const RapwarsForm = () => {
                 <option value="" disabled selected hidden>
                   Select
                 </option>
-                <option value="Bangalore">Bangalore</option>
                 <option value="Delhi">Delhi</option>
+                <option value="Jaipur">Jaipur</option>
                 <option value="Mumbai">Mumbai</option>
-                <option value="Kolkata">Kolkata</option>
+                <option value="Indore">Indore</option>
               </select>
               <div className="student">
-              <label htmlFor="student" className="input-heading student">
-                Are you a student?
-              </label>
-              <input type="checkbox" className="is-student" onChange={handleIsStudentChange}/></div>
+                <label htmlFor="student" className="input-heading student">
+                  Are you a student?
+                </label>
+                <input
+                  type="checkbox"
+                  className="is-student"
+                  onChange={handleIsStudentChange}
+                />
+              </div>
               <br></br>
-              {isStudentChecked && (<><label htmlFor="organisation" className="input-heading">
-                College
-              </label>
-              <input type="text" className="input-field" ref={collegeRef} /></>)}
+              {isStudentChecked && (
+                <>
+                  <label htmlFor="organisation" className="input-heading">
+                    College
+                  </label>
+                  <input type="text" className="input-field" ref={collegeRef} />
+                </>
+              )}
               <label htmlFor="organisation" className="input-heading">
                 Organisation linked to (if any)
               </label>
@@ -191,7 +206,12 @@ const RapwarsForm = () => {
               <label htmlFor="phone" className="input-heading">
                 Contact Number
               </label>
-              <input type="tel" className="input-field" ref={phoneRef} onChange={handlePhoneNumberInput}/>
+              <input
+                type="tel"
+                className="input-field"
+                ref={phoneRef}
+                onChange={handlePhoneNumberInput}
+              />
               <label htmlFor="email" className="input-heading">
                 E-Mail ID
               </label>
@@ -202,12 +222,16 @@ const RapwarsForm = () => {
                   className="submit-btn"
                   onClick={handleSubmit}
                 >
-                 Register
+                  Register
                 </button>
               </div>
-            {localStorage.getItem('rapwars_registered')==="true" && (<div className="successMessageContainer">
-              <span className="successMessage">Successfully Registered!</span>
-              </div>)}
+              {localStorage.getItem("rapwars_registered") === "true" && (
+                <div className="successMessageContainer">
+                  <span className="successMessage">
+                    Successfully Registered!
+                  </span>
+                </div>
+              )}
             </form>
           </div>
         </div>
