@@ -70,7 +70,10 @@ const RazzmatazzForm = () => {
         team_size: parseInt(teamSizeRef.current.value),
         team_lead: teamLeadRef.current.value,
         video_submission: videoSubmissionRef.current.value,
+        email_address: JSON.parse(localStorage.getItem("userData"))
+          .user_profile_obj.google_email,
       };
+      console.log(data);
       axios
         .post(postLink, data, config)
         .then((response) => {
@@ -99,7 +102,7 @@ const RazzmatazzForm = () => {
       >
         <div className="form-wrapper">
           <div className="form-container">
-            <div className="form-heading">Register for Purple Prose</div>
+            <div className="form-heading">Register for Razzmatazz</div>
             <form action="" className="main-form">
               <label htmlFor="collegeName" className="input-heading">
                 College Name
