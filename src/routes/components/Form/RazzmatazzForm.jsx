@@ -13,9 +13,13 @@ const RazzmatazzForm = () => {
   const teamSizeRef = useRef(null);
   const teamLeadRef = useRef(null);
   const videoSubmissionRef = useRef(null);
+  const phoneRef = useRef(null);
 
   const handleTeamSizeInput = (e) => {
     e.target.value = e.target.value.replace(/[^0-9]/g, "");
+  };
+  const handlePhoneNumberInput = (e) => {
+    e.target.value = e.target.value.replace(/\D/g, "");
   };
 
   const handleSubmit = (e) => {
@@ -26,8 +30,16 @@ const RazzmatazzForm = () => {
       teamSizeRef.current,
       teamLeadRef.current,
       videoSubmissionRef.current,
+      phoneRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
+
+    const isPhoneNumberValid = /^\d{10}$/.test(phoneRef.current.value);
+
+    if (!isPhoneNumberValid) {
+      alert("Phone number must contain 10 digits!");
+      return;
+    }
 
     if (isEmpty) {
       alert("Please fill in all the required fields!");
@@ -72,6 +84,7 @@ const RazzmatazzForm = () => {
         video_submission: videoSubmissionRef.current.value,
         email_address: JSON.parse(localStorage.getItem("userData"))
           .user_profile_obj.google_email,
+        phone: phoneRef.current.value,
       };
       console.log(data);
       axios
@@ -129,6 +142,16 @@ const RazzmatazzForm = () => {
                 Team Lead
               </label>
               <input type="text" className="input-field" ref={teamLeadRef} />
+
+              <label htmlFor="phone" className="input-heading">
+                Contact Number
+              </label>
+              <input
+                type="tel"
+                className="input-field"
+                ref={phoneRef}
+                onChange={handlePhoneNumberInput}
+              />
 
               <label htmlFor="videoSubmission" className="input-heading">
                 Video Submission (Drive Link)
