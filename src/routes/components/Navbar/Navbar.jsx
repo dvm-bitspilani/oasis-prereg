@@ -27,12 +27,12 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="navbar-items">
+      {/* <div className="navbar-items">
         <Link to="/contact" style={{ textDecoration: "none" }}>
           <span>Contact</span>
         </Link>
-        {/* <Link to='/profile' style={{textDecoration: "none"}}><img src={ProfileImg}></img></Link> */}
-      </div>
+        <Link to='/profile' style={{textDecoration: "none"}}><img src={ProfileImg}></img></Link>
+      </div> */}
     </div>
   );
 };

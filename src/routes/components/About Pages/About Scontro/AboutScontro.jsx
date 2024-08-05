@@ -36,6 +36,13 @@ export default function AboutRapWars() {
               <br/>
               <br/>
               <span>Winners get cash prizes worth Rs. 50,000/-</span>
+              <br /> <br />
+              Contact details:
+              <br />
+              <br />
+              Gurnaman Kaur - 7985413099
+              <br />
+              Agniswar Das - 8335028828
             </div>
             <div className="about-buttons-container">
               <Link to="/Scontro/form" className="about-link">

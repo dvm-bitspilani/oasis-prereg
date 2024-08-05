@@ -39,7 +39,14 @@ export default function AboutRapWars() {
               <br /> <br />
               Follow us for more information: <br />
               https://www.instagram.com/bitsoasis/ <br />
-              https://www.instagram.com/rapwars.oasis/ <br />
+              https://www.instagram.com/rapwars.oasis/
+              <br /> <br />
+              Contact details:
+              <br />
+              <br />
+              Avindhya - 7802959072
+              <br />
+              Loveesha - 9876120814
             </div>
             <div className="about-buttons-container">
               <Link to="/RapWars/form" className="about-link">

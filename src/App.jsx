@@ -14,7 +14,7 @@ import AboutRapWars from "./routes/components/About Pages/About RapWars/AboutRap
 import AboutPP from "./routes/components/About Pages/About PP/AboutPP";
 import AboutScontro from "./routes/components/About Pages/About Scontro/AboutScontro";
 import AboutSS from "./routes/components/About Pages/About SS/AboutSS";
-import Contact from "./routes/components/About Pages/Contact";
+// import Contact from "./routes/components/About Pages/Contact";
 import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
 import { useAuth } from "./routes/components/AuthProvider.jsx";
 import RazzmatazzForm from "./routes/components/Form/RazzmatazzForm.jsx";
@@ -106,7 +106,7 @@ function App() {
             <Route path="/Tarang/About" element={<AboutTarang />} />
             <Route path="/DesertDuel/About" element={<AboutDesertDuel />} />
 
-            <Route path="/Contact" element={<Contact />} />
+            {/* <Route path="/Contact" element={<Contact />} /> */}
             <Route path="/payment-page" element={<ShowPaymentPage />} />
           </Routes>
         </AnimatePresence>

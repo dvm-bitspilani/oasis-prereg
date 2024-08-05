@@ -35,7 +35,11 @@ export default function AboutPP() {
             months of October-November. It is the only college festival in India
             which can boast of running non-stop for 96 hours. With 80+ events
             encompassing music, dance, drama, literary, fine arts and fashion,
-            and a footfall of more than 15,000 students from 100s of colleges. <br />
+            and a footfall of more than 15,000 students from 100s of colleges.
+            <br /> <br />
+            Contact details:<br /><br />
+            Avindhya - 7802959072<br />
+            Loveesha - 9876120814
           </div>
           <div className="about-buttons-container">
             <Link to="/PurpleProse/form" className="about-link">

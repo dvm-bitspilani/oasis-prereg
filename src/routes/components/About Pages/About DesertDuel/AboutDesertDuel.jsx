@@ -28,8 +28,11 @@ export default function AboutDesertDuel() {
             styles can vary from western to classical to hip-hop and even to the
             typical Bollywood style.
             <br /> <br />
-            Contact details:<br /><br />
-            Hasan Zareb - 8133996076 (Co-Ordinator)<br />
+            Contact details:
+            <br />
+            <br />
+            Hasan Zareb - 8133996076 (Co-Ordinator)
+            <br />
             Shambhavi Sinha - 8879593730 (Secretary)
           </div>
           <div className="about-buttons-container">
