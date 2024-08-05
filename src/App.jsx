@@ -26,6 +26,7 @@ import AboutStagePlay from "./routes/components/About Pages/About StagePlay/Abou
 import AboutStreetDance from "./routes/components/About Pages/About StreetDance/AboutStreetDance.jsx";
 import AboutStreetPlay from "./routes/components/About Pages/About StreetPlay/AboutStreetPlay.jsx";
 import AboutTarang from "./routes/components/About Pages/About Tarang/AboutTarang.jsx";
+import AboutDesertDuel from "./routes/components/About Pages/About DesertDuel/AboutDesertDuel.jsx";
 import ChoreoForm from "./routes/components/Form/ChoreForm.jsx";
 import FashPForm from "./routes/components/Form/FashPForm.jsx";
 import PitchPerfectForm from "./routes/components/Form/PitchPerfectForm.jsx";
@@ -103,6 +104,7 @@ function App() {
             <Route path="/StreetDance/About" element={<AboutStreetDance />} />
             <Route path="/StreetPlay/About" element={<AboutStreetPlay />} />
             <Route path="/Tarang/About" element={<AboutTarang />} />
+            <Route path="/DesertDuel/About" element={<AboutDesertDuel />} />
 
             <Route path="/Contact" element={<Contact />} />
             <Route path="/payment-page" element={<ShowPaymentPage />} />
