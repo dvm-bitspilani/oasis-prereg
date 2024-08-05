@@ -32,6 +32,8 @@ import FashPForm from "./routes/components/Form/FashPForm.jsx";
 import PitchPerfectForm from "./routes/components/Form/PitchPerfectForm.jsx";
 import StreetDanceForm from "./routes/components/Form/StreetDanceForm.jsx";
 import TarangForm from "./routes/components/Form/TarangForm.jsx";
+import StreetPlayForm from "./routes/components/Form/StreetPlayForm.jsx";
+import StagePlayForm from "./routes/components/Form/StagePlayForm.jsx";
 
 function ProtectedRoute({ element }) {
   const { isLoggedIn } = useAuth();
@@ -91,6 +93,14 @@ function App() {
             <Route
               path="/Tarang/form"
               element={<ProtectedRoute element={<TarangForm />} />}
+            />
+            <Route
+              path="/StreetPlay/form"
+              element={<ProtectedRoute element={<StreetPlayForm />} />}
+            />
+            <Route
+              path="/StagePlay/form"
+              element={<ProtectedRoute element={<StagePlayForm />} />}
             />
             <Route path="/PurpleProse/About" element={<AboutPP />} />
             <Route path="/Scontro/About" element={<AboutScontro />} />
