@@ -22,12 +22,23 @@ export default function AboutDesertDuel() {
         transition={{ duration: 1 }}> */}
         <motion.div className="about-container">
           <div className="about-title">About Desert Duel</div>
-          <div className="about-text">Desert Duel</div>
+          <div className="about-text">
+            It is a solo dance event in which dancers from every college
+            participate and showcase their talent. Depending on the dancer,
+            styles can vary from western to classical to hip-hop and even to the
+            typical Bollywood style.
+            <br /> <br />
+            Contact details:<br /><br />
+            Hasan Zareb - 8133996076 (Co-Ordinator)<br />
+            Shambhavi Sinha - 8879593730 (Secretary)
+          </div>
           <div className="about-buttons-container">
             <Link to="/Tarang/form" className="about-link">
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}
               <MyRegisterationButton
-                disabled={localStorage.getItem("desertduel_registered") === "true"}
+                disabled={
+                  localStorage.getItem("desertduel_registered") === "true"
+                }
                 argument={localStorage.getItem("desertduel_registered")}
               />
             </Link>
