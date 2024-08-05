@@ -30,6 +30,13 @@ export default function AboutRazzmatazz() {
             participating teams. All forms of dance including fusions are
             allowed. So trip the light fantastic toe and let there be a
             razzle-dazzle of sheer splendor.
+            <br /> <br />
+            Contact details:
+            <br />
+            <br />
+            Hasan Zareb - 8133996076 (Co-Ordinator)
+            <br />
+            Shambhavi Sinha - 8879593730 (Secretary)
           </div>
           <div className="about-buttons-container">
             <Link to="/Razzmatazz/form" className="about-link">

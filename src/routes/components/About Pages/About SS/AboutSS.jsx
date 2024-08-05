@@ -82,6 +82,15 @@ export default function AboutSS() {
             accommodation covered by us. <br />
             <br />● <b>Prizes:</b> The winner gets a chance to perform alongside
             top comedians, with travel and accommodation covered by us.
+            <br /> <br />
+            Contact details:
+            <br />
+            <br />
+            Aditya Rana - 8869889654
+            <br />
+            Vedant Shah - 7506553199
+            <br />
+            Devasri Bali - 9810097764
           </div>
           <div className="about-buttons-container">
             <Link to="/StandupSoapbox/form" className="about-link">
