@@ -26,6 +26,11 @@ import AboutStagePlay from "./routes/components/About Pages/About StagePlay/Abou
 import AboutStreetDance from "./routes/components/About Pages/About StreetDance/AboutStreetDance.jsx";
 import AboutStreetPlay from "./routes/components/About Pages/About StreetPlay/AboutStreetPlay.jsx";
 import AboutTarang from "./routes/components/About Pages/About Tarang/AboutTarang.jsx";
+import ChoreoForm from "./routes/components/Form/ChoreForm.jsx";
+import FashPForm from "./routes/components/Form/FashPForm.jsx";
+import PitchPerfectForm from "./routes/components/Form/PitchPerfectForm.jsx";
+import StreetDanceForm from "./routes/components/Form/StreetDanceForm.jsx";
+import TarangForm from "./routes/components/Form/TarangForm.jsx";
 
 function ProtectedRoute({ element }) {
   const { isLoggedIn } = useAuth();
@@ -65,6 +70,26 @@ function App() {
             <Route
               path="/Razzmatazz/form"
               element={<ProtectedRoute element={<RazzmatazzForm />} />}
+            />
+            <Route
+              path="/Choreo/form"
+              element={<ProtectedRoute element={<ChoreoForm />} />}
+            />
+            <Route
+              path="/FashP/form"
+              element={<ProtectedRoute element={<FashPForm />} />}
+            />
+            <Route
+              path="/PitchPerfect/form"
+              element={<ProtectedRoute element={<PitchPerfectForm />} />}
+            />
+            <Route
+              path="/StreetDance/form"
+              element={<ProtectedRoute element={<StreetDanceForm />} />}
+            />
+            <Route
+              path="/Tarang/form"
+              element={<ProtectedRoute element={<TarangForm />} />}
             />
             <Route path="/PurpleProse/About" element={<AboutPP />} />
             <Route path="/Scontro/About" element={<AboutScontro />} />
