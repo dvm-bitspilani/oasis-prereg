@@ -114,6 +114,8 @@ export default function HomePage() {
                 <span className="homepage-event-name">Razzmatazz</span>
               </motion.div>
             </Link>
+          </div>
+          <div className="homepage-events-container">
             <Link to="/Choreo/About">
               <motion.div
                 className="homepage-event-wrapper"
@@ -129,8 +131,6 @@ export default function HomePage() {
                 <span className="homepage-event-name">Choreo</span>
               </motion.div>
             </Link>
-          </div>
-          <div className="homepage-events-container">
             <Link to="/FashP/About">
               <motion.div
                 className="homepage-event-wrapper"
@@ -191,6 +191,9 @@ export default function HomePage() {
                 <span className="homepage-event-name">StreetDance</span>
               </motion.div>
             </Link>
+          </div>
+
+          <div className="homepage-events-container">
             <Link to="/StreetPlay/About">
               <motion.div
                 className="homepage-event-wrapper"
@@ -219,6 +222,21 @@ export default function HomePage() {
                   }}
                 ></div>
                 <span className="homepage-event-name">Tarang</span>
+              </motion.div>
+            </Link>
+            <Link to="/DesertDuel/About">
+              <motion.div
+                className="homepage-event-wrapper"
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div
+                  className="homepage-event-img"
+                  style={{
+                    backgroundImage: `url(${razzmatazz})`,
+                  }}
+                ></div>
+                <span className="homepage-event-name">Desert Duel</span>
               </motion.div>
             </Link>
           </div>
