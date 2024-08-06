@@ -22,7 +22,15 @@ export default function AboutPitchPerfect() {
         transition={{ duration: 1 }}> */}
         <motion.div className="about-container">
           <div className="about-title">About Pitch Perfect</div>
-          <div className="about-text">Pitch Perfect</div>
+          <div className="about-text">
+            Be it the catchy rhythm of Anna Kendrick or the calm and breezy
+            voice of Bobby McFerrin, experience a cappella at its best at Pitch
+            Perfect. With participants from over 10 institutions, Pitch Perfect
+            is the platform for a growing crowd of Cappella enthusiasts to face
+            off against each other. A battle of the bands with no instruments,
+            this symphony of voices at the NAB Auditorium is establishing a new
+            dimensionality of music vastly unexplored till date.
+          </div>
           <div className="about-buttons-container">
             <Link to="/PitchPerfect/form" className="about-link">
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}

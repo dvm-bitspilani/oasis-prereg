@@ -36,7 +36,7 @@ export default function AboutDesertDuel() {
             Shambhavi Sinha - 8879593730 (Secretary)
           </div>
           <div className="about-buttons-container">
-            <Link to="/Tarang/form" className="about-link">
+            <Link to="/DesertDuel/form" className="about-link">
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}
               <MyRegisterationButton
                 disabled={

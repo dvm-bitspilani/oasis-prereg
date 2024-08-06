@@ -22,7 +22,14 @@ export default function AboutChoreo() {
         transition={{ duration: 1 }}> */}
         <motion.div className="about-container">
           <div className="about-title">About Choreo</div>
-          <div className="about-text">Choreo</div>
+          <div className="about-text">
+            Choreo is a dance event which features contemporary dance
+            performances by teams from colleges around the country. This event
+            is conducted in the central auditorium. After the initial
+            elimination round, about six to eight teams are shortlisted for the
+            final round. The final round features contemporary dance
+            performances that are usually based on a certain theme.
+          </div>
           <div className="about-buttons-container">
             <Link to="/Choreo/form" className="about-link">
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}

@@ -34,6 +34,7 @@ import StreetDanceForm from "./routes/components/Form/StreetDanceForm.jsx";
 import TarangForm from "./routes/components/Form/TarangForm.jsx";
 import StreetPlayForm from "./routes/components/Form/StreetPlayForm.jsx";
 import StagePlayForm from "./routes/components/Form/StagePlayForm.jsx";
+import DesertDuelForm from "./routes/components/Form/DesertDuelForm.jsx";
 
 function ProtectedRoute({ element }) {
   const { isLoggedIn } = useAuth();
@@ -102,6 +103,11 @@ function App() {
               path="/StagePlay/form"
               element={<ProtectedRoute element={<StagePlayForm />} />}
             />
+            <Route
+              path="/DesertDuel/form"
+              element={<ProtectedRoute element={<DesertDuelForm />} />}
+            />
+
             <Route path="/PurpleProse/About" element={<AboutPP />} />
             <Route path="/Scontro/About" element={<AboutScontro />} />
             <Route path="/RapWars/About" element={<AboutRapWars />} />

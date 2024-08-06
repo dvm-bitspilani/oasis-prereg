@@ -22,7 +22,16 @@ export default function AboutStreetDance() {
         transition={{ duration: 1 }}> */}
         <motion.div className="about-container">
           <div className="about-title">About Street Dance</div>
-          <div className="about-text">Street Dance</div>
+          <div className="about-text">
+            As the name suggests, Street Dance is a street-style dance event
+            which features performances by teams from colleges around the
+            country. Street Dance is considered a crowd favourite and is held in
+            the Rotunda, the open- air amphitheatre of BITS. The first stage
+            consists of 2 rounds; a performance and a battle round. From this, 4
+            teams are selected for the second stage. The second stage is a
+            face-off challenge between pairs of teams. These pairs are allotted
+            randomly
+          </div>
           <div className="about-buttons-container">
             <Link to="/StreetDance/form" className="about-link">
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}

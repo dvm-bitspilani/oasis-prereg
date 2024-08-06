@@ -22,7 +22,12 @@ export default function AboutTarang() {
         transition={{ duration: 1 }}> */}
         <motion.div className="about-container">
           <div className="about-title">About Tarang</div>
-          <div className="about-text">Tarang</div>
+          <div className="about-text">
+            A musical fusion extravaganza from the Indian heartland and its
+            innumerably diverse facets. Cover an existing piece, or create your
+            own. Come participate in our Indian fusion battle of bands to claim
+            the title of the best band.
+          </div>
           <div className="about-buttons-container">
             <Link to="/Tarang/form" className="about-link">
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}
