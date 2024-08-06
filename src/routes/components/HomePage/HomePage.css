@@ -77,7 +77,13 @@ a:active {
   height: calc(100vh - 160px);
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
+
+.container1::-webkit-scrollbar {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
   .homepage-events-container {
     height: unset;

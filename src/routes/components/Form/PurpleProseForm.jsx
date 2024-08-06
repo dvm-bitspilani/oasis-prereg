@@ -2,28 +2,28 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from 'axios';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const PurpleProseForm = () => {
-    const navigate = useNavigate()
-    const [isStudentChecked, setIsStudentChecked] = useState(false)
-    const handlePhoneNumberInput = (e) => {
-      // Replace any non-digit characters with an empty string
-      e.target.value = e.target.value.replace(/\D/g, "");
-    };
-    const handleIsStudentChange = (e) => {
-      setIsStudentChecked(e.target.checked);
-    };
+  const navigate = useNavigate();
+  const [isStudentChecked, setIsStudentChecked] = useState(false);
+  const handlePhoneNumberInput = (e) => {
+    // Replace any non-digit characters with an empty string
+    e.target.value = e.target.value.replace(/\D/g, "");
+  };
+  const handleIsStudentChange = (e) => {
+    setIsStudentChecked(e.target.checked);
+  };
   const nameRef = useRef(null);
   const languageRef = useRef(null);
   const stateRef = useRef(null);
-  const cityRef = useRef(null);
+  const cityRef = useRef(false);
   const orgRef = useRef(null);
   const linksRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-const collegeRef = useRef(null)
-const handleSubmit = (e) => {
+  const collegeRef = useRef(null);
+  const handleSubmit = (e) => {
     const isStudentChecked = document.querySelector(".is-student").checked;
     e.preventDefault();
     const requiredFields = [
@@ -52,37 +52,43 @@ const handleSubmit = (e) => {
     if (!isEmailValid) {
       alert("Invalid email address format.");
       return;
-    } 
-    const sendRegisteredDataToBackend = () => {
-        const postLink = 'https://bits-oasis.org/2024/main/preregistrations/PurpleProseRegistration/'
-        let config = {
-          headers:{
-          'Authorization': `Bearer ${localStorage.getItem("token")}`,
-        }};
-        const data = {
-            "id" : localStorage.getItem("userId"),
-            "name" : nameRef.current.value,
-            "city" : cityRef.current.value,
-            "phone" : phoneRef.current.value,
-            "email_address" : emailRef.current.value,
-            "college" : collegeRef.current.value,
-            "state" : stateRef.current.value,
-            "isStudent" : isStudentChecked,
-            "linked_org" : orgRef.current.value,
-            "past_perf" : linksRef.current.value,
-            "language" : languageRef.current.value,
-        }
-        axios.post(postLink , data, config)
-        .then(response => {
-            console.log('Backend Response:', response.data);
-            localStorage.setItem("purpleprose_registered",response.data.purpleprose_registered)
-            navigate('/PurpleProse/About')
-          })
-          .catch(error => {
-            console.error('Error sending data to backend:', error);
-          });
     }
-  sendRegisteredDataToBackend()
+    const sendRegisteredDataToBackend = () => {
+      const postLink =
+        "https://bits-oasis.org/2024/main/preregistrations/PurpleProseRegistration/";
+      let config = {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      };
+      const data = {
+        id: localStorage.getItem("userId"),
+        name: nameRef.current.value,
+        city: cityRef.current.value,
+        phone: phoneRef.current.value,
+        email_address: emailRef.current.value,
+        college: collegeRef.current ? collegeRef.current.value : "",
+        state: stateRef.current.value,
+        isStudent: isStudentChecked,
+        linked_org: orgRef.current.value,
+        past_perf: linksRef.current.value,
+        language: languageRef.current.value,
+      };
+      axios
+        .post(postLink, data, config)
+        .then((response) => {
+          console.log("Backend Response:", response.data);
+          localStorage.setItem(
+            "purpleprose_registered",
+            response.data.purpleprose_registered
+          );
+          navigate("/PurpleProse/About");
+        })
+        .catch((error) => {
+          console.error("Error sending data to backend:", error);
+        });
+    };
+    sendRegisteredDataToBackend();
   };
   return (
     <>
@@ -91,7 +97,7 @@ const handleSubmit = (e) => {
         initial={{ y: 1000, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: -1000, opacity: 0 }}
-        transition={{ duration: .5,}}
+        transition={{ duration: 0.5 }}
       >
         <div className="form-wrapper">
           <div className="form-container">
@@ -102,7 +108,7 @@ const handleSubmit = (e) => {
               </label>
               <input type="text" className="input-field" ref={nameRef} />
               <label htmlFor="rapname" className="input-heading">
-               State
+                State
               </label>
               <select className="input-field" ref={stateRef}>
                 <option value="" disabled selected hidden>
@@ -166,16 +172,29 @@ const handleSubmit = (e) => {
                 {/* <option value="Mumbai">Mumbai</option> */}
               </select>
               <div className="student">
-              <label htmlFor="student" className="input-heading student">
-                Are you a student?
-              </label>
-              <input type="checkbox" className="is-student" onChange={handleIsStudentChange}/></div>
+                <label htmlFor="student" className="input-heading student">
+                  Are you a student?
+                </label>
+                <input
+                  type="checkbox"
+                  className="is-student"
+                  onChange={handleIsStudentChange}
+                />
+              </div>
               <br></br>
               <label htmlFor="organisation" className="input-heading">
-              {isStudentChecked && (<><label htmlFor="organisation" className="input-heading">
-                College
-              </label>
-              <input type="text" className="input-field" ref={collegeRef} /></>)}
+                {isStudentChecked && (
+                  <>
+                    <label htmlFor="organisation" className="input-heading">
+                      College
+                    </label>
+                    <input
+                      type="text"
+                      className="input-field"
+                      ref={collegeRef}
+                    />
+                  </>
+                )}
                 Organisation linked to (if any)
               </label>
               <input type="text" className="input-field" ref={orgRef} />
@@ -187,10 +206,15 @@ const handleSubmit = (e) => {
                 Language
               </label>
               <input type="text" className="input-field" ref={languageRef} />
-              <label htmlFor="phone" className="input-heading" >
+              <label htmlFor="phone" className="input-heading">
                 Contact Number
               </label>
-              <input type="tel" className="input-field" ref={phoneRef} onChange={handlePhoneNumberInput}/>
+              <input
+                type="tel"
+                className="input-field"
+                ref={phoneRef}
+                onChange={handlePhoneNumberInput}
+              />
               <label htmlFor="email" className="input-heading">
                 E-Mail ID
               </label>
@@ -204,13 +228,45 @@ const handleSubmit = (e) => {
                   Register
                 </button>
               </div>
-              {localStorage.getItem('purpleprose_registered')==="true" && (<div className="successMessageContainer">
-              <span className="successMessage">Successfully Registered!</span>
-              </div>)}
+              {localStorage.getItem("purpleprose_registered") === "true" && (
+                <div className="successMessageContainer">
+                  <span className="successMessage">
+                    Successfully Registered!
+                  </span>
+                </div>
+              )}
             </form>
           </div>
         </div>
-      </motion.div>
+      </motion.div>{" "}
+      <div className="madeWithText">
+        <span>Made with</span>
+        <svg
+          width="19"
+          height="16"
+          viewBox="0 0 19 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_1783_3207)">
+            <path
+              d="M9.40262 15.0857L8.26729 14.0413C4.23491 10.3462 1.57275 7.90133 1.57275 4.9184C1.57275 2.47351 3.46758 0.56665 5.87918 0.56665C7.24157 0.56665 8.54916 1.20755 9.40262 2.2124C10.2561 1.20755 11.5637 0.56665 12.9261 0.56665C15.3377 0.56665 17.2325 2.47351 17.2325 4.9184C17.2325 7.90133 14.5703 10.3462 10.5379 14.0413L9.40262 15.0857Z"
+              fill="#FB723D"
+            ></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_1783_3207">
+              <rect
+                width="18.7917"
+                height="15.0333"
+                fill="white"
+                transform="translate(0.00683594 0.56665)"
+              ></rect>
+            </clipPath>
+          </defs>
+        </svg>
+        <span>by DVM</span>
+      </div>
     </>
   );
 };

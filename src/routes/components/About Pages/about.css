@@ -1,186 +1,185 @@
-.page-container{
-    position: relative;
-    min-height: calc(100vh - 75px);
-    width: 100vw;
-    background-image: url(../../../assets/rectangle2.png);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding-bottom: 5rem;
-    /* width: 100vw;
+.page-container {
+  position: relative;
+  min-height: calc(100vh - 75px);
+  width: 100vw;
+  background-image: url(../../../assets/rectangle2.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-bottom: 5rem;
+  /* width: 100vw;
     background-image: url(../../../assets/rectangle2.png);
     background-size: cover;
     background-position: center; */
 }
 
 .about-container {
-    position: relative;
-    background: transparent;
-    max-width: 100vw; 
-    display: flex;
-    flex-direction: column;
-    padding: 0 min(9rem, 9vw);
-    padding-top: 50px;
-    align-items: center;
-    margin: auto;
-    margin-top: 75px;
-    gap: 1rem;
-    animation: fadeIn 0.75s ease-out;
-    max-width: 1500px;
-
+  position: relative;
+  background: transparent;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0 min(9rem, 9vw);
+  padding-top: 50px;
+  align-items: center;
+  margin: auto;
+  margin-top: 75px;
+  gap: 1rem;
+  animation: fadeIn 0.75s ease-out;
+  max-width: 1500px;
 }
 
 .about-title {
-    color: white;
-    font-weight: 700;
-    font-size: 3.5rem;
-    text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 3.5rem;
+  text-align: center;
 }
 .contact-title {
-    color: white;
-    font-weight: 700;
-    font-size: 3.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
+  color: white;
+  font-weight: 700;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .about-text {
-    color: white;
-    font-weight: 300;
-    font-size: 1.75rem;
-    text-align: justify;
-    line-height: 1.2;
+  color: white;
+  font-weight: 300;
+  font-size: 1.75rem;
+  text-align: justify;
+  line-height: 1.2;
 }
 
 .about-preregister-button {
-    background-color: white;
-    border: none;
-    padding: 0.5rem 3.5rem;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border-radius: 999px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    border: solid white;
-    
+  background-color: white;
+  border: none;
+  padding: 0.5rem 3.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: solid white;
 }
 
-.about-preregister-button:hover{
-    background-color: black;
-    color: white;
-    border: solid white;
-    /* transition: background-color, 0.2s ease-in; */
-    
+.about-preregister-button:hover {
+  background-color: black;
+  color: white;
+  border: solid white;
+  /* transition: background-color, 0.2s ease-in; */
 }
-.about-preregister-button:disabled{
-    /* background-color: black;
+.about-preregister-button:disabled {
+  /* background-color: black;
     color: white;
     border: solid white; */
-    cursor: not-allowed;
-    background-color: green;
-    color: white;
-    /* transition: background-color, 0.2s ease-in; */
-    
+  cursor: not-allowed;
+  background-color: green;
+  color: white;
+  /* transition: background-color, 0.2s ease-in; */
 }
 
 .about-buttons-container {
-    margin: 1rem 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    /* gap: 5rem; */
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* gap: 5rem; */
 }
 
-.contact-container{
-    width: 100%;
-    margin-bottom: 2rem;
-    min-width: 50vw;
+.contact-container {
+  width: 100%;
+  margin-bottom: 2rem;
+  min-width: 50vw;
 }
 
-.person-details{
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+.person-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
-.contact-events{
-    margin-top: 0.25rem;
-    color: rgb(188, 188, 188);
-    font-size: 1.2rem;
+.contact-events {
+  margin-top: 0.25rem;
+  color: rgb(188, 188, 188);
+  font-size: 1.2rem;
 }
 
-
-@media only screen and (max-width: 700px){
-    .about-container{
-        height: 100%;
-        /* display: flex; */
-        /* align-items: center; */
-        /* justify-content: center; */
-    }
-
-    .about-buttons-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .about-preregister-button {
-        font-size: 1.2rem;
-        width: 100%;
-        cursor: pointer;
-        width: 100%;
-    }
-
-    .about-text {
-        font-size: min(4rem, 4vw);
-        text-align: justify;
-    }
-
-    .about-title {
-        font-size: 2.1rem;
-        text-align: center;
-    }
-
-    .contact-title{
-        font-size: 2.1rem;
-        text-align: center;
-        margin: min(1rem, 2vw);
-    }
-
-    .about-link{
-        width: 100%;
-    }
-
-    .details{
-        font-size: min(1rem, 4vw);
-        white-space: nowrap;
-    }
-
-    .contact-events{
-        font-size: min(1rem, 3.5vw);
-    }
-
-    .main-container{
-        margin: auto;
-    }
+@media only screen and (max-width: 700px) {
+  .about-container {
+    height: 100%;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
   }
 
-  @media only screen and (max-width: 450px){
+  .about-buttons-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .about-preregister-button {
+    font-size: 1.2rem;
+    width: 100%;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .about-text {
+    font-size: min(4rem, 4vw);
+    text-align: justify;
+  }
+
+  .about-title {
+    font-size: 2.1rem;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 2.1rem;
+    text-align: center;
+    margin: min(1rem, 2vw);
+  }
+
+  .about-link {
+    width: 100%;
+  }
+
+  .details {
+    font-size: min(1rem, 4vw);
+    white-space: nowrap;
+  }
+
+  .contact-events {
+    font-size: min(1rem, 3.5vw);
+  }
+
+  .main-container {
+    margin: auto;
+  }
+}
+
+/* @media only screen and (max-width: 450px){
     .page-container{
         margin-top: 115px;
     }
-  }
+  } */
 
-  @keyframes fadeIn {
-    0% { opacity: 0;}
-    100% { opacity: 1;}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  .about-text span{
-    font-weight: 1000;
+  100% {
+    opacity: 1;
   }
+}
+.about-text span {
+  font-weight: 1000;
+}
