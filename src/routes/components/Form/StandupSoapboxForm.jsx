@@ -59,7 +59,7 @@ const StandupSoapboxForm = () => {
       axios
         .post(postLink, data, config)
         .then((response) => {
-          // console.log('Backend Response:', response.data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "soapbox_registered",
             response.data.soapbox_registered

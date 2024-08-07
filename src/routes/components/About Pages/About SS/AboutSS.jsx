@@ -16,7 +16,7 @@ export default function AboutSS() {
     axios
       .get(postLink)
       .then((response) => {
-        console.log("Backend Response:", response.data);
+        // console.log("Backend Response:", response.data);
         // let soapbox_registered = response.data.soapbox_registered
         setRegisteredState(response.data.soapbox_registered);
         setPaidState(response.data.soapbox_paid);
@@ -28,7 +28,7 @@ export default function AboutSS() {
   useEffect(() => {
     sendPaymentDatatoBackend();
   }, []);
-  console.log(paidState);
+  // console.log(paidState);
   return (
     <>
       <Navbar />

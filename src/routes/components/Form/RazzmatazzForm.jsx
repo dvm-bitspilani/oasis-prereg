@@ -93,7 +93,7 @@ const RazzmatazzForm = () => {
       axios
         .post(postLink, data, config)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "razzmatazz_registered",
             response.data.razzmatazz_registered

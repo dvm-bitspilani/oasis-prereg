@@ -57,6 +57,11 @@
 .input-field:focus {
   outline: none;
 }
+.input-field::-webkit-outer-spin-button,
+.input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 select {
   background: rgba(250, 250, 250, 0);
   font-size: 1.25rem;

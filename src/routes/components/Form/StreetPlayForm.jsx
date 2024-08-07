@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
@@ -7,13 +7,37 @@ import { useNavigate } from "react-router-dom";
 
 const StreetPlayForm = () => {
   const navigate = useNavigate();
+  const [teamSize, setTeamSize] = useState(1);
+  const [teamMembers, setTeamMembers] = useState([["", ""]]);
 
   const handlePhoneNumberInput = (e) => {
     e.target.value = e.target.value.replace(/\D/g, "");
   };
 
   const handleTeamSizeInput = (e) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+    const size = parseInt(e.target.value.replace(/[^0-9]/g, ""), 10);
+    if (size >= 1 && size <= 20) {
+      setTeamSize(size);
+      const newTeamMembers = Array.from({ length: size }, (_, i) => {
+        return teamMembers[i] || ["", ""];
+      });
+      setTeamMembers(newTeamMembers);
+    } else if (size < 1) {
+      setTeamSize(1);
+      setTeamMembers([["", ""]]);
+    } else if (size > 20) {
+      setTeamSize(20);
+      const newTeamMembers = Array.from({ length: 20 }, (_, i) => {
+        return teamMembers[i] || ["", ""];
+      });
+      setTeamMembers(newTeamMembers);
+    }
+  };
+
+  const handleMemberInputChange = (index, field, value) => {
+    const newTeamMembers = [...teamMembers];
+    newTeamMembers[index][field] = value;
+    setTeamMembers(newTeamMembers);
   };
 
   const collegeRef = useRef(null);
@@ -22,7 +46,8 @@ const StreetPlayForm = () => {
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
   const linksRef = useRef(null);
-  const teamMembers = useRef(null);
+  const linksRef2 = useRef(null);
+  const teamNameRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +57,7 @@ const StreetPlayForm = () => {
       nameRef.current,
       phoneRef.current,
       emailRef.current,
+      teamNameRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -52,12 +78,6 @@ const StreetPlayForm = () => {
       alert("Invalid email address format.");
       return;
     }
-
-    const teamMemberNames = Array.from(
-      teamMembers.current.querySelectorAll("input")
-    )
-      .map((input) => input.value)
-      .filter((name) => name.trim() !== "");
 
     const userDataString = localStorage.getItem("userData");
     let email_address = "";
@@ -81,19 +101,22 @@ const StreetPlayForm = () => {
         },
       };
       const data = {
+        email_address: emailRef.current.value,
+        phone: phoneRef.current.value,
+        name: nameRef.current.value,
+        city: "none",
         id: localStorage.getItem("userId"),
         college_name: collegeRef.current.value,
         team_size: teamSizeRef.current.value,
-        team_lead: nameRef.current.value,
-        team_lead_phone: phoneRef.current.value,
-        team_lead_email: emailRef.current.value,
-        script_submission: linksRef.current.value,
-        members: teamMemberNames,
+        team_name: teamNameRef.current.value,
+        video_submission: linksRef.current.value,
+        script_submission: linksRef2.current.value,
+        team_members_details: teamMembers,
       };
       axios
         .post(postLink, data, config)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "streetplay_registered",
             response.data.streetplay_registered
@@ -120,6 +143,10 @@ const StreetPlayForm = () => {
           <div className="form-container">
             <div className="form-heading">Register for Street Play</div>
             <form action="" className="main-form">
+              <label htmlFor="teamname" className="input-heading">
+                Team Name
+              </label>
+              <input type="text" className="input-field" ref={teamNameRef} />
               <label htmlFor="collegename" className="input-heading">
                 College Name
               </label>
@@ -152,15 +179,38 @@ const StreetPlayForm = () => {
                 onChange={handlePhoneNumberInput}
               />
               <label htmlFor="links" className="input-heading">
-                Google Drive Link to PDF Version of Script
+                Google Drive Link to your Video Submission
               </label>
               <input type="text" className="input-field" ref={linksRef} />
+              <label htmlFor="links" className="input-heading">
+                Google Drive Link to PDF Version of Script
+              </label>
+              <input type="text" className="input-field" ref={linksRef2} />
               <label htmlFor="membername" className="input-heading">
                 Team Member Names
               </label>
-              <div ref={teamMembers}>
-                {Array.from({ length: 20 }).map((_, index) => (
-                  <input key={index} type="text" className="input-field" />
+              <div>
+                {teamMembers.map((member, index) => (
+                  <div key={index}>
+                    <input
+                      type="email"
+                      className="input-field"
+                      placeholder={`Member ${index + 1} Email`}
+                      value={member[0]}
+                      onChange={(e) =>
+                        handleMemberInputChange(index, 0, e.target.value)
+                      }
+                    />
+                    <input
+                      type="text"
+                      className="input-field"
+                      placeholder={`Member ${index + 1} Name`}
+                      value={member[1]}
+                      onChange={(e) =>
+                        handleMemberInputChange(index, 1, e.target.value)
+                      }
+                    />
+                  </div>
                 ))}
               </div>
               <div className="submit-wrapper">

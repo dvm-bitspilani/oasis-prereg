@@ -46,13 +46,17 @@ const DesertDuelForm = () => {
       };
       const data = {
         id: localStorage.getItem("userId"),
+        email_address: JSON.parse(localStorage.getItem("userData"))
+          .user_profile_obj.google_email,
         college_name: collegeRef.current.value,
-        phone_number: phoneRef.current.value,
+        phone: phoneRef.current.value,
+        name: nameRef.current.value,
+        city: "none",
       };
       axios
         .post(postLink, data, config)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "desertduel_registered",
             response.data.desertduel_registered

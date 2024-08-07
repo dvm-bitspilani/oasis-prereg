@@ -77,7 +77,7 @@ const RapwarsForm = () => {
       axios
         .post(postLink, data, config)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "rapwars_registered",
             response.data.rapwars_registered

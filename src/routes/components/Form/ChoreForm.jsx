@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
@@ -6,12 +6,37 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const ChoreoForm = () => {
   const navigate = useNavigate();
+  const [teamSize, setTeamSize] = useState(1);
+  const [teamMembers, setTeamMembers] = useState([["", ""]]);
+
   const handlePhoneNumberInput = (e) => {
     e.target.value = e.target.value.replace(/\D/g, "");
   };
 
   const handleTeamSizeInput = (e) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, "");
+    const size = parseInt(e.target.value.replace(/[^0-9]/g, ""), 10);
+    if (size >= 1 && size <= 20) {
+      setTeamSize(size);
+      const newTeamMembers = Array.from({ length: size }, (_, i) => {
+        return teamMembers[i] || ["", ""];
+      });
+      setTeamMembers(newTeamMembers);
+    } else if (size < 1) {
+      setTeamSize(1);
+      setTeamMembers([["", ""]]);
+    } else if (size > 20) {
+      setTeamSize(20);
+      const newTeamMembers = Array.from({ length: 20 }, (_, i) => {
+        return teamMembers[i] || ["", ""];
+      });
+      setTeamMembers(newTeamMembers);
+    }
+  };
+
+  const handleMemberInputChange = (index, field, value) => {
+    const newTeamMembers = [...teamMembers];
+    newTeamMembers[index][field] = value;
+    setTeamMembers(newTeamMembers);
   };
 
   const collegeRef = useRef(null);
@@ -20,7 +45,7 @@ const ChoreoForm = () => {
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
   const linksRef = useRef(null);
-  const teamMembers = useRef(null);
+  const teamNameRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +55,7 @@ const ChoreoForm = () => {
       nameRef.current,
       phoneRef.current,
       emailRef.current,
+      teamNameRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -51,12 +77,6 @@ const ChoreoForm = () => {
       return;
     }
 
-    const teamMemberNames = Array.from(
-      teamMembers.current.querySelectorAll("input")
-    )
-      .map((input) => input.value)
-      .filter((name) => name.trim() !== "");
-
     const sendRegisteredDataToBackend = () => {
       const postLink =
         "https://bits-oasis.org/2024/main/preregistrations/ChoreoRegistration/";
@@ -66,19 +86,22 @@ const ChoreoForm = () => {
         },
       };
       const data = {
+        email_address: emailRef.current.value,
+        phone: phoneRef.current.value,
+        name: nameRef.current.value,
+        city: "none",
         id: localStorage.getItem("userId"),
         college_name: collegeRef.current.value,
         team_size: teamSizeRef.current.value,
-        team_lead: nameRef.current.value,
-        team_lead_phone: phoneRef.current.value,
-        team_lead_email: emailRef.current.value,
+        team_name: teamNameRef.current.value,
         video_submission: linksRef.current.value,
-        members: teamMemberNames,
+        team_members_details: teamMembers,
       };
       axios
         .post(postLink, data, config)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          // console.log(data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "choreo_registered",
             response.data.choreo_registered
@@ -106,11 +129,15 @@ const ChoreoForm = () => {
             <div className="form-heading">Register for Choreo</div>
             <form action="" className="main-form">
               <label htmlFor="collegename" className="input-heading">
+                Team Name
+              </label>
+              <input type="text" className="input-field" ref={teamNameRef} />
+              <label htmlFor="collegename" className="input-heading">
                 College Name
               </label>
               <input type="text" className="input-field" ref={collegeRef} />
               <label htmlFor="teamSize" className="input-heading">
-                Number of Team Members
+                Number of Team Members [max: 20]
               </label>
               <input
                 type="number"
@@ -118,6 +145,7 @@ const ChoreoForm = () => {
                 ref={teamSizeRef}
                 onInput={handleTeamSizeInput}
                 min="1"
+                max="20"
               />
               <label htmlFor="name" className="input-heading">
                 Team Representative Name
@@ -143,9 +171,28 @@ const ChoreoForm = () => {
               <label htmlFor="membername" className="input-heading">
                 Team Member Names
               </label>
-              <div ref={teamMembers}>
-                {Array.from({ length: 20 }).map((input, index) => (
-                  <input key={index} type="text" className="input-field" />
+              <div>
+                {teamMembers.map((member, index) => (
+                  <div key={index}>
+                    <input
+                      type="email"
+                      className="input-field"
+                      placeholder={`Member ${index + 1} Email`}
+                      value={member[0]}
+                      onChange={(e) =>
+                        handleMemberInputChange(index, 0, e.target.value)
+                      }
+                    />
+                    <input
+                      type="text"
+                      className="input-field"
+                      placeholder={`Member ${index + 1} Name`}
+                      value={member[1]}
+                      onChange={(e) =>
+                        handleMemberInputChange(index, 1, e.target.value)
+                      }
+                    />
+                  </div>
                 ))}
               </div>
               <div className="submit-wrapper">

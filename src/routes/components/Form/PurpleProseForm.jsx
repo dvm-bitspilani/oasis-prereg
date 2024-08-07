@@ -77,7 +77,7 @@ const PurpleProseForm = () => {
       axios
         .post(postLink, data, config)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          // console.log("Backend Response:", response.data);
           localStorage.setItem(
             "purpleprose_registered",
             response.data.purpleprose_registered
