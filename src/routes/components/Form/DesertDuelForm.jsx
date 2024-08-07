@@ -15,6 +15,7 @@ const DesertDuelForm = () => {
   const collegeRef = useRef(null);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
+  const emailRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +23,7 @@ const DesertDuelForm = () => {
       collegeRef.current,
       nameRef.current,
       phoneRef.current,
+      emailRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -46,8 +48,7 @@ const DesertDuelForm = () => {
       };
       const data = {
         id: localStorage.getItem("userId"),
-        email_address: JSON.parse(localStorage.getItem("userData"))
-          .user_profile_obj.google_email,
+        email_address: emailRef.current.value,
         college_name: collegeRef.current.value,
         phone: phoneRef.current.value,
         name: nameRef.current.value,
@@ -100,6 +101,10 @@ const DesertDuelForm = () => {
                 ref={phoneRef}
                 onChange={handlePhoneNumberInput}
               />
+              <label htmlFor="email" className="input-heading">
+                E-Mail ID
+              </label>
+              <input type="text" className="input-field" ref={emailRef} />
               <div className="submit-wrapper">
                 <button
                   type="submit"

@@ -13,6 +13,7 @@ import streetdance from "../../../assets/streetdance.png";
 import streetplay from "../../../assets/streetplay.png";
 import tarang from "../../../assets/tarang.png";
 import razzmatazz from "../../../assets/razzmatazz.jpeg";
+import desertduel from "../../../assets/temp-desertduel.jpg";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
@@ -233,7 +234,12 @@ export default function HomePage() {
                 <div
                   className="homepage-event-img"
                   style={{
-                    backgroundImage: `url(${razzmatazz})`,
+                    backgroundColor: "black",
+                    backgroundPosition: "center",
+                    backgroundSize: "150%",
+                    backgroundRepeat: "no-repeat",
+                    width: "100%",
+                    backgroundImage: `url(${desertduel})`,
                   }}
                 ></div>
                 <span className="homepage-event-name">Desert Duel</span>

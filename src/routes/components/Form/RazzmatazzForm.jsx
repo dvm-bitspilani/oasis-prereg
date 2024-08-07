@@ -9,6 +9,7 @@ const RazzmatazzForm = () => {
   const navigate = useNavigate();
 
   const collegeNameRef = useRef(null);
+  const emailRef = useRef(null);
   const teamNameRef = useRef(null);
   const teamSizeRef = useRef(null);
   const teamLeadRef = useRef(null);
@@ -31,6 +32,7 @@ const RazzmatazzForm = () => {
       teamLeadRef.current,
       videoSubmissionRef.current,
       phoneRef.current,
+      emailRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -82,14 +84,13 @@ const RazzmatazzForm = () => {
         team_size: parseInt(teamSizeRef.current.value),
         team_lead: teamLeadRef.current.value,
         video_submission: videoSubmissionRef.current.value,
-        email_address: JSON.parse(localStorage.getItem("userData"))
-          .user_profile_obj.google_email,
+        email_address: emailRef.current.value,
         phone: phoneRef.current.value,
         name: collegeNameRef.current.value,
-        city: "",
+        city: "none",
         is_student: true,
       };
-      console.log(data);
+      // console.log(data);
       axios
         .post(postLink, data, config)
         .then((response) => {
@@ -155,7 +156,10 @@ const RazzmatazzForm = () => {
                 ref={phoneRef}
                 onChange={handlePhoneNumberInput}
               />
-
+              <label htmlFor="email" className="input-heading">
+                E-Mail ID
+              </label>
+              <input type="text" className="input-field" ref={emailRef} />
               <label htmlFor="videoSubmission" className="input-heading">
                 Video Submission (Drive Link)
               </label>

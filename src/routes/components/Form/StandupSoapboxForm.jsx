@@ -97,11 +97,9 @@ const StandupSoapboxForm = () => {
                 <option value="" disabled selected hidden>
                   Select
                 </option>
-                <option value="Bangalore">Bangalore</option>
                 <option value="Delhi">Delhi</option>
                 <option value="Mumbai">Mumbai</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Jaipur</option>
               </select>
               <label htmlFor="phone" className="input-heading">
                 Contact Number
