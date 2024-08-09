@@ -66,9 +66,9 @@
     height: unset;
     width: 100px;
   }
-  .oasis-container {
+  /* .oasis-container {
     display: none;
-  }
+  } */
 }
 .navbar-back-button {
   /* background-color: red; */
