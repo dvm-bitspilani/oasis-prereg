@@ -82,6 +82,7 @@ const PurpleProseForm = () => {
             "purpleprose_registered",
             response.data.purpleprose_registered
           );
+          alert("Successfully Registered!");
           navigate("/PurpleProse/About");
         })
         .catch((error) => {

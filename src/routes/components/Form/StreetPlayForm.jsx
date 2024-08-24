@@ -121,6 +121,7 @@ const StreetPlayForm = () => {
             "streetplay_registered",
             response.data.streetplay_registered
           );
+          alert("Successfully Registered!");
           navigate("/StreetPlay/About");
         })
         .catch((error) => {

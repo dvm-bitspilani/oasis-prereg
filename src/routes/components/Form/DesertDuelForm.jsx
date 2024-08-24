@@ -62,6 +62,7 @@ const DesertDuelForm = () => {
             "desertduel_registered",
             response.data.desertduel_registered
           );
+          alert("Successfully Registered!");
           navigate("/DesertDuel/About");
         })
         .catch((error) => {

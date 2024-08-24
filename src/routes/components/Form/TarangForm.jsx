@@ -106,6 +106,7 @@ const TarangForm = () => {
             "tarang_registered",
             response.data.tarang_registered
           );
+          alert("Successfully Registered!");
           navigate("/Tarang/About");
         })
         .catch((error) => {

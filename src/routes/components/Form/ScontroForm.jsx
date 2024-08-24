@@ -81,6 +81,7 @@ const ScontroForm = () => {
             "scontro_registered",
             response.data.scontro_registered
           );
+          alert("Successfully Registered!");
           navigate("/Scontro/About");
         })
         .catch((error) => {

@@ -106,6 +106,7 @@ const FashPForm = () => {
             "fashp_registered",
             response.data.fashp_registered
           );
+          alert("Successfully Registered!");
           navigate("/FashP/About");
         })
         .catch((error) => {

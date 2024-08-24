@@ -106,6 +106,7 @@ const ChoreoForm = () => {
             "choreo_registered",
             response.data.choreo_registered
           );
+          alert("Successfully Registered!");
           navigate("/Choreo/About");
         })
         .catch((error) => {

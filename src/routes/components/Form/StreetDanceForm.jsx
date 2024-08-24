@@ -106,6 +106,7 @@ const StreetDanceForm = () => {
             "streetdance_registered",
             response.data.streetdance_registered
           );
+          alert("Successfully Registered!");
           navigate("/StreetDance/About");
         })
         .catch((error) => {

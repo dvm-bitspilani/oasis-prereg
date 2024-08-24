@@ -64,6 +64,7 @@ const StandupSoapboxForm = () => {
             "soapbox_registered",
             response.data.soapbox_registered
           );
+          alert("Successfully Registered!");
           navigate("/StandupSoapbox/About");
         })
         .catch((error) => {

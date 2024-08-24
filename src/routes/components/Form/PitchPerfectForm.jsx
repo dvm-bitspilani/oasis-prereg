@@ -106,6 +106,7 @@ const PitchPerfectForm = () => {
             "pitchperfect_registered",
             response.data.pitchperfect_registered
           );
+          alert("Successfully Registered!");
           navigate("/PitchPerfect/About");
         })
         .catch((error) => {

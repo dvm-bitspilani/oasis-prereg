@@ -106,6 +106,7 @@ const StagePlayForm = () => {
             "stageplay_registered",
             response.data.stageplay_registered
           );
+          alert("Successfully Registered!");
           navigate("/StagePlay/About");
         })
         .catch((error) => {

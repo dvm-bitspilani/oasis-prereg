@@ -99,6 +99,7 @@ const RazzmatazzForm = () => {
             "razzmatazz_registered",
             response.data.razzmatazz_registered
           );
+          alert("Successfully Registered!");
           navigate("/Razzmatazz/About");
         })
         .catch((error) => {

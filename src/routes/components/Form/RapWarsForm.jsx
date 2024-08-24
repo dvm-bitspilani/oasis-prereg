@@ -82,6 +82,7 @@ const RapwarsForm = () => {
             "rapwars_registered",
             response.data.rapwars_registered
           );
+          alert("Successfully Registered!");
           navigate("/RapWars/About");
         })
         .catch((error) => {
