@@ -58,6 +58,8 @@ const StreetPlayForm = () => {
       phoneRef.current,
       emailRef.current,
       teamNameRef.current,
+      linksRef.current,
+      linksRef2.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 

@@ -57,6 +57,7 @@ const TarangForm = () => {
       phoneRef.current,
       emailRef.current,
       teamNameRef.current,
+      linksRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
