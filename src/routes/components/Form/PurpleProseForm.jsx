@@ -163,14 +163,12 @@ const PurpleProseForm = () => {
                 <option value="" disabled selected hidden>
                   Select
                 </option>
-                {/* <option value="Bangalore">Bangalore</option> */}
                 <option value="Delhi">Delhi</option>
-                <option value="Jaipur">Jaipur</option>
-                <option value="Indore">Indore</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Pune">Pune</option>
                 <option value="Hyderabad">Hyderabad</option>
-                {/* <option value="Mumbai">Mumbai</option> */}
+                <option value="Pune">Pune</option>
+                <option value="Nagpur">Nagpur</option>
+                <option value="Indore">Indore</option>
+                <option value="Pilani">Pilani</option>
               </select>
               <div className="student">
                 <label htmlFor="student" className="input-heading student">
