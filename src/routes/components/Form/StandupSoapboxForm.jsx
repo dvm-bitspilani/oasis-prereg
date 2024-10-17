@@ -13,6 +13,7 @@ const StandupSoapboxForm = () => {
   const cityRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
+  const linksRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ const StandupSoapboxForm = () => {
       cityRef.current,
       phoneRef.current,
       emailRef.current,
+      linksRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -55,6 +57,7 @@ const StandupSoapboxForm = () => {
         city: cityRef.current.value,
         phone: phoneRef.current.value,
         email_address: emailRef.current.value,
+        youtube_gdrive: linksRef.current.value,
       };
       axios
         .post(postLink, data, config)
@@ -119,6 +122,10 @@ const StandupSoapboxForm = () => {
                 E-Mail ID
               </label>
               <input type="text" className="input-field" ref={emailRef} />
+              <label htmlFor="links" className="input-heading">
+                Google Drive Link to your Video Submission
+              </label>
+              <input type="text" className="input-field" ref={linksRef} />
               <div className="submit-wrapper">
                 <button
                   type="submit"
