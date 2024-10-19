@@ -108,6 +108,7 @@ const StandupSoapboxForm = () => {
                   Jaipur
                 </option>
                 <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore (Online)">Bangalore (Online)</option>
               </select>
               <label htmlFor="phone" className="input-heading">
                 Contact Number
