@@ -1,10 +1,8 @@
-import React from "react";
-import "../about.css";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
+import "../about.css";
 import MyRegisterationButton from "../MyRegisterationButton";
-import MyPaymentButton from "../MyPaymentButton";
 export default function AboutRapWars() {
   return (
     <div>
@@ -38,8 +36,21 @@ export default function AboutRapWars() {
               in contention for exciting prizes.
               <br /> <br />
               Follow us for more information: <br />
-              https://www.instagram.com/bitsoasis/ <br />
-              https://www.instagram.com/rapwars.oasis/
+              <a
+                href="https://www.instagram.com/bitsoasis/"
+                target="_blank"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                https://www.instagram.com/bitsoasis/
+              </a>{" "}
+              <br />
+              <a
+                href="https://www.instagram.com/rapwars.oasis/"
+                target="_blank"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                https://www.instagram.com/rapwars.oasis/
+              </a>
               <br /> <br />
               Contact details:
               <br />

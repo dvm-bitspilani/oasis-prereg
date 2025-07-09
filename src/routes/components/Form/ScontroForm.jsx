@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 const ScontroForm = () => {
   const navigate = useNavigate();
   const handlePhoneNumberInput = (e) => {
@@ -54,7 +54,7 @@ const ScontroForm = () => {
     }
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2024/main/preregistrations/ScontroRegistration/";
+        "https://prereg.bits-oasis.org/main/ScontroRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

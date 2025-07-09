@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const DesertDuelForm = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const DesertDuelForm = () => {
 
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2024/main/preregistrations/DesertDuelRegistration/";
+        "https://prereg.bits-oasis.org/main/DesertDuelRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

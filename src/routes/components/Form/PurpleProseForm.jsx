@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 const PurpleProseForm = () => {
   const navigate = useNavigate();
   const [isStudentChecked, setIsStudentChecked] = useState(false);
@@ -55,7 +55,7 @@ const PurpleProseForm = () => {
     }
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2024/main/preregistrations/PurpleProseRegistration/";
+        "https://prereg.bits-oasis.org/main/PurpleProseRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

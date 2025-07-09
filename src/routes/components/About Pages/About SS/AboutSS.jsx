@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
-import "../about.css";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import Navbar from "../../Navbar/Navbar";
-import MyRegisterationButton from "../MyRegisterationButton";
-import MyPaymentButton from "../MyPaymentButton";
 import axios from "axios";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../../Navbar/Navbar";
+import "../about.css";
+import MyRegisterationButton from "../MyRegisterationButton";
 export default function AboutSS() {
   const [paidState, setPaidState] = useState(false);
   const [registeredState, setRegisteredState] = useState(false);
   const sendPaymentDatatoBackend = () => {
-    let postLink = `https://bits-oasis.org/2024/main/preregistrations/GetPreRegUser/${localStorage.getItem(
+    let postLink = `https://prereg.bits-oasis.org/main/GetPreRegUser/${localStorage.getItem(
       "userId"
     )}`;
     axios

@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const PitchPerfectForm = () => {
   const navigate = useNavigate();
@@ -81,7 +81,7 @@ const PitchPerfectForm = () => {
 
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2024/main/preregistrations/PitchPerfectRegistration/";
+        "https://prereg.bits-oasis.org/main/PitchPerfectRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

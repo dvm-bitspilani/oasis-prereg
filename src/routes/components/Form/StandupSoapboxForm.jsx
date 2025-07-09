@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import axios from "axios";
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 const StandupSoapboxForm = () => {
   const navigate = useNavigate();
   const handlePhoneNumberInput = (e) => {
@@ -45,7 +45,7 @@ const StandupSoapboxForm = () => {
     }
     const sendRegisteredDataToBackend = () => {
       const postLink =
-        "https://bits-oasis.org/2024/main/preregistrations/StandupSoapboxRegistration/";
+        "https://prereg.bits-oasis.org/main/StandupSoapboxRegistration/";
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
