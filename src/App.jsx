@@ -44,7 +44,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <GoogleOAuthProvider clientId="735998356236-apic0eqqi6hedhjbps0ba2m1ob9oigke.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="1075258287649-u7ip9v5r5bcics2mf8p53dkblgcc9r4f.apps.googleusercontent.com">
       <AuthProvider>
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
