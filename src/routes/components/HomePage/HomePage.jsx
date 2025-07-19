@@ -5,19 +5,19 @@ import purposeprose from "../../../assets/purposeprose.png";
 import scontro from "../../../assets/scontroLogo.png";
 import rapwars from "../../../assets/rapwars.png";
 import standupsoapbox from "../../../assets/standupsoapbox.png";
-import choreo from "../../../assets/choreo.png";
-import fashp from "../../../assets/fashp.png";
-import pitchperfect from "../../../assets/pitchperfect.png";
-import stageplay from "../../../assets/stageplay.png";
-import streetdance from "../../../assets/streetdance.png";
-import streetplay from "../../../assets/streetplay.png";
-import tarang from "../../../assets/tarang.png";
-import razzmatazz from "../../../assets/razzmatazz.jpeg";
-import desertduel from "../../../assets/temp-desertduel.jpg";
+// import choreo from "../../../assets/choreo.png";
+// import fashp from "../../../assets/fashp.png";
+// import pitchperfect from "../../../assets/pitchperfect.png";
+// import stageplay from "../../../assets/stageplay.png";
+// import streetdance from "../../../assets/streetdance.png";
+// import streetplay from "../../../assets/streetplay.png";
+// import tarang from "../../../assets/tarang.png";
+// import razzmatazz from "../../../assets/razzmatazz.jpeg";
+// import desertduel from "../../../assets/temp-desertduel.jpg";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
-import BackButton from "../BackButton/BackButton.jsx";
+// import BackButton from "../BackButton/BackButton.jsx";
 export default function HomePage() {
   return (
     <>
@@ -95,7 +95,7 @@ export default function HomePage() {
                 <span className="homepage-event-name">Scontro</span>
               </motion.div>
             </Link>
-            <Link to="/Razzmatazz/About">
+            {/* <Link to="/Razzmatazz/About">
               <motion.div
                 className="homepage-event-wrapper"
                 whileTap={{ scale: 0.95 }}
@@ -114,9 +114,9 @@ export default function HomePage() {
                 ></div>
                 <span className="homepage-event-name">Razzmatazz</span>
               </motion.div>
-            </Link>
+            </Link> */}
           </div>
-          <div className="homepage-events-container">
+          {/* <div className="homepage-events-container">
             <Link to="/Choreo/About">
               <motion.div
                 className="homepage-event-wrapper"
@@ -245,7 +245,7 @@ export default function HomePage() {
                 <span className="homepage-event-name">Desert Duel</span>
               </motion.div>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
