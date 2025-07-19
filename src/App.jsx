@@ -14,25 +14,25 @@ import HomePage from "./routes/components/HomePage/HomePage.jsx";
 import LandingPage from "./routes/components/LandingPage/LandingPage.jsx";
 import ProfilePage from "./routes/components/ProfilePage/ProfilePage.jsx";
 // import Contact from "./routes/components/About Pages/Contact";
-import AboutChoreo from "./routes/components/About Pages/About Choreo/AboutChoreo.jsx";
-import AboutDesertDuel from "./routes/components/About Pages/About DesertDuel/AboutDesertDuel.jsx";
-import AboutFashP from "./routes/components/About Pages/About FashP/AboutFashP.jsx";
-import AboutPitchPerfect from "./routes/components/About Pages/About PitchPerfect/AboutPitchPerfect.jsx";
-import AboutRazzmatazz from "./routes/components/About Pages/About Razzmatazz/AboutRazzmatazz.jsx";
-import AboutStagePlay from "./routes/components/About Pages/About StagePlay/AboutStagePlay.jsx";
-import AboutStreetDance from "./routes/components/About Pages/About StreetDance/AboutStreetDance.jsx";
-import AboutStreetPlay from "./routes/components/About Pages/About StreetPlay/AboutStreetPlay.jsx";
-import AboutTarang from "./routes/components/About Pages/About Tarang/AboutTarang.jsx";
+// import AboutChoreo from "./routes/components/About Pages/About Choreo/AboutChoreo.jsx";
+// import AboutDesertDuel from "./routes/components/About Pages/About DesertDuel/AboutDesertDuel.jsx";
+// import AboutFashP from "./routes/components/About Pages/About FashP/AboutFashP.jsx";
+// import AboutPitchPerfect from "./routes/components/About Pages/About PitchPerfect/AboutPitchPerfect.jsx";
+// import AboutRazzmatazz from "./routes/components/About Pages/About Razzmatazz/AboutRazzmatazz.jsx";
+// import AboutStagePlay from "./routes/components/About Pages/About StagePlay/AboutStagePlay.jsx";
+// import AboutStreetDance from "./routes/components/About Pages/About StreetDance/AboutStreetDance.jsx";
+// import AboutStreetPlay from "./routes/components/About Pages/About StreetPlay/AboutStreetPlay.jsx";
+// import AboutTarang from "./routes/components/About Pages/About Tarang/AboutTarang.jsx";
 import { useAuth } from "./routes/components/AuthProvider.jsx";
-import ChoreoForm from "./routes/components/Form/ChoreForm.jsx";
-import DesertDuelForm from "./routes/components/Form/DesertDuelForm.jsx";
-import FashPForm from "./routes/components/Form/FashPForm.jsx";
-import PitchPerfectForm from "./routes/components/Form/PitchPerfectForm.jsx";
-import RazzmatazzForm from "./routes/components/Form/RazzmatazzForm.jsx";
-import StagePlayForm from "./routes/components/Form/StagePlayForm.jsx";
-import StreetDanceForm from "./routes/components/Form/StreetDanceForm.jsx";
-import StreetPlayForm from "./routes/components/Form/StreetPlayForm.jsx";
-import TarangForm from "./routes/components/Form/TarangForm.jsx";
+// import ChoreoForm from "./routes/components/Form/ChoreForm.jsx";
+// import DesertDuelForm from "./routes/components/Form/DesertDuelForm.jsx";
+// import FashPForm from "./routes/components/Form/FashPForm.jsx";
+// import PitchPerfectForm from "./routes/components/Form/PitchPerfectForm.jsx";
+// import RazzmatazzForm from "./routes/components/Form/RazzmatazzForm.jsx";
+// import StagePlayForm from "./routes/components/Form/StagePlayForm.jsx";
+// import StreetDanceForm from "./routes/components/Form/StreetDanceForm.jsx";
+// import StreetPlayForm from "./routes/components/Form/StreetPlayForm.jsx";
+// import TarangForm from "./routes/components/Form/TarangForm.jsx";
 import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
 
 function ProtectedRoute({ element }) {
@@ -70,7 +70,7 @@ function App() {
               path="/Scontro/form"
               element={<ProtectedRoute element={<ScontroForm />} />}
             />
-            <Route
+            {/* <Route
               path="/Razzmatazz/form"
               element={<ProtectedRoute element={<RazzmatazzForm />} />}
             />
@@ -105,13 +105,13 @@ function App() {
             <Route
               path="/DesertDuel/form"
               element={<ProtectedRoute element={<DesertDuelForm />} />}
-            />
+            /> */}
 
             <Route path="/PurpleProse/About" element={<AboutPP />} />
             <Route path="/Scontro/About" element={<AboutScontro />} />
             <Route path="/RapWars/About" element={<AboutRapWars />} />
             <Route path="/StandupSoapbox/About" element={<AboutSS />} />
-            <Route path="/Razzmatazz/About" element={<AboutRazzmatazz />} />
+            {/* <Route path="/Razzmatazz/About" element={<AboutRazzmatazz />} />
             <Route path="/Choreo/About" element={<AboutChoreo />} />
             <Route path="/FashP/About" element={<AboutFashP />} />
             <Route path="/PitchPerfect/About" element={<AboutPitchPerfect />} />
@@ -119,7 +119,7 @@ function App() {
             <Route path="/StreetDance/About" element={<AboutStreetDance />} />
             <Route path="/StreetPlay/About" element={<AboutStreetPlay />} />
             <Route path="/Tarang/About" element={<AboutTarang />} />
-            <Route path="/DesertDuel/About" element={<AboutDesertDuel />} />
+            <Route path="/DesertDuel/About" element={<AboutDesertDuel />} /> */}
 
             {/* <Route path="/Contact" element={<Contact />} /> */}
             <Route path="/payment-page" element={<ShowPaymentPage />} />
