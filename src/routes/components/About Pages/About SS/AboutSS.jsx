@@ -67,7 +67,7 @@ export default function AboutSS() {
             the finals.
             <br />
             <br /> <b>2. Final Round:</b> The finalists will compete at the BITS
-            Pilani campus during Oasis '24. The winner will get the prestigious
+            Pilani campus during Oasis '25. The winner will get the prestigious
             opportunity to open for one of India's top comedians at our flagship
             event, N2O. Past appearances at N2O include renowned comedians like
             Zakir Khan, Biswa Kalyan Rath, Abhishek Upmanyu, and Aakash Gupta.{" "}

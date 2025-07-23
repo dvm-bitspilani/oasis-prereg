@@ -1,9 +1,7 @@
-import React from "react";
-import "./LandingPage.css";
-import Logo from "../../../assets/oasis-logo.png";
-import LogoText from "../../../assets/oasis.png";
+import LogoText from "../../../assets/oasis25.png";
 import RightContainerImage from "../../../assets/rectangle1.png";
 import Login from "../Login/Login";
+import "./LandingPage.css";
 export default function LandingPage() {
   return (
     <>

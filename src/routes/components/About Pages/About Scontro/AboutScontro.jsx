@@ -1,10 +1,8 @@
-import React from "react";
-import "../about.css";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
+import "../about.css";
 import MyRegisterationButton from "../MyRegisterationButton";
-import MyPaymentButton from "../MyPaymentButton";
 export default function AboutRapWars() {
   return (
     <div>
@@ -32,9 +30,8 @@ export default function AboutRapWars() {
               only seeks to discover the best emerging DJ talent but also aims
               to create a memorable and immersive musical experience for
               everyone attending Oasis. Get ready for a fusion of beats, talent,
-              and electrifying performances at Scontro during Oasis 2024.{" "}
-              <br/>
-              <br/>
+              and electrifying performances at Scontro during Oasis 2025. <br />
+              <br />
               <span>Winners get cash prizes worth Rs. 50,000/-</span>
               <br /> <br />
               Contact details:
