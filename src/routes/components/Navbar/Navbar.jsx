@@ -1,9 +1,7 @@
-import React from "react";
-import "../Navbar/Navbar.css";
-import Oasis from "../../../assets/oasis.png";
-import ProfileImg from "../../../assets/profile.svg";
 import { Link } from "react-router-dom";
 import BackBtn from "../../../assets/backarrow.png";
+import Oasis from "../../../assets/oasis25.png";
+import "../Navbar/Navbar.css";
 const Navbar = () => {
   // const history = useHistory();
 
