@@ -43,6 +43,7 @@ export default function AboutPP() {
           </div>
           <div className="about-buttons-container">
             <Link to="/PurpleProse/form" className="about-link">
+            
               {/* <motion.button className="about-preregister-button" whileHover = {{scale:1.1}} whileTap={{scale:0.9}}>Register Now</motion.button> */}
               <MyRegisterationButton
                 disabled={
@@ -51,7 +52,8 @@ export default function AboutPP() {
                 argument={localStorage.getItem("purpleprose_registered")}
               />
             </Link>
-            {/* <MyPaymentButton disabled={true} argument={localStorage.getItem('purpleprose_paid')} /> */}
+            
+            { <MyPaymentButton disabled={localStorage.getItem('purpleprose_paid')==='true'} argument={localStorage.getItem('purpleprose_paid')} event ='purpleprose'/> }
           </div>
         </motion.div>
       </div>

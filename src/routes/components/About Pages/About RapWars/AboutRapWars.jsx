@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import "../about.css";
 import MyRegisterationButton from "../MyRegisterationButton";
+import MyPaymentButton from "../MyPaymentButton";
 export default function AboutRapWars() {
   return (
     <div>
@@ -69,7 +70,7 @@ export default function AboutRapWars() {
                   argument={localStorage.getItem("rapwars_registered")}
                 />
               </Link>
-              {/* <MyPaymentButton disabled={localStorage.getItem('rapwars_paid')==='true'} argument={localStorage.getItem('rapwars_paid')} /> */}
+              { <MyPaymentButton disabled={localStorage.getItem('rapwars_paid')==='true'} argument={localStorage.getItem('rapwars_paid')} event = 'rapwars'  /> }
             </div>
           </motion.div>
         </motion.div>

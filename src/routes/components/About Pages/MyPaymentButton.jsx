@@ -2,7 +2,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const MyPaymentButton = ({ disabled, argument }) => {
+const MyPaymentButton = ({ disabled, argument, event }) => {
   const navigate = useNavigate();
   const [backendResponse, setBackendResponse] = useState(null);
   const isPaid = argument === "true";
@@ -10,15 +10,14 @@ const MyPaymentButton = ({ disabled, argument }) => {
   const tapAnimation = isPaid || disabled ? {} : { scale: 0.9 };
   const sendPaymentDatatoBackend = () => {
     let postLink =
-      "https://prereg.bits-oasis.org/main/monetary/soapbox/get_paytm_checksum";
+      `https://prereg.bits-oasis.org/main/monetary/${event}/get_paytm_checksum`;
     let config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
     let data = {
-      user_id: localStorage.getItem("userId"),
-      TXN_AMOUNT: 1,
+      user_id: localStorage.getItem("userId")
     };
     axios
       .post(postLink, data, config)
@@ -41,6 +40,11 @@ const MyPaymentButton = ({ disabled, argument }) => {
       });
   };
   const handlePaymentClick = () => {
+    const isReg = localStorage.getItem(`${event}_registered`) === "true";
+    if (!isReg) {
+      alert("Please register first before making a payment.");
+      return;
+    }
     sendPaymentDatatoBackend();
   };
   return (

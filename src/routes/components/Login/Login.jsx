@@ -19,7 +19,7 @@ export default function Login() {
       axios
         .post(postLink, data)
         .then((response) => {
-          console.log("Backend Response:", response.data);
+          //console.log("Backend Response:", response.data);
           // localStorage.setItem("email", jwtDecode(credentialResponse.credential).email)
           localStorage.setItem("token", response.data.access_token);
           localStorage.setItem("userId", response.data.user_id);
@@ -54,7 +54,7 @@ export default function Login() {
         });
     };
     sendDataToBackend();
-    console.log(credentialResponse);
+    //console.log(credentialResponse);
   };
   const onGoogleLoginFailure = () => {
     console.log("first");

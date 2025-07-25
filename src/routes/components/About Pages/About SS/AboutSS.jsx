@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import "../about.css";
 import MyRegisterationButton from "../MyRegisterationButton";
+import MyPaymentButton from "../MyPaymentButton"
 export default function AboutSS() {
   const [paidState, setPaidState] = useState(false);
   const [registeredState, setRegisteredState] = useState(false);
@@ -99,6 +100,10 @@ export default function AboutSS() {
                 argument={localStorage.getItem("soapbox_registered")}
               />
             </Link>
+            <MyPaymentButton
+  disabled={localStorage.getItem('paidState') === 'true'}
+  argument={localStorage.getItem('paidState')} event= 'soapbox'
+/>
             {/* {localStorage.getItem("soapbox_registered") ? <MyPaymentButton disabled={paidState} argument={paidState}   />: <></>} */}
             {/* {registeredState? (
     <MyPaymentButton disabled={paidState} argument={paidState} />

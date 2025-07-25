@@ -44,6 +44,7 @@ const StandupSoapboxForm = () => {
       return;
     }
     const sendRegisteredDataToBackend = () => {
+      
       const postLink =
         "https://prereg.bits-oasis.org/main/StandupSoapboxRegistration/";
       let config = {
