@@ -7,7 +7,7 @@ import "../about.css";
 import MyRegisterationButton from "../MyRegisterationButton";
 import MyPaymentButton from "../MyPaymentButton"
 export default function AboutSS() {
-  const [paidState, setPaidState] = useState(false);
+  const [soapbox_paid, setsoapbox_paid] = useState(false);
   const [registeredState, setRegisteredState] = useState(false);
   const sendPaymentDatatoBackend = () => {
     let postLink = `https://prereg.bits-oasis.org/GetPreRegUser/${localStorage.getItem(
@@ -19,7 +19,7 @@ export default function AboutSS() {
         // console.log("Backend Response:", response.data);
         // let soapbox_registered = response.data.soapbox_registered
         setRegisteredState(response.data.soapbox_registered);
-        setPaidState(response.data.soapbox_paid);
+        setsoapbox_paid(response.data.soapbox_paid);
       })
       .catch((error) => {
         console.error("Error sending data to backend:", error);
@@ -101,8 +101,8 @@ export default function AboutSS() {
               />
             </Link>
             <MyPaymentButton
-  disabled={localStorage.getItem('paidState') === 'true'}
-  argument={localStorage.getItem('paidState')} event= 'soapbox'
+  disabled={localStorage.getItem('soapbox_paid') === 'true'}
+  argument={localStorage.getItem('soapbox_paid')} event= 'soapbox'
 />
             {/* {localStorage.getItem("soapbox_registered") ? <MyPaymentButton disabled={paidState} argument={paidState}   />: <></>} */}
             {/* {registeredState? (

@@ -22,6 +22,7 @@ const MyPaymentButton = ({ disabled, argument, event }) => {
     axios
       .post(postLink, data, config)
       .then((response) => {
+        localStorage.setItem("current_event", event);
         navigate("/payment-page");
         console.log("Backend Response:", response.data);
         setBackendResponse(response.data);

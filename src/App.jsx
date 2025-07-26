@@ -34,6 +34,7 @@ import { useAuth } from "./routes/components/AuthProvider.jsx";
 // import StreetPlayForm from "./routes/components/Form/StreetPlayForm.jsx";
 // import TarangForm from "./routes/components/Form/TarangForm.jsx";
 import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
+import PaymentConfirmation from "./routes/components/PaymentPage/PaymentConfirmation.jsx";
 
 function ProtectedRoute({ element }) {
   const { isLoggedIn } = useAuth();
@@ -123,6 +124,7 @@ function App() {
 
             {/* <Route path="/Contact" element={<Contact />} /> */}
             <Route path="/payment-page" element={<ShowPaymentPage />} />
+             <Route path="/payment-confirmation" element={<PaymentConfirmation />} />
           </Routes>
         </AnimatePresence>
       </AuthProvider>
