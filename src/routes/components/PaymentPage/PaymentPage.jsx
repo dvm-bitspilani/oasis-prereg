@@ -18,7 +18,7 @@ const ShowPaymentPage = () => {
           action={`https://securegw.paytm.in/theia/api/v1/showPaymentPage?mid=${localStorage.getItem("mid")}&orderId=${localStorage.getItem("order_id")}`}
           name="paytm"
         >
-              {Object.entries(localStorage.getItem('payment_dict')).map(([key, value]) => (
+              {Object.entries(JSON.parse(localStorage.getItem('payment_dict'))).map(([key, value]) => (
                 <input key={key} type="hidden" name={key} value={value} />
               ))}
               <input type="hidden" name="CHECKSUMHASH" value={localStorage.getItem('checksum')} />
