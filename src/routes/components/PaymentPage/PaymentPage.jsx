@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
 import './PaymentPage.css'
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 const ShowPaymentPage = () => {
   
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   
     useEffect(() => {
         document.paytm.submit();
-        navigate("/payment-confirmation");
+        //navigate("/payment-confirmation");
       }, []);
 
   return (
