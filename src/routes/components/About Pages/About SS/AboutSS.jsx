@@ -8,6 +8,7 @@ import MyRegisterationButton from "../MyRegisterationButton";
 import MyPaymentButton from "../MyPaymentButton"
 export default function AboutSS() {
   const [soapbox_paid, setsoapbox_paid] = useState(false);
+  
   const [registeredState, setRegisteredState] = useState(false);
   const sendPaymentDatatoBackend = () => {
     let postLink = `https://prereg.bits-oasis.org/GetPreRegUser/${localStorage.getItem(
@@ -42,55 +43,26 @@ export default function AboutSS() {
         <motion.div className="about-container">
           <div className="about-title">About Standup Soapbox</div>
           <div className="about-text">
-            Welcome to Standup Soapbox, a highlight of Oasis '24, the 52nd
-            edition of BITS Pilani's celebrated cultural festival. Oasis is one
-            of India's premier cultural fests, drawing thousands of participants
-            and attendees nationwide. This October, we are thrilled to present
-            Standup Soapbox, a vibrant platform for emerging comedians to
-            showcase their talent.
+            <b>What is Standup Soapbox? </b><b>Stand-Up Soapbox</b> is a 
+            pan-India platform that gives aspiring stand-up comedians the 
+            stage they deserve. Finalists earn the opportunity to perform 
+            live at <b>OASIS</b> , one of India’s largest cultural festivals,
+            hosted at <b>BITS Pilani</b> .
+
             <br />
             <br />
-            <b>What is Standup Soapbox?</b> Standup Soapbox is an exciting event
-            designed to discover and promote new and upcoming stand-up
-            comedians. It provides a unique opportunity for artists to perform
-            in front of an engaged audience of over 5000 people. The event will
-            be held offline, ensuring maximum exposure and interaction for the
-            participants.
-            <br />
-            <br />
-            <b>Event Structure</b> The competition will be conducted in two
-            stages:
-            <br />
-            <br />
-            <b>1. Preliminary Rounds:</b> Held at selected comedy clubs across
-            India, these rounds will feature a strict selection, elimination,
-            and evaluation process to ensure only the best talents make it to
-            the finals.
-            <br />
-            <br /> <b>2. Final Round:</b> The finalists will compete at the BITS
-            Pilani campus during Oasis '25. The winner will get the prestigious
-            opportunity to open for one of India's top comedians at our flagship
-            event, N2O. Past appearances at N2O include renowned comedians like
-            Zakir Khan, Biswa Kalyan Rath, Abhishek Upmanyu, and Aakash Gupta.{" "}
-            <br /> <br /> <b>Why Participate?</b>
-            <br />
-            <br /> ● <b>Exposure:</b> Perform in front of a large, diverse
-            audience and gain nationwide recognition. <br />
-            <br /> ● <b>Networking:</b> Connect with industry professionals,
-            fellow comedians, and comedy enthusiasts. ● Prizes: The winner gets
-            a chance to perform alongside top comedians, with travel and
-            accommodation covered by us. <br />
-            <br />● <b>Prizes:</b> The winner gets a chance to perform alongside
-            top comedians, with travel and accommodation covered by us.
-            <br /> <br />
-            Contact details:
-            <br />
-            <br />
-            Aditya Rana - 8869889654
-            <br />
-            Vedant Shah - 7506553199
-            <br />
-            Devasri Bali - 9810097764
+            <b>Rules for Standup Soap Box | Delhi Prelims</b>
+            <br /><br />
+            <ol className="rules-list">
+    <li>Comedians of all ages are allowed to participate.</li>
+    <li>Each participant has a maximum of 3 minutes to perform.</li>
+    <li>The languages in which comedians can perform are Hindi, English or a mix of both.</li>
+    <li>There should be no jokes about religion, race, ethnicity etc.</li>
+    <li>Foul language is not allowed in the performance.</li>
+    <li>Violation of points 4th and 5th will result in disqualification of the comedian.</li>
+    <li>You must bring one companion to the event; if you fail to do so, you will be disqualified.</li>
+    <li>If the set seems to be plagiarized, the participants will be disqualified.</li>
+  </ol>
           </div>
           <div className="about-buttons-container">
             <Link to="/StandupSoapbox/form" className="about-link">
