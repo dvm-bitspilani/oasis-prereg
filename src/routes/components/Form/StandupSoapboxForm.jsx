@@ -103,7 +103,7 @@ const StandupSoapboxForm = () => {
                 <option value="" disabled selected hidden>
                   Select
                 </option>
-                <option value="Delhi" disabled>
+                <option value="Delhi" >
                   Delhi
                 </option>
                 <option value="Jaipur" disabled>
