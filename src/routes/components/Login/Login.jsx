@@ -45,7 +45,7 @@ export default function Login() {
           );
           
           
-          console.log(response.data)
+          //console.log(response.data)
           localStorage.setItem("rapwars_paid", response.data.rapwars_paid);
           localStorage.setItem(
             "purpleprose_paid",
