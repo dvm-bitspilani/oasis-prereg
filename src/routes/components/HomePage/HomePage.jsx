@@ -95,6 +95,21 @@ export default function HomePage() {
                 <span className="homepage-event-name">Scontro</span>
               </motion.div>
             </Link>
+            <Link to="/BeatBrawl/About">
+              <motion.div
+                className="homepage-event-wrapper"
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div
+                  className="homepage-event-img"
+                  style={{
+                    backgroundImage: `url(${scontro})`,
+                  }}
+                ></div>
+                <span className="homepage-event-name">BeatBrawl</span>
+              </motion.div>
+            </Link>
             {/* <Link to="/Razzmatazz/About">
               <motion.div
                 className="homepage-event-wrapper"

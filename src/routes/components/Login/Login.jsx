@@ -39,6 +39,13 @@ export default function Login() {
             "scontro_registered",
             response.data.scontro_registered
           );
+          localStorage.setItem(
+            "beatbrawl_registered",
+            response.data.beatbrawl_registered
+          );
+          
+          
+          console.log(response.data)
           localStorage.setItem("rapwars_paid", response.data.rapwars_paid);
           localStorage.setItem(
             "purpleprose_paid",
@@ -46,6 +53,10 @@ export default function Login() {
           );
           localStorage.setItem("soapbox_paid", response.data.soapbox_paid);
           localStorage.setItem("scontro_paid", response.data.scontro_paid);
+          localStorage.setItem(
+            "beatbrawl_paid",
+            response.data.beatbrawl_paid
+          );
           // navigate('/home');
           navigate("/home");
         })

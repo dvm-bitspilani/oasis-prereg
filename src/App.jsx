@@ -35,6 +35,9 @@ import { useAuth } from "./routes/components/AuthProvider.jsx";
 // import TarangForm from "./routes/components/Form/TarangForm.jsx";
 import ShowPaymentPage from "./routes/components/PaymentPage/PaymentPage";
 import PaymentConfirmation from "./routes/components/PaymentPage/PaymentConfirmation.jsx";
+import AboutBeatBrawl from "./routes/components/About Pages/About BeatBrawl/AboutBeatBrawl.jsx";
+
+import BeatBrawlForm from "./routes/components/Form/BeatBrawlForm.jsx";
 
 function ProtectedRoute({ element }) {
   const { isLoggedIn } = useAuth();
@@ -70,6 +73,10 @@ function App() {
             <Route
               path="/Scontro/form"
               element={<ProtectedRoute element={<ScontroForm />} />}
+            />
+            <Route
+              path="/BeatBrawl/form"
+              element={<ProtectedRoute element={<BeatBrawlForm />} />}
             />
             {/* <Route
               path="/Razzmatazz/form"
@@ -112,6 +119,7 @@ function App() {
             <Route path="/Scontro/About" element={<AboutScontro />} />
             <Route path="/RapWars/About" element={<AboutRapWars />} />
             <Route path="/StandupSoapbox/About" element={<AboutSS />} />
+            <Route path="/BeatBrawl/About" element={<AboutBeatBrawl />} />
             {/* <Route path="/Razzmatazz/About" element={<AboutRazzmatazz />} />
             <Route path="/Choreo/About" element={<AboutChoreo />} />
             <Route path="/FashP/About" element={<AboutFashP />} />

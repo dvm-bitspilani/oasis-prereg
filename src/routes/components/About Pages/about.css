@@ -2,6 +2,8 @@
   position: relative;
   min-height: calc(100vh - 75px);
   width: 100vw;
+  padding: 0;
+  margin: 0;
   background-image: url(../../../assets/rectangle2.png);
   background-size: cover;
   background-position: center;
@@ -11,6 +13,8 @@
     background-image: url(../../../assets/rectangle2.png);
     background-size: cover;
     background-position: center; */
+  overflow-x: hidden;
+
 }
 
 .about-container {
@@ -27,6 +31,9 @@
   gap: 1rem;
   animation: fadeIn 0.75s ease-out;
   max-width: 1500px;
+  
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .about-title {
@@ -34,6 +41,19 @@
   font-weight: 700;
   font-size: 3.5rem;
   text-align: center;
+}
+.about-container b{
+  font-weight: 700;
+}
+.subtitles{
+  color: white;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.rulebook{
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
 }
 .contact-title {
   color: white;
