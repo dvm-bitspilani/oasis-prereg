@@ -3,6 +3,7 @@ import "./HomePage.css";
 import bgImage from "../../../assets/rectangle2.png";
 import purposeprose from "../../../assets/purposeprose.png";
 import scontro from "../../../assets/scontroLogo.png";
+import beatbrawl from "../../../assets/BeatBrawl.png";
 import rapwars from "../../../assets/rapwars.png";
 import standupsoapbox from "../../../assets/standupsoapbox.png";
 // import choreo from "../../../assets/choreo.png";
@@ -104,7 +105,7 @@ export default function HomePage() {
                 <div
                   className="homepage-event-img"
                   style={{
-                    backgroundImage: `url(${scontro})`,
+                    backgroundImage: `url(${beatbrawl})`,
                   }}
                 ></div>
                 <span className="homepage-event-name">BeatBrawl</span>
