@@ -10,16 +10,16 @@ const BeatBrawlForm = () => {
     e.target.value = e.target.value.replace(/\D/g, "");
   };
   const nameRef = useRef(null);
- // const ageRef = useRef(null);
+  // const ageRef = useRef(null);
   const stateRef = useRef(null);
   const cityRef = useRef(null);
-//  const orgRef = useRef(null);
+  //  const orgRef = useRef(null);
   const linksRef = useRef(null);
-//  const socialsRef = useRef(null);
+  //  const socialsRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-//  const membersRef = useRef(null);
-const imageRef = useRef(null);
+  //  const membersRef = useRef(null);
+  const imageRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,27 +56,22 @@ const imageRef = useRef(null);
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       };
-      const data = {
-        id: localStorage.getItem("userId"),
-        name: nameRef.current.value,
-        city: cityRef.current.value,
-        phone: phoneRef.current.value,
-        email_address: emailRef.current.value,
-        // state: stateRef.current.value,
-        youtube_gdrive: linksRef.current.value,
-        image: imageRef.current.value,
-      };
+      const formData = new FormData();
+      formData.append("id", localStorage.getItem("userId"));
+      formData.append("name", nameRef.current.value);
+      formData.append("city", cityRef.current.value);
+      formData.append("phone", phoneRef.current.value);
+      formData.append("email_address", emailRef.current.value);
+      formData.append("youtube_gdrive", linksRef.current.value);
+      formData.append("image", imageRef.current.files[0]);
       axios
-        .post(postLink, data, config)
+        .post(postLink, formData, config)
         .then((response) => {
-        //  console.log('Backend Response:', response.data);
-          localStorage.setItem(
-            "beatbrawl_registered",
-            true
-          );
+          //  console.log('Backend Response:', response.data);
+          localStorage.setItem("beatbrawl_registered", true);
           alert("Successfully Registered!");
           navigate("/BeatBrawl/About");
         })
@@ -208,7 +203,7 @@ const imageRef = useRef(null);
               </label>
               <input type="text" className="input-field" ref={emailRef} />
               <label htmlFor="image" className="input-heading">
-              Image
+                Image
               </label>
               <input
                 type="file"
