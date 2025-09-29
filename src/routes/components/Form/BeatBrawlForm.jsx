@@ -1,11 +1,13 @@
 import axios from "axios";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
+import qr from "../../../assets/BeatBrawlQr.jpg";
 const BeatBrawlForm = () => {
   const navigate = useNavigate();
+  const [paymentOpen, setPaymentOpen] = useState(false);
   const handlePhoneNumberInput = (e) => {
     e.target.value = e.target.value.replace(/\D/g, "");
   };
@@ -84,6 +86,15 @@ const BeatBrawlForm = () => {
   return (
     <>
       <Navbar></Navbar>
+      <div
+        className={paymentOpen ? "backdrop visibleDrop" : "backdrop"}
+        onClick={() => setPaymentOpen(false)}
+      ></div>
+      <div className={paymentOpen ? "paymentQr visible" : "paymentQr"}>
+        <span className="paymentText">Registration Fee: ₹200</span>
+        <span className="paymentText">Scan to Pay</span>
+        <img src={qr} alt="QR Code" className="qrImage" />
+      </div>
       <motion.div
         initial={{ y: 1000, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -203,7 +214,7 @@ const BeatBrawlForm = () => {
               </label>
               <input type="text" className="input-field" ref={emailRef} />
               <label htmlFor="image" className="input-heading">
-                Image
+                ScreenShot of Your Payment
               </label>
               <input
                 type="file"
@@ -212,6 +223,15 @@ const BeatBrawlForm = () => {
                 ref={imageRef}
               />
               <div className="submit-wrapper">
+                <button
+                  className="pay-btn"
+                  type="button"
+                  onClick={() => {
+                    setPaymentOpen(true);
+                  }}
+                >
+                  Pay Here
+                </button>
                 <button
                   type="submit"
                   className="submit-btn"
