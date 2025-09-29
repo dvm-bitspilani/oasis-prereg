@@ -19,6 +19,7 @@ const BeatBrawlForm = () => {
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
 //  const membersRef = useRef(null);
+const imageRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const BeatBrawlForm = () => {
       phoneRef.current,
       emailRef.current,
       linksRef.current,
+      imageRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -54,6 +56,7 @@ const BeatBrawlForm = () => {
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          'Content-Type': 'multipart/form-data',
         },
       };
       const data = {
@@ -64,6 +67,7 @@ const BeatBrawlForm = () => {
         email_address: emailRef.current.value,
         // state: stateRef.current.value,
         youtube_gdrive: linksRef.current.value,
+        image: imageRef.current.value,
       };
       axios
         .post(postLink, data, config)
@@ -203,6 +207,15 @@ const BeatBrawlForm = () => {
                 E-Mail ID
               </label>
               <input type="text" className="input-field" ref={emailRef} />
+              <label htmlFor="image" className="input-heading">
+              Image
+              </label>
+              <input
+                type="file"
+                className="input-field image-input"
+                accept="image/*"
+                ref={imageRef}
+              />
               <div className="submit-wrapper">
                 <button
                   type="submit"

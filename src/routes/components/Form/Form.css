@@ -134,6 +134,11 @@ option {
   margin: 0 0.5rem;
 }
 
+.image-input {
+
+  height: fit-content;
+}
+
 @media only screen and (max-width: 900px) {
   .form-container {
     max-width: 90vw;
