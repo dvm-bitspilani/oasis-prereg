@@ -23,6 +23,43 @@ const BeatBrawlForm = () => {
   //  const membersRef = useRef(null);
   const imageRef = useRef(null);
 
+  function isValidSuccessResponse(resp) {
+    const expected = {
+      beatbrawl_paid: false,
+      beatbrawl_registered: true,
+      choreo_registered: false,
+      desertduel_registered: false,
+      fashp_registered: false,
+      message: "Your registration is complete",
+      pitchperfect_registered: false,
+      purpleprose_paid: false,
+      purpleprose_registered: false,
+      rapwars_paid: false,
+      rapwars_registered: false,
+      scontro_paid: false,
+      scontro_registered: false,
+      soapbox_paid: false,
+      soapbox_registered: false,
+      stageplay_registered: false,
+      streetdance_registered: false,
+      streetplay_registered: false,
+      tarang_registered: false,
+    };
+
+    const expectedKeys = Object.keys(expected);
+    const respKeys = Object.keys(resp);
+
+    if (expectedKeys.length !== respKeys.length) return false;
+
+    for (const key of expectedKeys) {
+      console.log(key, resp[key], expected[key]);
+      if (!(key in resp)) return false;
+      if (resp[key] !== expected[key]) return false;
+    }
+
+    return true;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const requiredFields = [
@@ -72,12 +109,22 @@ const BeatBrawlForm = () => {
       axios
         .post(postLink, formData, config)
         .then((response) => {
-          //  console.log('Backend Response:', response.data);
-          localStorage.setItem("beatbrawl_registered", true);
-          alert("Successfully Registered!");
-          navigate("/BeatBrawl/About");
+          if (response.data.message === "Already registered for BeatBrawl") {
+            localStorage.setItem("beatbrawl_registered", true);
+            alert("You have already registered for Beat Brawl");
+            navigate("/BeatBrawl/About");
+            return;
+          }
+          if (!isValidSuccessResponse(response.data)) {
+            throw new Error("Unexpected response from server");
+          } else {
+            localStorage.setItem("beatbrawl_registered", true);
+            alert("Successfully Registered!");
+            navigate("/BeatBrawl/About");
+          }
         })
         .catch((error) => {
+          alert("Error submitting the form. Please try again.");
           console.error("Error sending data to backend:", error);
         });
     };
