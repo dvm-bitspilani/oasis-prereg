@@ -1,24 +1,64 @@
 import axios from "axios";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Form/Form.css";
 import Navbar from "../Navbar/Navbar";
+import qr from "../../../assets/BeatBrawlQr.jpg";
 const BeatBrawlForm = () => {
   const navigate = useNavigate();
+  const [paymentOpen, setPaymentOpen] = useState(false);
   const handlePhoneNumberInput = (e) => {
     e.target.value = e.target.value.replace(/\D/g, "");
   };
   const nameRef = useRef(null);
- // const ageRef = useRef(null);
+  // const ageRef = useRef(null);
   const stateRef = useRef(null);
   const cityRef = useRef(null);
-//  const orgRef = useRef(null);
+  //  const orgRef = useRef(null);
   const linksRef = useRef(null);
-//  const socialsRef = useRef(null);
+  //  const socialsRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-//  const membersRef = useRef(null);
+  //  const membersRef = useRef(null);
+  const imageRef = useRef(null);
+
+  function isValidSuccessResponse(resp) {
+    const expected = {
+      beatbrawl_paid: false,
+      beatbrawl_registered: true,
+      choreo_registered: false,
+      desertduel_registered: false,
+      fashp_registered: false,
+      message: "Your registration is complete",
+      pitchperfect_registered: false,
+      purpleprose_paid: false,
+      purpleprose_registered: false,
+      rapwars_paid: false,
+      rapwars_registered: false,
+      scontro_paid: false,
+      scontro_registered: false,
+      soapbox_paid: false,
+      soapbox_registered: false,
+      stageplay_registered: false,
+      streetdance_registered: false,
+      streetplay_registered: false,
+      tarang_registered: false,
+    };
+
+    const expectedKeys = Object.keys(expected);
+    const respKeys = Object.keys(resp);
+
+    if (expectedKeys.length !== respKeys.length) return false;
+
+    for (const key of expectedKeys) {
+      console.log(key, resp[key], expected[key]);
+      if (!(key in resp)) return false;
+      if (resp[key] !== expected[key]) return false;
+    }
+
+    return true;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +68,7 @@ const BeatBrawlForm = () => {
       phoneRef.current,
       emailRef.current,
       linksRef.current,
+      imageRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
 
@@ -54,29 +95,36 @@ const BeatBrawlForm = () => {
       let config = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
         },
       };
-      const data = {
-        id: localStorage.getItem("userId"),
-        name: nameRef.current.value,
-        city: cityRef.current.value,
-        phone: phoneRef.current.value,
-        email_address: emailRef.current.value,
-        // state: stateRef.current.value,
-        youtube_gdrive: linksRef.current.value,
-      };
+      const formData = new FormData();
+      formData.append("id", localStorage.getItem("userId"));
+      formData.append("name", nameRef.current.value);
+      formData.append("city", cityRef.current.value);
+      formData.append("phone", phoneRef.current.value);
+      formData.append("email_address", emailRef.current.value);
+      formData.append("youtube_gdrive", linksRef.current.value);
+      formData.append("image", imageRef.current.files[0]);
       axios
-        .post(postLink, data, config)
+        .post(postLink, formData, config)
         .then((response) => {
-        //  console.log('Backend Response:', response.data);
-          localStorage.setItem(
-            "beatbrawl_registered",
-            true
-          );
-          alert("Successfully Registered!");
-          navigate("/BeatBrawl/About");
+          if (response.data.message === "Already registered for BeatBrawl") {
+            localStorage.setItem("beatbrawl_registered", true);
+            alert("You have already registered for Beat Brawl");
+            navigate("/BeatBrawl/About");
+            return;
+          }
+          if (!isValidSuccessResponse(response.data)) {
+            throw new Error("Unexpected response from server");
+          } else {
+            localStorage.setItem("beatbrawl_registered", true);
+            alert("Successfully Registered!");
+            navigate("/BeatBrawl/About");
+          }
         })
         .catch((error) => {
+          alert("Error submitting the form. Please try again.");
           console.error("Error sending data to backend:", error);
         });
     };
@@ -85,6 +133,15 @@ const BeatBrawlForm = () => {
   return (
     <>
       <Navbar></Navbar>
+      <div
+        className={paymentOpen ? "backdrop visibleDrop" : "backdrop"}
+        onClick={() => setPaymentOpen(false)}
+      ></div>
+      <div className={paymentOpen ? "paymentQr visible" : "paymentQr"}>
+        <span className="paymentText">Registration Fee: ₹200</span>
+        <span className="paymentText">Scan to Pay</span>
+        <img src={qr} alt="QR Code" className="qrImage" />
+      </div>
       <motion.div
         initial={{ y: 1000, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -203,7 +260,25 @@ const BeatBrawlForm = () => {
                 E-Mail ID
               </label>
               <input type="text" className="input-field" ref={emailRef} />
+              <label htmlFor="image" className="input-heading">
+                ScreenShot of Your Payment
+              </label>
+              <input
+                type="file"
+                className="input-field image-input"
+                accept="image/*"
+                ref={imageRef}
+              />
               <div className="submit-wrapper">
+                <button
+                  className="pay-btn"
+                  type="button"
+                  onClick={() => {
+                    setPaymentOpen(true);
+                  }}
+                >
+                  Pay Here
+                </button>
                 <button
                   type="submit"
                   className="submit-btn"
