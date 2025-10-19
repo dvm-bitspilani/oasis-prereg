@@ -18,7 +18,7 @@ const ScontroForm = () => {
   const socialsRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-  const membersRef = useRef(null);
+  // const membersRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const ScontroForm = () => {
       emailRef.current,
       ageRef.current,
       linksRef.current,
-      membersRef.current,
+      // membersRef.current,
       ageRef.current,
     ];
     const isEmpty = requiredFields.some((fieldRef) => !fieldRef.value);
@@ -71,7 +71,7 @@ const ScontroForm = () => {
         age: ageRef.current.value,
         youtube_gdrive: linksRef.current.value,
         social: socialsRef.current.value,
-        members: membersRef.current.value,
+        // members: membersRef.current.value,
       };
       axios
         .post(postLink, data, config)
@@ -182,17 +182,17 @@ const ScontroForm = () => {
                 Link to your socials (if any)
               </label>
               <input type="text" className="input-field" ref={socialsRef} />
-              <label htmlFor="state" className="input-heading">
+              {/* <label htmlFor="state" className="input-heading">
                 Number of Members in Team
-              </label>
-              <select className="input-field" ref={membersRef}>
+              </label> */}
+              {/* <select className="input-field" ref={membersRef}>
                 <option value="" disabled selected hidden>
                   Select
                 </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3 (max)</option>
-              </select>
+              </select> */}
 
               <label htmlFor="links" className="input-heading">
                 Youtube / Google Drive Link to your Video Submission
