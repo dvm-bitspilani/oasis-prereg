@@ -25,10 +25,10 @@ export default function AboutRapWars() {
 <br /><br />
 <section id="online-round">
   <br />
-  <h3>Online Round (15 October 2025 – 26 October 2025)</h3>
+  <h3>Online Round (15 October 2025 – 30 October 2025)</h3>
   <br />
   <ul>
-    <li>This would be an online submission-based round.</li>
+    <li>This would be an online sumission-based round.</li>
     <li>Only one submission per DJ/Group is allowed.</li>
     <li>Participants' sets should include a minimum of 5 songs.</li>
     <li>The total time of the submission must not exceed 10 minutes.</li>
@@ -68,7 +68,7 @@ export default function AboutRapWars() {
 
 
               <br />
-              <span>Winners get cash prizes worth Rs. 46,000/-</span>
+              <span>Winners get cash prizes worth Rs. 40,000/-</span>
               <br /> <br />
               Contact details:
               <br />
